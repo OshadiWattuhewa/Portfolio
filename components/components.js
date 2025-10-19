@@ -260,15 +260,6 @@ const Components = {
 									<h4 class="experience-title">UX Consultant - Redblox</h4>
 									<p class="experience-period">(2025 - present)</p>
 								</div>
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-									<path
-										d="M5 12H19M19 12L12 5M19 12L12 19"
-										stroke="currentColor"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
-								</svg>
 							</div>
 							<p class="experience-description">
 								With 8 years of experience, having grown from an intern to a UX
@@ -283,39 +274,54 @@ const Components = {
 									<h4 class="experience-title">UX Lead - 99X</h4>
 									<p class="experience-period">(2017 - 2025)</p>
 								</div>
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-									<path
-										d="M5 12H19M19 12L12 5M19 12L12 19"
-										stroke="currentColor"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
-								</svg>
 							</div>
 							<p class="experience-description">
 								With 8 years of experience, having grown from an intern to a UX
 								Lead and specialise in user-centered design, from research and
 								discovery to final hand-off.
 							</p>
+
+							<div class="project-experience-title">Projects</div>
+
+							<div class="project-experience">
+								<div class="project-experience-item">
+									<div class="project-experience-sub-title">BUS AS</div>
+									<p class="project-experience-description">
+										Scandinavia's largest automotive supplier of software solutions for vehicle trade-in assessments.
+									</p>
+								</div>
+								<div class="project-experience-item">
+									<div class="project-experience-sub-title">Oscar inspector</div>
+									<p class="project-experience-description">
+										Vehicle error prediction report generation, analysing and using car info over 3 decades.
+									</p>
+								</div>
+							<div>
+							</div>
 						</div>
+							</div>
 					</div>
 				</div>
+
+				<!-- Key responsibilities -->
+				<h3 class="section-title">Key responsibilities</h3>
+						<div class="experience-card">
+							<ul class="responsibilities-list">
+								<li class="responsibility-item"><span>Conducting user research</span> to gather insights and inform design decisions.</li>
+								<li class="responsibility-item"><span>Creating wireframes and prototypes</span> to visualize design concepts and interactions.</li>
+								<li class="responsibility-item"><span>Collaborating with cross-functional teams</span> including developers, product managers, and stakeholders to ensure design feasibility and alignment with business goals.</li>
+								<li class="responsibility-item"><span>Conducting usability testing</span> to validate design solutions and gather user feedback for iterative improvements.</li>
+								<li class="responsibility-item"><span>Staying updated with industry trends</span> and best practices in UX design to continuously enhance skills and knowledge.</li>
+							</ul>
+						</div>
 
 				<!-- Core UX Skills -->
 				<div class="about-section">
 					<h3 class="section-title">Core UX Skills</h3>
 					<div class="skills-grid">
 						<div class="skill-card">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-								<path
-									d="M8 6H21M8 12H21M8 18H21M3 6H3.01M3 12H3.01M3 18H3.01"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-							</svg>
+							<img src="assets/LineSegments.svg" alt="Research & Experience Mapping" />
+						<div class="skill-content">
 							<div class="skill-content">
 								<h4 class="skill-title">User Research & Experience Mapping</h4>
 								<p class="skill-description">
@@ -324,17 +330,10 @@ const Components = {
 								</p>
 							</div>
 						</div>
+						</div>
 
 						<div class="skill-card">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-								<path
-									d="M12 5V19M5 12H19"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-							</svg>
+							<img src="assets/TreeView.svg" alt="Research & Experience Mapping" />
 							<div class="skill-content">
 								<h4 class="skill-title">Experience Design</h4>
 								<p class="skill-description">
@@ -345,15 +344,7 @@ const Components = {
 						</div>
 
 						<div class="skill-card">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-								<path
-									d="M12 2L2 7L12 12L22 7L12 2Z M2 17L12 22L22 17 M2 12L12 17L22 12"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-							</svg>
+							<img src="assets/Handshake.svg" alt="Research & Experience Mapping" />
 							<div class="skill-content">
 								<h4 class="skill-title">Visual & UI Design</h4>
 								<p class="skill-description">
@@ -363,15 +354,7 @@ const Components = {
 						</div>
 
 						<div class="skill-card">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-								<path
-									d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21 M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13 M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88 M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-							</svg>
+							<img src="assets/Handshake.svg" alt="Research & Experience Mapping" />
 							<div class="skill-content">
 								<h4 class="skill-title">Collaboration</h4>
 								<p class="skill-description">

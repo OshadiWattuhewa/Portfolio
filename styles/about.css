@@ -106,6 +106,44 @@
 	flex-shrink: 0;
 }
 
+/* Project-expriences*/
+
+.project-experience-title{
+	font-size: var(--font-size-18);
+	font-weight: var(--font-weight-bold);
+	color: var(--color-gray-900);
+	line-height: var(--line-height-relaxed);
+}
+
+.project-experience-sub-title{
+	font-size: var(--font-size-16);
+	font-weight: var(--font-weight-bold);
+	color: var(--color-gray-900);
+	line-height: var(--line-height-relaxed);
+}
+
+.project-experience-description{
+	font-size: var(--font-size-16);
+	line-height: var(--line-height-relaxed);
+	color: var(--color-gray-600);
+}
+
+.project-experience{
+	display: flex;
+	flex-direction: row;
+	gap: var(--spacing-8);
+}
+
+.responsibilities-list{
+	list-style-type: disc;
+	padding-left: var(--spacing-16);
+	color: var(--color-gray-600);
+	font-size: var(--font-size-16);
+	margin-top:var(--spacing-8) ;
+}
+
+
+
 /* Skills Grid */
 .skills-grid {
 	display: grid;
@@ -123,7 +161,7 @@
 	overflow: hidden;
 }
 
-.skill-card svg {
+.skill-card img {
 	width: 24px;
 	height: 24px;
 	color: var(--color-gray-900);
