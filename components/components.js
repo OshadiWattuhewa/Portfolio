@@ -177,7 +177,7 @@ const Components = {
 					<a href="project-travelmate.html" class="project-card">
 						<div class="project-image">
 							<img
-								src="assets/Travelmate.jpg"
+								src="assets/design-shots/cover3.jpg"
 								alt="Travel mate project"
 							/>
 						</div>
@@ -208,7 +208,7 @@ const Components = {
 
 					<a href="project-design-shots.html" class="project-card">
 						<div class="project-image">
-							<img src="assets/2.jpg" alt="My designs work" />
+							<img src="assets/design-shots/cover2.jpg" alt="My designs work" />
 						</div>
 						<div class="project-content">
 							<div class="project-info">
