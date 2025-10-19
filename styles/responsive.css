@@ -17,11 +17,11 @@
 
 	/* Hero Section */
 	.hero-content {
-		flex-direction: column;
+		flex-direction: row;
 	}
 
 	.hero-left {
-		flex: 1;
+		flex: 2;
 		max-width: 100%;
 	}
 
@@ -102,7 +102,6 @@
 	}
 
 	.btn-download {
-		flex: 1;
 		justify-content: center;
 	}
 
@@ -151,7 +150,7 @@
 	}
 
 	.grid-row {
-		flex-direction: column;
+		flex-direction: row;
 		gap: var(--spacing-12);
 	}
 
@@ -313,7 +312,7 @@
 /* Small Mobile - up to 480px */
 @media (max-width: 480px) {
 	.hero-title {
-		font-size: var(--font-size-28);
+		font-size: var(--font-size-36);
 	}
 
 	.greeting,
