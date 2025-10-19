@@ -7,7 +7,7 @@
 .projects-container {
 	max-width: var(--container-width);
 	margin: 0 auto;
-	padding: 0 156px;
+	padding: 0 120px;
 	display: flex;
 	flex-direction: column;
 	gap: 55px;
