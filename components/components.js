@@ -266,6 +266,13 @@ const Components = {
 								Lead and specialise in user-centered design, from research and
 								discovery to final hand-off.
 							</p>
+							<div class="project-experience-title">Projects</div>
+							<div class="project-experience-item">
+									<div class="project-experience-sub-title">Nightingale Solution</div>
+									<p class="project-experience-description">
+										A smart elderly monitoring app that provides real-time health tracking and emergency alerts to ensure the safety and well-being of senior citizens.
+									</p>
+							</div>
 						</div>
 
 						<div class="experience-card">
@@ -280,7 +287,6 @@ const Components = {
 								Lead and specialise in user-centered design, from research and
 								discovery to final hand-off.
 							</p>
-
 							<div class="project-experience-title">Projects</div>
 
 							<div class="project-experience">
@@ -304,8 +310,8 @@ const Components = {
 				</div>
 
 				<!-- Key responsibilities -->
-				<h3 class="section-title">Key responsibilities</h3>
 						<div class="experience-card">
+						<h4 class="experience-title">Key responsibilities</h4>
 							<ul class="responsibilities-list">
 								<li class="responsibility-item"><span>Conducting user research</span> to gather insights and inform design decisions.</li>
 								<li class="responsibility-item"><span>Creating wireframes and prototypes</span> to visualize design concepts and interactions.</li>
