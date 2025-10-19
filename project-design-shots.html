@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Design Shots - Oshadi Wattuhewa Portfolio</title>
+		<link rel="stylesheet" href="styles/main.css" />
+		<link rel="stylesheet" href="styles/header.css" />
+		<link rel="stylesheet" href="styles/footer.css" />
+		<link rel="stylesheet" href="styles/project-detail.css" />
+		<link rel="stylesheet" href="styles/responsive.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="preload">
+		<!-- Header Component -->
+		<div id="header-container"></div>
+
+		<!-- Main Content Wrapper -->
+		<main class="main-content">
+			<!-- Project Detail Section -->
+			<section class="project-detail">
+				<div class="project-detail-container">
+					<!-- Breadcrumb -->
+					<nav class="breadcrumb">
+						<a href="index.html" class="breadcrumb-link">Projects</a>
+						<span class="breadcrumb-separator">></span>
+						<span class="breadcrumb-current">Design shots</span>
+					</nav>
+
+					<!-- Project Title -->
+					<div class="project-header">
+						<h1 class="project-title">Design shots</h1>
+						<p class="project-subtitle">
+							A collection of my design work across different applications
+						</p>
+					</div>
+
+					<!-- Design Shots Grid -->
+					<div class="design-shots-grid">
+						<!-- Design Shot Cards - Image Only -->
+						<div class="design-shot-card">
+							<img src="assets/Day-18 - dashboard-optimized.jpg" alt="Dashboard Design - Day 18" />
+						</div>
+
+						<div class="design-shot-card">
+							<img src="assets/Day-2-optimized.jpg" alt="Design Work - Day 2" />
+						</div>
+
+						<div class="design-shot-card">
+							<img src="assets/AxioWebsite.jpg" alt="AXIO Design Work" />
+						</div>
+
+						<div class="design-shot-card">
+							<img src="assets/Day-3 Web page-optimized.jpg" alt="Web Page Design - Day 3" />
+						</div>
+
+						<div class="design-shot-card">
+							<img src="assets/Day-22-WebPage-optimized.jpg" alt="Web Page Design - Day 22" />
+						</div>
+
+						<div class="design-shot-card">
+							<img src="assets/Day-2-optimized.jpg" alt="Design Work - Day 2" />
+						</div>
+					</div>
+
+					<!-- Back to Projects -->
+					<div class="project-navigation">
+						<a href="index.html#projects" class="btn-back">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+								<path
+									d="M12.6666 8H3.33331M3.33331 8L7.99998 3.33333M3.33331 8L7.99998 12.6667"
+									stroke="currentColor"
+									stroke-width="1.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</svg>
+							Back to Projects
+						</a>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer Component -->
+		<div id="footer-container"></div>
+
+		<!-- Image Modal -->
+		<div id="imageModal" class="modal">
+			<div class="modal-content">
+				<span class="modal-close">&times;</span>
+				<img id="modalImage" src="" alt="Design Shot" />
+			</div>
+		</div>
+
+		<script src="components/components.js"></script>
+		<script src="script.js"></script>
+		<script src="script-design-shots.js"></script>
+	</body>
+</html>

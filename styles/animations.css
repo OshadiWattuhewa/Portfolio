@@ -1,0 +1,198 @@
+/* Additional Animation Styles */
+
+/* Fade-in animation for sections */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.fade-in {
+	animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Loading state */
+body:not(.loaded) {
+	opacity: 0;
+}
+
+body.loaded {
+	opacity: 1;
+	transition: opacity 0.3s ease-in;
+}
+
+/* Card hover transitions */
+.experience-card,
+.skill-card,
+.contact-card {
+	transition: transform var(--transition-base),
+		box-shadow var(--transition-base);
+}
+
+.experience-card:hover,
+.skill-card:hover,
+.contact-card:hover {
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Image loading effect */
+img {
+	opacity: 0;
+	transition: opacity 0.3s ease-in;
+}
+
+img.loaded,
+img[src] {
+	opacity: 1;
+}
+
+/* Button hover effects */
+.btn-download,
+.btn-secondary {
+	position: relative;
+	overflow: hidden;
+}
+
+.btn-download::before,
+.btn-secondary::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.05);
+	transform: translate(-50%, -50%);
+	transition: width 0.6s, height 0.6s;
+}
+
+.btn-download:hover::before,
+.btn-secondary:hover::before {
+	width: 300px;
+	height: 300px;
+}
+
+/* Nav item active state */
+.nav-item.active {
+	color: var(--color-gray-900);
+	position: relative;
+}
+
+.nav-item.active::after {
+	content: "";
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+	right: 0;
+	height: 2px;
+	background-color: var(--color-gray-900);
+	border-radius: 2px;
+}
+
+/* Mobile menu animation */
+@media (max-width: 767px) {
+	.nav {
+		opacity: 0;
+		transform: translateY(-10px);
+		transition: opacity 0.3s ease, transform 0.3s ease;
+	}
+
+	.nav.active {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	/* Hamburger menu animation */
+	.mobile-menu-btn.active span:nth-child(1) {
+		transform: translateY(6px) rotate(45deg);
+	}
+
+	.mobile-menu-btn.active span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.mobile-menu-btn.active span:nth-child(3) {
+		transform: translateY(-6px) rotate(-45deg);
+	}
+}
+
+/* Scroll indicator for long pages */
+.scroll-indicator {
+	position: fixed;
+	top: 69px;
+	left: 0;
+	right: 0;
+	height: 3px;
+	background: linear-gradient(
+		to right,
+		var(--color-gray-900) 0%,
+		var(--color-gray-900) var(--scroll-progress, 0%),
+		transparent var(--scroll-progress, 0%)
+	);
+	z-index: 999;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.scroll-indicator.visible {
+	opacity: 1;
+}
+
+/* Skeleton loading for images */
+@keyframes shimmer {
+	0% {
+		background-position: -1000px 0;
+	}
+	100% {
+		background-position: 1000px 0;
+	}
+}
+
+.card-image:empty,
+.project-image:empty,
+.profile-circle:empty {
+	background: linear-gradient(
+		90deg,
+		var(--color-gray-100) 0%,
+		var(--color-gray-200, #e5e7eb) 50%,
+		var(--color-gray-100) 100%
+	);
+	background-size: 1000px 100%;
+	animation: shimmer 2s infinite;
+}
+
+/* Focus styles for accessibility */
+a:focus,
+button:focus {
+	outline: 2px solid var(--color-gray-900);
+	outline-offset: 2px;
+}
+
+/* Selection styles */
+::selection {
+	background-color: var(--color-gray-900);
+	color: var(--color-white);
+}
+
+::-moz-selection {
+	background-color: var(--color-gray-900);
+	color: var(--color-white);
+}
+
+/* Smooth transitions for theme changes */
+* {
+	transition-property: background-color, border-color, color;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+
+/* Prevent transition on page load */
+.preload * {
+	transition: none !important;
+}

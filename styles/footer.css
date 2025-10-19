@@ -1,0 +1,61 @@
+/* Footer Component Styles */
+.footer {
+	background-color: #1f2937; /* Fallback for var(--color-gray-900) */
+	background-color: var(--color-gray-900);
+	padding: 32px 24px; /* Fallback for var(--spacing-32) var(--spacing-24) */
+	padding: var(--spacing-32) var(--spacing-24);
+	margin-top: auto;
+	border-top: 1px solid #374151; /* Fallback for var(--color-gray-800) */
+	border-top: 1px solid var(--color-gray-800);
+	position: relative;
+	z-index: 10;
+}
+
+.footer-container {
+	max-width: var(--container-width);
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 var(--spacing-80);
+}
+
+.footer-text {
+	font-size: 14px; /* Fallback for var(--font-size-14) */
+	font-size: var(--font-size-14);
+	font-weight: 500; /* Fallback for var(--font-weight-medium) */
+	font-weight: var(--font-weight-medium);
+	color: #f3f4f6; /* Fallback for var(--color-gray-100) */
+	color: var(--color-gray-100);
+	line-height: 1.625; /* Fallback for var(--line-height-relaxed) */
+	line-height: var(--line-height-relaxed);
+	text-align: center;
+	transition: color 0.2s ease; /* Fallback for var(--transition-fast) */
+	transition: color var(--transition-fast);
+}
+
+.footer-text:hover {
+	color: #ffffff; /* Fallback for var(--color-white) */
+	color: var(--color-white);
+}
+
+/* Responsive Footer Styles */
+@media (max-width: 1024px) {
+	.footer-container {
+		padding: 0 var(--spacing-48);
+	}
+}
+
+@media (max-width: 767px) {
+	.footer {
+		padding: var(--spacing-24) var(--spacing-16);
+	}
+
+	.footer-container {
+		padding: 0 var(--spacing-24);
+	}
+
+	.footer-text {
+		font-size: var(--font-size-13);
+	}
+}

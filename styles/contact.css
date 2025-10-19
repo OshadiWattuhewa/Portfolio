@@ -1,0 +1,102 @@
+/* Contact Section Styles */
+.contact {
+	background-color: var(--color-white);
+	padding: var(--spacing-64) 0;
+}
+
+.contact-container {
+	max-width: var(--container-width);
+	margin: 0 auto;
+	padding: 0 156px;
+}
+
+.contact-wrapper {
+	background-color: var(--color-gray-50);
+	border-radius: var(--radius-32);
+	padding: var(--spacing-36);
+}
+
+.contact-content {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-36);
+}
+
+/* Contact Header */
+.contact-header {
+	display: flex;
+	flex-direction: column;
+}
+
+.contact-title {
+	font-size: var(--font-size-36);
+	font-weight: var(--font-weight-extrabold);
+	color: var(--color-gray-950);
+	line-height: var(--line-height-relaxed);
+}
+
+.contact-subtitle {
+	font-size: var(--font-size-18);
+	font-weight: var(--font-weight-regular);
+	color: var(--color-gray-700);
+	line-height: var(--line-height-relaxed);
+}
+
+/* Contact Methods */
+.contact-methods {
+	display: flex;
+	flex-direction: row;
+	gap: var(--spacing-16);
+}
+
+.contact-card {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-12);
+	padding: var(--spacing-16);
+	background-color: var(--color-white);
+	border-radius: var(--radius-24);
+	transition: transform var(--transition-base);
+	flex:1;
+}
+
+.contact-card:hover {
+	transform: translateY(-2px);
+}
+
+.contact-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--spacing-12);
+	background-color: var(--color-gray-50);
+	border-radius: var(--radius-8);
+	flex-shrink: 0;
+}
+
+.contact-icon svg {
+	width: 24px;
+	height: 24px;
+	color: var(--color-gray-900);
+}
+
+.contact-info {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.contact-method {
+	font-size: var(--font-size-18);
+	font-weight: var(--font-weight-bold);
+	color: var(--color-gray-900);
+	line-height: var(--line-height-relaxed);
+}
+
+.contact-detail {
+	font-size: var(--font-size-16);
+	font-weight: var(--font-weight-regular);
+	color: var(--color-gray-700);
+	line-height: var(--line-height-relaxed);
+	word-break: break-word;
+}

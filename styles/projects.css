@@ -1,0 +1,120 @@
+/* Projects Section Styles */
+.projects {
+	background-color: var(--color-gray-900);
+	padding: var(--spacing-80) 0;
+}
+
+.projects-container {
+	max-width: var(--container-width);
+	margin: 0 auto;
+	padding: 0 156px;
+	display: flex;
+	flex-direction: column;
+	gap: 55px;
+}
+
+.projects-title {
+	font-size: var(--font-size-36);
+	font-weight: var(--font-weight-extrabold);
+	color: var(--color-white);
+	line-height: var(--line-height-relaxed);
+}
+
+.projects-grid {
+	display: flex;
+	gap: var(--spacing-28);
+}
+
+/* Project Card */
+.project-card {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-24);
+	overflow: hidden;
+	border-radius: 0 0 var(--radius-28) 0;
+	text-decoration: none;
+	color: inherit;
+	transition: transform var(--transition-default),
+		box-shadow var(--transition-default);
+	cursor: pointer;
+}
+
+.project-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+	text-decoration: none;
+	color: inherit;
+}
+
+.project-image {
+	width: 100%;
+	height: 246px;
+	background-color: var(--color-gray-800);
+	border-radius: var(--radius-28);
+	overflow: hidden;
+	position: relative;
+}
+
+.project-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	transition: transform var(--transition-slow);
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: crisp-edges;
+	-ms-interpolation-mode: bicubic;
+}
+
+.project-card:hover .project-image img {
+	transform: scale(1.05);
+}
+
+.project-content {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-16);
+}
+
+.project-info {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-4);
+}
+
+.project-name {
+	font-size: var(--font-size-28);
+	font-weight: var(--font-weight-bold);
+	color: var(--color-white);
+	line-height: var(--line-height-relaxed);
+}
+
+.project-description {
+	font-size: var(--font-size-14);
+	font-weight: var(--font-weight-regular);
+	color: var(--color-white);
+	line-height: var(--line-height-relaxed);
+}
+
+.project-link {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--spacing-4);
+	font-size: var(--font-size-14);
+	font-weight: var(--font-weight-semibold);
+	color: var(--color-white);
+	border-radius: var(--radius-8);
+	transition: gap var(--transition-fast);
+	align-self: flex-start;
+}
+
+.project-card:hover .project-link {
+	gap: var(--spacing-8);
+	opacity: 1;
+}
+
+.project-link svg {
+	width: 16px;
+	height: 16px;
+}

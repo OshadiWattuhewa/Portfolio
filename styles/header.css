@@ -1,0 +1,117 @@
+/* Header Component Styles */
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.95);
+	background-color: var(--color-white);
+	border-bottom: 1px solid var(--color-gray-50);
+	z-index: 1000;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+
+/* Header scrolled state */
+.header.header-scrolled {
+	background-color: rgba(255, 255, 255, 0.98);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	border-bottom-color: var(--color-gray-100);
+}
+
+.header-container {
+	max-width: var(--container-width);
+	margin: 0 auto;
+	padding: var(--spacing-16) var(--spacing-80);
+}
+
+.header-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--spacing-32);
+}
+
+.logo {
+	font-size: var(--font-size-20);
+	font-weight: var(--font-weight-extrabold);
+	color: var(--color-gray-900);
+	white-space: nowrap;
+}
+
+/* Navigation */
+.nav {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-32);
+}
+
+.nav-item {
+	font-size: var(--font-size-16);
+	font-weight: var(--font-weight-semibold);
+	color: var(--color-slate-950);
+	white-space: nowrap;
+	transition: color var(--transition-fast);
+}
+
+.nav-item:hover {
+	color: var(--color-gray-700);
+	opacity: 1;
+}
+
+/* Header Actions */
+.header-actions {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-12);
+}
+
+.social-links {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-12);
+}
+
+.social-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	padding: var(--spacing-4);
+	background-color: var(--color-gray-50);
+	border-radius: var(--radius-8);
+	color: var(--color-gray-900);
+	transition: background-color var(--transition-fast);
+}
+
+.social-icon:hover {
+	background-color: var(--color-gray-100);
+	opacity: 1;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+	display: none;
+	flex-direction: column;
+	gap: 4px;
+	padding: var(--spacing-8);
+	background-color: var(--color-gray-50);
+	border-radius: var(--radius-8);
+}
+
+.mobile-menu-btn span {
+	display: block;
+	width: 20px;
+	height: 2px;
+	background-color: var(--color-gray-900);
+	border-radius: 2px;
+	transition: all var(--transition-fast);
+}
+
+.mobile-menu-btn:hover span {
+	background-color: var(--color-gray-700);
+}
