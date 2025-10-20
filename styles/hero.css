@@ -1,7 +1,8 @@
 /* Hero Section Styles */
 .hero {
 	background-color: var(--color-white);
-	padding: var(--spacing-80) 0;
+	padding-top: var(--spacing-64);
+	padding-bottom: var(--spacing-80);
 }
 
 .hero-container {
