@@ -259,12 +259,11 @@ const Components = {
 								<div class="experience-info">
 									<h4 class="experience-title">UX Consultant - Redblox</h4>
 									<p class="experience-period">(2025 - present)</p>
+									<p class="experience-location">Perth, Australia (Remote)</p>
 								</div>
 							</div>
 							<p class="experience-description">
-								With 8 years of experience, having grown from an intern to a UX
-								Lead and specialise in user-centered design, from research and
-								discovery to final hand-off.
+								Collaborating closely with an Australian product team to design intuitive and user-centered digital experiences.Partnering with cross-functional teams, including developers and product owners, to align business goals with user needs.
 							</p>
 							<div class="project-experience-title">Projects</div>
 							<div class="project-experience-item">
