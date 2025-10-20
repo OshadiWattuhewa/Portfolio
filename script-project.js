@@ -61,6 +61,9 @@ function initializeTabs() {
 		newIndicator.className = "sidebar-indicator";
 		firstItem.appendChild(newIndicator);
 	}
+
+	// Set initial breadcrumb
+	updateBreadcrumbForTab("#introduction");
 }
 
 // Tab Click Handler
@@ -94,9 +97,44 @@ sidebarItems.forEach((item) => {
 			const newIndicator = document.createElement("div");
 			newIndicator.className = "sidebar-indicator";
 			this.appendChild(newIndicator);
+
+			// Update breadcrumb based on active tab
+			updateBreadcrumbForTab(targetId);
 		}
 	});
 });
+
+// Update breadcrumb based on active tab
+function updateBreadcrumbForTab(targetId) {
+	const breadcrumbActive = document.querySelector(".breadcrumb-item.active");
+	if (!breadcrumbActive) return;
+
+	// Map section IDs to breadcrumb text
+	const breadcrumbMap = {
+		"#introduction": "TravelMate - Introduction",
+		"#pain-points": "TravelMate - Pain points & goals",
+		"#solution": "TravelMate - Solution blueprint",
+		"#journey": "TravelMate - Journey maps",
+		"#prototypes": "TravelMate - Prototypes",
+		"#feedback": "TravelMate - Feedback",
+		"#future": "TravelMate - Future Goals",
+	};
+
+	// Get the new breadcrumb text
+	const newBreadcrumbText = breadcrumbMap[targetId] || "TravelMate";
+
+	// Update breadcrumb text
+	breadcrumbActive.textContent = newBreadcrumbText;
+
+	// Remove any stored original text and clickability
+	if (breadcrumbActive.dataset.originalText) {
+		delete breadcrumbActive.dataset.originalText;
+	}
+	breadcrumbActive.style.textDecoration = "none";
+	breadcrumbActive.style.cursor = "default";
+	breadcrumbActive.removeEventListener("click", handleBreadcrumbClick);
+	breadcrumbActive.removeEventListener("click", handleJourneyBreadcrumbClick);
+}
 
 // Initialize tabs when page loads
 initializeTabs();
@@ -314,20 +352,44 @@ function showSurveyContent() {
 	// Add survey view class
 	painPointsSection.classList.add("survey-view");
 
-	// Update breadcrumb - keep same text but make it clickable
-	const dynamicBreadcrumb = document.getElementById("dynamicBreadcrumb");
-	if (dynamicBreadcrumb) {
-		// Keep the same text: "TravelMate - Pain points & goals"
-		dynamicBreadcrumb.style.textDecoration = "underline";
-		dynamicBreadcrumb.style.textDecorationColor = "#3b82f6";
-		dynamicBreadcrumb.style.textDecorationStyle = "wavy";
-		dynamicBreadcrumb.style.cursor = "pointer";
+	// Update breadcrumb - make it clickable to return to initial view
+	const surveyBreadcrumb = document.querySelector(".breadcrumb-item.active");
+	if (surveyBreadcrumb) {
+		// Store the original text before appending
+		const originalBreadcrumbText = surveyBreadcrumb.textContent;
+		surveyBreadcrumb.dataset.originalText = originalBreadcrumbText; // Store in dataset
 
-		// Add click handler for survey view
-		dynamicBreadcrumb.addEventListener("click", function (e) {
-			e.preventDefault();
-			showOriginalContent();
-		});
+		// Create new breadcrumb structure with separate clickable and non-clickable parts
+		surveyBreadcrumb.innerHTML = `
+			<span class="breadcrumb-clickable">${originalBreadcrumbText}</span>
+			<span class="breadcrumb-separator"> > </span>
+			<span class="breadcrumb-subsection">Survey</span>
+		`;
+
+		// CRITICAL: Explicitly remove ALL text decoration from parent container FIRST
+		surveyBreadcrumb.style.textDecoration = "none !important";
+		surveyBreadcrumb.style.textDecorationColor = "transparent";
+		surveyBreadcrumb.style.textDecorationStyle = "none";
+		surveyBreadcrumb.style.textDecorationLine = "none";
+		surveyBreadcrumb.style.borderBottom = "none";
+		surveyBreadcrumb.style.textUnderlineOffset = "none";
+		surveyBreadcrumb.style.textUnderlinePosition = "none";
+
+		// Make only the clickable part have the wavy underline
+		const clickablePart = surveyBreadcrumb.querySelector(
+			".breadcrumb-clickable"
+		);
+		if (clickablePart) {
+			clickablePart.style.textDecorationColor = "#3b82f6";
+			clickablePart.style.textDecorationStyle = "wavy";
+			clickablePart.style.cursor = "pointer";
+
+			// Remove any existing click handlers to avoid duplicates
+			clickablePart.removeEventListener("click", handleBreadcrumbClick);
+
+			// Add click handler to return to initial view
+			clickablePart.addEventListener("click", handleBreadcrumbClick);
+		}
 	}
 }
 
@@ -456,20 +518,44 @@ function showPersonaContent() {
 	// Add persona view class
 	painPointsSection.classList.add("persona-view");
 
-	// Update breadcrumb - keep same text but make it clickable
-	const dynamicBreadcrumb = document.getElementById("dynamicBreadcrumb");
-	if (dynamicBreadcrumb) {
-		// Keep the same text: "TravelMate - Pain points & goals"
-		dynamicBreadcrumb.style.textDecoration = "underline";
-		dynamicBreadcrumb.style.textDecorationColor = "#3b82f6";
-		dynamicBreadcrumb.style.textDecorationStyle = "wavy";
-		dynamicBreadcrumb.style.cursor = "pointer";
+	// Update breadcrumb - make it clickable to return to initial view
+	const personaBreadcrumb = document.querySelector(".breadcrumb-item.active");
+	if (personaBreadcrumb) {
+		// Store the original text before appending
+		const originalBreadcrumbText = personaBreadcrumb.textContent;
+		personaBreadcrumb.dataset.originalText = originalBreadcrumbText; // Store in dataset
 
-		// Add click handler for persona view
-		dynamicBreadcrumb.addEventListener("click", function (e) {
-			e.preventDefault();
-			showOriginalContent();
-		});
+		// Create new breadcrumb structure with separate clickable and non-clickable parts
+		personaBreadcrumb.innerHTML = `
+			<span class="breadcrumb-clickable">${originalBreadcrumbText}</span>
+			<span class="breadcrumb-separator"> > </span>
+			<span class="breadcrumb-subsection">Persona</span>
+		`;
+
+		// CRITICAL: Explicitly remove ALL text decoration from parent container FIRST
+		personaBreadcrumb.style.textDecoration = "none !important";
+		personaBreadcrumb.style.textDecorationColor = "transparent";
+		personaBreadcrumb.style.textDecorationStyle = "none";
+		personaBreadcrumb.style.textDecorationLine = "none";
+		personaBreadcrumb.style.borderBottom = "none";
+		personaBreadcrumb.style.textUnderlineOffset = "none";
+		personaBreadcrumb.style.textUnderlinePosition = "none";
+
+		// Make only the clickable part have the wavy underline
+		const clickablePart = personaBreadcrumb.querySelector(
+			".breadcrumb-clickable"
+		);
+		if (clickablePart) {
+			clickablePart.style.textDecorationColor = "#3b82f6";
+			clickablePart.style.textDecorationStyle = "wavy";
+			clickablePart.style.cursor = "pointer";
+
+			// Remove any existing click handlers to avoid duplicates
+			clickablePart.removeEventListener("click", handleBreadcrumbClick);
+
+			// Add click handler to return to initial view
+			clickablePart.addEventListener("click", handleBreadcrumbClick);
+		}
 	}
 }
 
@@ -542,20 +628,44 @@ function showSummaryContent() {
 	// Add summary view class
 	painPointsSection.classList.add("summary-view");
 
-	// Update breadcrumb - keep same text but make it clickable
-	const dynamicBreadcrumb = document.getElementById("dynamicBreadcrumb");
-	if (dynamicBreadcrumb) {
-		// Keep the same text: "TravelMate - Pain points & goals"
-		dynamicBreadcrumb.style.textDecoration = "underline";
-		dynamicBreadcrumb.style.textDecorationColor = "#3b82f6";
-		dynamicBreadcrumb.style.textDecorationStyle = "wavy";
-		dynamicBreadcrumb.style.cursor = "pointer";
+	// Update breadcrumb - make it clickable to return to initial view
+	const summaryBreadcrumb = document.querySelector(".breadcrumb-item.active");
+	if (summaryBreadcrumb) {
+		// Store the original text before appending
+		const originalBreadcrumbText = summaryBreadcrumb.textContent;
+		summaryBreadcrumb.dataset.originalText = originalBreadcrumbText; // Store in dataset
 
-		// Add click handler for summary view
-		dynamicBreadcrumb.addEventListener("click", function (e) {
-			e.preventDefault();
-			showOriginalContent();
-		});
+		// Create new breadcrumb structure with separate clickable and non-clickable parts
+		summaryBreadcrumb.innerHTML = `
+			<span class="breadcrumb-clickable">${originalBreadcrumbText}</span>
+			<span class="breadcrumb-separator"> > </span>
+			<span class="breadcrumb-subsection">Summary</span>
+		`;
+
+		// CRITICAL: Explicitly remove ALL text decoration from parent container FIRST
+		summaryBreadcrumb.style.textDecoration = "none !important";
+		summaryBreadcrumb.style.textDecorationColor = "transparent";
+		summaryBreadcrumb.style.textDecorationStyle = "none";
+		summaryBreadcrumb.style.textDecorationLine = "none";
+		summaryBreadcrumb.style.borderBottom = "none";
+		summaryBreadcrumb.style.textUnderlineOffset = "none";
+		summaryBreadcrumb.style.textUnderlinePosition = "none";
+
+		// Make only the clickable part have the wavy underline
+		const clickablePart = summaryBreadcrumb.querySelector(
+			".breadcrumb-clickable"
+		);
+		if (clickablePart) {
+			clickablePart.style.textDecorationColor = "#3b82f6";
+			clickablePart.style.textDecorationStyle = "wavy";
+			clickablePart.style.cursor = "pointer";
+
+			// Remove any existing click handlers to avoid duplicates
+			clickablePart.removeEventListener("click", handleBreadcrumbClick);
+
+			// Add click handler to return to initial view
+			clickablePart.addEventListener("click", handleBreadcrumbClick);
+		}
 	}
 }
 
@@ -598,20 +708,47 @@ function showJourneyMapContent(journeyType) {
 	// Add journey map view class
 	journeySection.classList.add("journey-map-view");
 
-	// Update breadcrumb - keep same text but make it clickable
-	const dynamicBreadcrumb = document.getElementById("dynamicBreadcrumb");
-	if (dynamicBreadcrumb) {
-		// Keep the same text: "TravelMate - Journey maps"
-		dynamicBreadcrumb.style.textDecoration = "underline";
-		dynamicBreadcrumb.style.textDecorationColor = "#3b82f6";
-		dynamicBreadcrumb.style.textDecorationStyle = "wavy";
-		dynamicBreadcrumb.style.cursor = "pointer";
+	// Update breadcrumb - make it clickable to return to initial view
+	const journeyBreadcrumb = document.querySelector(".breadcrumb-item.active");
+	if (journeyBreadcrumb) {
+		// Store the original text before appending
+		const originalBreadcrumbText = journeyBreadcrumb.textContent;
+		journeyBreadcrumb.dataset.originalText = originalBreadcrumbText; // Store in dataset
 
-		// Add click handler for journey map view
-		dynamicBreadcrumb.addEventListener("click", function (e) {
-			e.preventDefault();
-			showOriginalJourneyContent();
-		});
+		// Get journey map title
+		let journeyContent = getJourneyMapContent(journeyType);
+
+		// Create new breadcrumb structure with separate clickable and non-clickable parts
+		journeyBreadcrumb.innerHTML = `
+			<span class="breadcrumb-clickable">${originalBreadcrumbText}</span>
+			<span class="breadcrumb-separator"> > </span>
+			<span class="breadcrumb-subsection">${journeyContent.title}</span>
+		`;
+
+		// CRITICAL: Explicitly remove ALL text decoration from parent container FIRST
+		journeyBreadcrumb.style.textDecoration = "none !important";
+		journeyBreadcrumb.style.textDecorationColor = "transparent";
+		journeyBreadcrumb.style.textDecorationStyle = "none";
+		journeyBreadcrumb.style.textDecorationLine = "none";
+		journeyBreadcrumb.style.borderBottom = "none";
+		journeyBreadcrumb.style.textUnderlineOffset = "none";
+		journeyBreadcrumb.style.textUnderlinePosition = "none";
+
+		// Make only the clickable part have the wavy underline
+		const clickablePart = journeyBreadcrumb.querySelector(
+			".breadcrumb-clickable"
+		);
+		if (clickablePart) {
+			clickablePart.style.textDecorationColor = "#3b82f6";
+			clickablePart.style.textDecorationStyle = "wavy";
+			clickablePart.style.cursor = "pointer";
+
+			// Remove any existing click handlers to avoid duplicates
+			clickablePart.removeEventListener("click", handleJourneyBreadcrumbClick);
+
+			// Add click handler to return to initial view
+			clickablePart.addEventListener("click", handleJourneyBreadcrumbClick);
+		}
 	}
 }
 
@@ -653,6 +790,12 @@ function getJourneyMapContent(journeyType) {
 	return journeyMaps[journeyType] || journeyMaps["signup-onboarding"];
 }
 
+// Handle journey breadcrumb click to return to initial view
+function handleJourneyBreadcrumbClick(e) {
+	e.preventDefault();
+	showOriginalJourneyContent();
+}
+
 // Show Original Journey Content
 function showOriginalJourneyContent() {
 	const journeySection = document.querySelector("#journey");
@@ -667,15 +810,28 @@ function showOriginalJourneyContent() {
 	// Remove journey map view class
 	journeySection.classList.remove("journey-map-view");
 
-	// Restore breadcrumb - keep same text but remove clickability
-	const dynamicBreadcrumb = document.getElementById("dynamicBreadcrumb");
-	if (dynamicBreadcrumb) {
-		// Keep the same text: "TravelMate - Journey maps"
-		dynamicBreadcrumb.style.textDecoration = "none";
-		dynamicBreadcrumb.style.cursor = "default";
+	// Restore breadcrumb - remove clickability and restore original text
+	if (breadcrumbActive) {
+		// Restore original text if stored
+		if (breadcrumbActive.dataset.originalText) {
+			breadcrumbActive.textContent = breadcrumbActive.dataset.originalText;
+			delete breadcrumbActive.dataset.originalText;
+		}
 
-		// Remove click handler for initial view
-		dynamicBreadcrumb.replaceWith(dynamicBreadcrumb.cloneNode(true));
+		// Remove all styling and event listeners
+		breadcrumbActive.style.textDecoration = "none";
+		breadcrumbActive.style.borderBottom = "none";
+		breadcrumbActive.style.textDecorationLine = "none";
+		breadcrumbActive.style.cursor = "default";
+		breadcrumbActive.removeEventListener("click", handleJourneyBreadcrumbClick);
+
+		// Remove any clickable parts that might exist
+		const clickablePart = breadcrumbActive.querySelector(
+			".breadcrumb-clickable"
+		);
+		if (clickablePart) {
+			clickablePart.removeEventListener("click", handleJourneyBreadcrumbClick);
+		}
 	}
 
 	// Re-attach event listeners to the restored content
@@ -717,6 +873,12 @@ function attachJourneyClickHandlers() {
 	});
 }
 
+// Handle breadcrumb click to return to initial view
+function handleBreadcrumbClick(e) {
+	e.preventDefault();
+	showOriginalContent();
+}
+
 // Show Original Content
 function showOriginalContent() {
 	const painPointsSection = document.querySelector("#pain-points");
@@ -735,15 +897,28 @@ function showOriginalContent() {
 		"summary-view"
 	);
 
-	// Restore breadcrumb - keep same text but remove clickability
-	const dynamicBreadcrumb = document.getElementById("dynamicBreadcrumb");
-	if (dynamicBreadcrumb) {
-		// Keep the same text: "TravelMate - Pain points & goals"
-		dynamicBreadcrumb.style.textDecoration = "none";
-		dynamicBreadcrumb.style.cursor = "default";
+	// Restore breadcrumb - remove clickability and restore original text
+	if (breadcrumbActive) {
+		// Restore original text if stored
+		if (breadcrumbActive.dataset.originalText) {
+			breadcrumbActive.textContent = breadcrumbActive.dataset.originalText;
+			delete breadcrumbActive.dataset.originalText;
+		}
 
-		// Remove click handler for initial view
-		dynamicBreadcrumb.replaceWith(dynamicBreadcrumb.cloneNode(true));
+		// Remove all styling and event listeners
+		breadcrumbActive.style.textDecoration = "none";
+		breadcrumbActive.style.borderBottom = "none";
+		breadcrumbActive.style.textDecorationLine = "none";
+		breadcrumbActive.style.cursor = "default";
+		breadcrumbActive.removeEventListener("click", handleBreadcrumbClick);
+
+		// Remove any clickable parts that might exist
+		const clickablePart = breadcrumbActive.querySelector(
+			".breadcrumb-clickable"
+		);
+		if (clickablePart) {
+			clickablePart.removeEventListener("click", handleBreadcrumbClick);
+		}
 	}
 
 	// Re-attach event listeners to the restored content
