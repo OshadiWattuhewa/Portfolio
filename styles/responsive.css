@@ -41,7 +41,8 @@
 		font-size: var(--font-size-18);
 	}
 
-	.intro-name, .greeting{
+	.intro-name,
+	.greeting {
 		font-size: var(--font-size-24);
 	}
 

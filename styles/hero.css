@@ -28,6 +28,7 @@
 	display: flex;
 	align-items: center;
 	gap: var(--spacing-16);
+	padding-top: var(--spacing-24);
 }
 
 .profile-circle {
