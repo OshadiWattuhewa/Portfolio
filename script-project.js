@@ -345,6 +345,136 @@ function showSurveyContent() {
 				<div class="survey-image-container">
 					<img src="assets/survey2.png" alt="Survey Results - Country Distribution" class="survey-image" />
 				</div>
+				<div class="survey-image-container">
+					<img src="assets/survey3.png" alt="Survey Results - Age Distribution" class="survey-image" />
+				</div>
+				<div class="survey-image-container">
+					<img src="assets/survey4.png" alt="Survey Results - Travel Preferences" class="survey-image" />
+				</div>
+				<div class="survey-image-container">
+					<img src="assets/survey5.png" alt="Survey Results - Planning Methods" class="survey-image" />
+				</div>
+				<div class="survey-image-container">
+					<img src="assets/survey6.png" alt="Survey Results - Pain Points" class="survey-image" />
+				</div>
+				<div class="survey-image-container">
+					<img src="assets/survey7.png" alt="Survey Results - Technology Usage" class="survey-image" />
+				</div>
+				<div class="survey-image-container">
+					<img src="assets/survey8.png" alt="Survey Results - Budget Considerations" class="survey-image" />
+				</div>
+				<div class="survey-image-container">
+					<img src="assets/survey9.png" alt="Survey Results - Social Media Influence" class="survey-image" />
+				</div>
+				<div class="survey-image-container">
+					<img src="assets/survey10.png" alt="Survey Results - Accommodation Preferences" class="survey-image" />
+				</div>
+				<div class="survey-image-container">
+					<img src="assets/survey11.png" alt="Survey Results - Future Travel Plans" class="survey-image" />
+				</div>
+			</div>
+
+			<!-- Painpoints Analysis -->
+			<div class="painpoints-analysis">
+				<h2 class="painpoints-title">Painpoints</h2>
+				<p class="painpoints-description">
+					To identify pain points I have conducted a survey as well as I created a persona in case if missed something during survey.
+				</p>
+
+				<!-- About User Section -->
+				<div class="painpoints-section">
+					<h3 class="section-subtitle">About user</h3>
+					<p class="section-description">Survey findings about user characteristics.</p>
+					<div class="user-findings">
+						<div class="finding-card">Making travel itinerary is challenging for majority.</div>
+						<div class="finding-card">Most people travel inspired by social media.</div>
+						<div class="finding-card">Money is a main concern</div>
+						<div class="finding-card">Majority doesn't use any itinerary apps</div>
+						<div class="finding-card">Majority maintaining a bucket list</div>
+					</div>
+				</div>
+
+				<!-- Priority Section -->
+				<div class="painpoints-section">
+					<h3 class="section-subtitle">Priority (users %)</h3>
+					<p class="section-description">Identify the priority when planning a trip after decided the destination.</p>
+					<div class="priority-grid">
+						<div class="priority-card priority-1">
+							<div class="priority-number">1</div>
+							<div class="priority-content">
+								<h4>Things to do (94.1%)</h4>
+								<p>Most people want to check 'Things to do list' after they pick a destination.</p>
+							</div>
+						</div>
+						<div class="priority-card priority-2">
+							<div class="priority-number">2</div>
+							<div class="priority-content">
+								<h4>Transport (88.2%)</h4>
+								<p>Transport and routes also play another important role.</p>
+							</div>
+						</div>
+						<div class="priority-card priority-3">
+							<div class="priority-number">3</div>
+							<div class="priority-content">
+								<h4>Accommodation (82.4%)</h4>
+								<p>Third main concern is accommodation</p>
+							</div>
+						</div>
+						<div class="priority-card priority-4">
+							<div class="priority-number">4</div>
+							<div class="priority-content">
+								<h4>Food & restaurants (76.5%)</h4>
+								<p>Seems like people love to explore news food and restaurants.</p>
+							</div>
+						</div>
+						<div class="priority-card priority-5">
+							<div class="priority-number">5</div>
+							<div class="priority-content">
+								<h4>Shopping (41.2%)</h4>
+								<p>People also interested in shopping.</p>
+							</div>
+						</div>
+						<div class="priority-card priority-6">
+							<div class="priority-number">6</div>
+							<div class="priority-content">
+								<h4>Culture (35.3%)</h4>
+								<p>Comparatively less people interested about culture related things. but of course these things can defiantly change we do more comprehensive survey targeting majority crowd.</p>
+							</div>
+						</div>
+						<div class="priority-card other-concerns">
+							<div class="priority-content">
+								<h4>Other concerns</h4>
+								<ul>
+									<li>Personalize travel recommendations.</li>
+									<li>Finding best time to visit</li>
+									<li>Changes in weather, getting people on board or finding a convenient time.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Mainly Use Apps Section -->
+				<div class="painpoints-section">
+					<h3 class="section-subtitle">Mainly use apps</h3>
+					<p class="section-description">Identify the priority when planning a trip after decided the destination.</p>
+					<div class="apps-card">
+						<h4>Apps</h4>
+						<ul class="apps-list">
+							<li>Chatgpt</li>
+							<li>Booking.com</li>
+							<li>Agoda</li>
+							<li>Tiktok</li>
+							<li>Google maps</li>
+							<li>airbnb</li>
+							<li>google sheets</li>
+							<li>Search engines</li>
+							<li>klook</li>
+							<li>Google reviews</li>
+							<li>just google</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	`;
@@ -692,11 +822,12 @@ function showJourneyMapContent(journeyType) {
 	// Replace section content with journey map content
 	journeySection.innerHTML = `
 		<div class="journey-map-results">
+		<div class="journey-map-text-content">
 			<h1 class="project-title">${journeyContent.title}</h1>
 			<p class="project-description">
 				${journeyContent.description}
 			</p>
-			
+		</div>
 			<div class="journey-map-container">
 				<div class="journey-map-image-container">
 					<img src="${journeyContent.image}" alt="${journeyContent.title}" class="journey-map-image" />

@@ -89,8 +89,8 @@ const Components = {
 						</h2>
 
 						<p class="hero-description">
-							Product design . User experience . InteractionDesign .
-							DesignThinking
+							Product Design . User Experience . Interaction Design .
+							Design Thinking
 						</p>
 					</div>
 
@@ -177,7 +177,7 @@ const Components = {
 					<a href="project-travelmate.html" class="project-card">
 						<div class="project-image">
 							<img
-								src="assets/Travelmate.jpg"
+								src="assets/design-shots/cover3.jpg"
 								alt="Travel mate project"
 							/>
 						</div>
@@ -187,7 +187,7 @@ const Components = {
 								<p class="project-description">
 									TravelMate is a travel itinerary app to plan your memorable
 									trips. Based on your preference we will suggest a travel
-									itinerary for you. Also its a platform to connect with other
+									itinerary for you. Also it's a platform to connect with other
 									travellers and build your own travel community.
 								</p>
 							</div>
@@ -208,13 +208,13 @@ const Components = {
 
 					<a href="project-design-shots.html" class="project-card">
 						<div class="project-image">
-							<img src="assets/2.jpg" alt="My designs work" />
+							<img src="assets/design-shots/cover2.jpg" alt="My designs work" />
 						</div>
 						<div class="project-content">
 							<div class="project-info">
-								<h3 class="project-name">My designs work</h3>
+								<h3 class="project-name">Design shots</h3>
 								<p class="project-description">
-									My design work on different applications
+									Design shots on different applications
 								</p>
 							</div>
 							<div class="project-link">
@@ -259,12 +259,11 @@ const Components = {
 								<div class="experience-info">
 									<h4 class="experience-title">UX Consultant - Redblox</h4>
 									<p class="experience-period">(2025 - present)</p>
+									<p class="experience-location">Perth, Australia (Remote)</p>
 								</div>
 							</div>
 							<p class="experience-description">
-								With 8 years of experience, having grown from an intern to a UX
-								Lead and specialise in user-centered design, from research and
-								discovery to final hand-off.
+								Collaborating closely with an Australian product team to design intuitive and user-centered digital experiences.Partnering with cross-functional teams, including developers and product owners, to align business goals with user needs.
 							</p>
 							<div class="project-experience-title">Projects</div>
 							<div class="project-experience-item">
@@ -331,7 +330,7 @@ const Components = {
 							<div class="skill-content">
 								<h4 class="skill-title">User Research & Experience Mapping</h4>
 								<p class="skill-description">
-									Persona creations, Usability testing, interviews, surveys,
+									Persona creations, usability testing, interviews, surveys,
 									heuristic evaluation, journey maps, service blueprints
 								</p>
 							</div>
@@ -417,7 +416,7 @@ const Components = {
 								</div>
 								<div class="contact-info">
 									<h3 class="contact-method">E-mail</h3>
-									<p class="contact-detail">Oshadiwattuhewa@gmail.com</p>
+									<p class="contact-detail">oshadiwattuhewa@gmail.com</p>
 								</div>
 							</div>
 
