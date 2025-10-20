@@ -712,11 +712,12 @@ function showJourneyMapContent(journeyType) {
 	// Replace section content with journey map content
 	journeySection.innerHTML = `
 		<div class="journey-map-results">
+		<div class="journey-map-text-content">
 			<h1 class="project-title">${journeyContent.title}</h1>
 			<p class="project-description">
 				${journeyContent.description}
 			</p>
-			
+		</div>
 			<div class="journey-map-container">
 				<div class="journey-map-image-container">
 					<img src="${journeyContent.image}" alt="${journeyContent.title}" class="journey-map-image" />
