@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;line-height:1.5;color:#111827;background:#fff;-webkit-font-smoothing:antialiased}
+#dc-root,#dc-root>.sc-host{height:auto!important;min-height:100%}
+img{display:block;max-width:100%}
+a{color:#111827;text-decoration:none}
+a:hover{color:#4b6bab}
+h1,h2,h3,h4{margin:0;line-height:1.25}
+p{margin:0}
+@keyframes omFadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes omFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes omMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes omFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes omBlink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes omShimmer{0%{background-position:-150% 0}100%{background-position:250% 0}}
+[data-img-load] img{opacity:0;transition:opacity 420ms ease}
+[data-img-load="done"] img{opacity:1}
+[data-img-load="pending"]{background-image:linear-gradient(90deg,#f3f4f6 0%,#e8ecf2 45%,#f3f4f6 80%);background-size:220% 100%;animation:omShimmer 1.5s ease-in-out infinite}
+@keyframes omNodeX{0%{left:-4%;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:104%;opacity:0}}
+@keyframes omNodeY{0%{top:-5%;opacity:0}12%{opacity:1}88%{opacity:1}100%{top:105%;opacity:0}}
+@keyframes omGridDrift{from{background-position:0 0,0 0}to{background-position:44px 44px,44px 44px}}
+@keyframes omGridGlow{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes omRing{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+@media (max-width:720px){
+[data-exp-row]{grid-template-columns:13px 1fr!important;gap:0 14px!important}
+[data-exp-row]>div:nth-child(1){grid-row:1 / span 2!important}
+[data-exp-row]>div:nth-child(2){position:static!important;padding-bottom:16px!important;gap:6px!important}
+[data-exp-row]>div:nth-child(3){padding-bottom:34px!important;gap:14px!important}
+[data-exp-row]>div:nth-child(3)>div{padding:20px!important;border-radius:16px!important}
+[data-exp-row] h4+span{white-space:normal!important}
+}
+@media (max-width:720px){
+[data-skill-row]{grid-template-columns:1fr!important;gap:14px!important;padding:20px 0!important;align-items:start!important}
+[data-skill-row]>div{gap:8px 10px!important}
+[data-skill-row]>div>span{padding:8px 14px!important;font-size:14px!important}
+}
+@media (max-width:720px){
+[data-case-grid]{grid-template-columns:1fr!important;gap:20px!important}
+[data-case-nav]{position:sticky!important;top:0!important;z-index:5;background:#fff;padding:10px 0 12px!important;margin:0 0 4px!important;border-bottom:1px solid #f1f5f9;gap:0!important}
+[data-case-navlabel]{display:none!important}
+[data-case-navlist]{flex-direction:row!important;gap:8px!important;overflow-x:auto!important;scrollbar-width:none;padding-bottom:2px!important}
+[data-case-navlist]::-webkit-scrollbar{display:none}
+[data-case-navrail]{display:none!important}
+[data-case-navlist]>button{flex:0 0 auto!important;grid-template-columns:auto!important;gap:0!important;padding:8px 14px!important;border:1px solid #e5e7eb!important;border-radius:99px!important}
+[data-case-navlist]>button>span:first-child{display:none!important}
+[data-case-navlist]>button>span:last-child{flex-direction:row!important;align-items:center!important;gap:7px!important;white-space:nowrap!important}
+[data-case-navlist]>button>span:last-child>span:last-child{display:none!important}
+}
+@media (max-width:720px){
+[data-case-nav]{top:var(--hdr-h,64px)!important}
+[data-hdr-inner]{flex-wrap:nowrap!important;gap:10px!important;padding:9px 16px!important}
+[data-hdr-logo]{font-size:16px!important;gap:7px!important}
+[data-hdr-nav]{flex:1 1 auto!important;min-width:0!important;flex-wrap:nowrap!important;overflow-x:auto!important;gap:16px!important;scrollbar-width:none}
+[data-hdr-nav]::-webkit-scrollbar{display:none}
+[data-hdr-nav]>a{font-size:14px!important;white-space:nowrap}
+[data-hdr-actions]{flex:0 0 auto!important;gap:8px!important}
+[data-hdr-actions]>a:nth-child(-n+3){display:none!important}
+[data-hdr-actions]>a:last-child{padding:8px 12px!important;font-size:13px!important}
+[data-journey-shot]{aspect-ratio:4/3!important}
+[data-proto-grid]{grid-template-columns:repeat(2,1fr)!important;gap:18px 12px!important}
+[data-proto-grid] figcaption{font-size:11.5px!important}
+[data-case-foot]{flex-wrap:wrap!important;gap:12px!important}
+[data-case-foot]>span{order:3;width:100%;text-align:center}
+[data-case-foot]>button{flex:1 1 0!important;justify-content:center!important;padding:12px 16px!important}
+}
+[data-gallery-item]:hover [data-hover-img]{transform:scale(1.08)}
+[data-gallery-item]:hover [data-hover-overlay]{opacity:1}
+[data-gallery-item]:hover [data-hover-tag]{opacity:1;transform:translateY(0)}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="position:fixed;top:0;left:0;right:0;height:2px;z-index:1200;background:transparent">
+  <div ref="{{ barRef }}" data-accent="bg" style="height:100%;width:0%;background:#4b6bab;transition:width 120ms linear"></div>
+</div>
+
+<header ref="{{ headerRef }}" style="position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #f3f4f6;transition:box-shadow 300ms ease,background 300ms ease">
+  <div data-hdr-inner="1" style="max-width:1440px;margin:0 auto;padding:16px clamp(20px,7vw,120px);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <a data-hdr-logo="1" href="#top" onClick="{{ goHome }}" style="display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;color:#111827;white-space:nowrap">
+      <span data-accent="bg" style="width:9px;height:9px;border-radius:99px;background:#4b6bab;animation:omBlink 2.4s ease-in-out infinite"></span>
+      OshadiWattuhewa
+    </a>
+    <nav data-hdr-nav="1" style="display:flex;align-items:center;gap:clamp(14px,2vw,32px);flex-wrap:wrap">
+      <a href="#work" onClick="{{ navWork }}" style="font-size:16px;font-weight:600;color:#020617;padding-bottom:2px;border-bottom:2px solid transparent;transition:color 180ms ease,border-color 180ms ease" style-hover="color:#4b6bab;border-bottom-color:#4b6bab">Work</a>
+      <a href="#projects" onClick="{{ navProjects }}" style="font-size:16px;font-weight:600;color:#020617;padding-bottom:2px;border-bottom:2px solid transparent;transition:color 180ms ease,border-color 180ms ease" style-hover="color:#4b6bab;border-bottom-color:#4b6bab">Projects</a>
+      <a href="#skills" onClick="{{ navSkills }}" style="font-size:16px;font-weight:600;color:#020617;padding-bottom:2px;border-bottom:2px solid transparent;transition:color 180ms ease,border-color 180ms ease" style-hover="color:#4b6bab;border-bottom-color:#4b6bab">Skills</a>
+      <a href="#contact" onClick="{{ navContact }}" style="font-size:16px;font-weight:600;color:#020617;padding-bottom:2px;border-bottom:2px solid transparent;transition:color 180ms ease,border-color 180ms ease" style-hover="color:#4b6bab;border-bottom-color:#4b6bab">Contact me</a>
+    </nav>
+    <div data-hdr-actions="1" style="display:flex;align-items:center;gap:12px">
+      <a href="https://dribbble.com/oshadiwattuhewa" target="_blank" rel="noopener noreferrer" aria-label="Dribbble" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;background:#f9fafb;border-radius:8px;color:#111827;transition:transform 220ms cubic-bezier(.2,.8,.2,1),background 200ms ease" style-hover="background:#eef2ff;transform:translateY(-3px) rotate(-6deg)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM19.46 9.5C19.79 10.29 20 11.13 20 12C17.95 11.67 15.84 11.56 13.75 11.68C13.44 11.03 13.13 10.39 12.8 9.76C15.14 8.83 17.24 7.5 18.86 5.89C19.88 7.05 20.58 8.48 19.46 9.5ZM17.45 4.47C15.97 5.94 14.04 7.16 11.87 8.03C10.93 6.32 9.87 4.7 8.69 3.17C9.11 3.06 9.55 3 10 3C13.31 3 16.22 4.75 17.45 7.31V4.47ZM6.97 3.97C8.14 5.47 9.19 7.06 10.12 8.74C7.59 9.51 4.83 9.92 2 9.97C2.45 7.05 4.37 4.61 6.97 3.97ZM2 12.01V12C5.17 11.98 8.27 11.5 11.15 10.59C11.49 11.26 11.82 11.94 12.14 12.62C8.84 13.61 6.03 15.51 4.06 18.06C2.75 16.53 2 14.62 2 12.55V12.01ZM5.69 19.65C7.42 17.43 9.9 15.75 12.79 14.87C13.61 17.14 14.26 19.49 14.71 21.89C13.86 22.11 12.95 22.23 12 22.23C9.58 22.23 7.37 21.29 5.69 19.65ZM16.64 21.07C16.23 18.88 15.64 16.75 14.89 14.68C16.71 14.5 18.58 14.65 20.42 15.11C19.95 17.57 18.55 19.7 16.64 21.07Z" fill="currentColor"></path></svg>
+      </a>
+      <a href="https://www.behance.net/oshadiwatt428f" target="_blank" rel="noopener noreferrer" aria-label="Behance" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;background:#f9fafb;border-radius:8px;color:#111827;font-size:13px;font-weight:800;letter-spacing:-0.2px;transition:transform 220ms cubic-bezier(.2,.8,.2,1),background 200ms ease" style-hover="background:#eef2ff;transform:translateY(-3px) rotate(6deg)">Bē</a>
+      <a href="https://www.linkedin.com/in/oshadiwattuhewa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;background:#f9fafb;border-radius:8px;color:#111827;transition:transform 220ms cubic-bezier(.2,.8,.2,1),background 200ms ease" style-hover="background:#eef2ff;transform:translateY(-3px) rotate(-6deg)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19ZM18.5 18.5V13.2C18.5 12.3354 18.1565 11.5062 17.5452 10.8948C16.9338 10.2835 16.1046 9.94 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17C14.6813 12.17 15.0374 12.3175 15.2999 12.5801C15.5625 12.8426 15.71 13.1987 15.71 13.57V18.5H18.5ZM6.88 8.56C7.32556 8.56 7.75288 8.383 8.06794 8.06794C8.383 7.75288 8.56 7.32556 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19C6.43178 5.19 6.00193 5.36805 5.68499 5.68499C5.36805 6.00193 5.19 6.43178 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56ZM8.27 18.5V10.13H5.5V18.5H8.27Z" fill="currentColor"></path></svg>
+      </a>
+      <a href="uploads/OshadiWattuhewa-6f71caab.pdf" onClick="{{ downloadCv }}" download="Oshadi Wattuhewa - CV.pdf" style="display:flex;align-items:center;gap:6px;padding:9px 14px;font-size:14px;font-weight:600;color:#111827;background:#fff;border:1px solid #d1d5db;border-radius:8px;transition:transform 200ms cubic-bezier(.2,.8,.2,1),box-shadow 200ms ease,background 200ms ease" style-hover="transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,23,42,.12);background:#f9fafb">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.16667V9.91667M7 9.91667L10.5 6.41667M7 9.91667L3.5 6.41667M1.16667 12.8333H12.8333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        Download CV
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top" style="display:flex;flex-direction:column">
+
+  <div style="display:{{ homeDisplay }};flex-direction:column">
+
+  <section style="padding:clamp(40px,5vw,72px) 0 clamp(48px,6vw,80px)">
+    <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,7vw,120px);display:flex;flex-direction:column;gap:clamp(36px,4vw,60px)">
+
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid #e5e7eb;animation:omFadeUp 800ms cubic-bezier(.2,.8,.2,1) both">
+        <div style="display:flex;align-items:center;gap:16px">
+          <div style="position:relative;width:96px;height:96px;flex-shrink:0">
+            <div data-accent="border" style="position:absolute;inset:-5px;border-radius:99px;border:1px dashed #4b6bab;opacity:.45;animation:omRing 18s linear infinite"></div>
+            <div style="width:100%;aspect-ratio:1/1;border-radius:99px;overflow:hidden;border:1px solid #f3f4f6">
+              <img loading="eager" decoding="async" src="https://oshadiwattuhewa.github.io/Portfolio/assets/OshadiW.jpg" alt="Oshadi Wattuhewa" style="width:100%;height:100%;object-fit:cover">
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px">
+            <span style="font-size:19px;font-weight:700;color:#0f172a">Hello — I'm Oshadi Wattuhewa</span>
+            <span style="font-size:15px;color:#4b5563">Senior Product Designer · Colombo, Sri Lanka</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;padding:9px 16px;border:1px solid #d9dde4;border-radius:99px">
+          <span data-accent="bg" style="width:8px;height:8px;border-radius:99px;background:#4b6bab;animation:omBlink 2.4s ease-in-out infinite"></span>
+          <span style="font-size:14px;font-weight:600;color:#374151">Open to remote product design roles</span>
+        </div>
+      </div>
+
+      <h1 style="font-size:clamp(30px,4.6vw,56px);font-weight:800;color:#030712;line-height:1.12;letter-spacing:-0.02em;text-wrap:balance;max-width:24ch">
+        <span style="display:inline-block;animation:omFadeUp 900ms cubic-bezier(.2,.8,.2,1) 140ms both">Turning</span>
+        <span style="display:inline-block;animation:omFadeUp 900ms cubic-bezier(.2,.8,.2,1) 220ms both">intricate</span>
+        <span style="display:inline-block;animation:omFadeUp 900ms cubic-bezier(.2,.8,.2,1) 300ms both">enterprise</span>
+        <span style="display:inline-block;animation:omFadeUp 900ms cubic-bezier(.2,.8,.2,1) 380ms both">workflows</span>
+        <span style="display:inline-block;animation:omFadeUp 900ms cubic-bezier(.2,.8,.2,1) 460ms both">into</span>
+        <span style="display:inline-block;animation:omFadeUp 900ms cubic-bezier(.2,.8,.2,1) 540ms both">intuitive,</span>
+        <span data-accent="color" style="display:inline-block;color:#4b6bab;animation:omFadeUp 900ms cubic-bezier(.2,.8,.2,1) 620ms both">high-impact</span>
+        <span data-accent="color" style="display:inline-block;color:#4b6bab;animation:omFadeUp 900ms cubic-bezier(.2,.8,.2,1) 700ms both">platforms.</span>
+      </h1>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(28px,4vw,64px);align-items:start;animation:omFadeUp 900ms cubic-bezier(.2,.8,.2,1) 820ms both">
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <p style="font-size:17px;line-height:1.7;color:#374151;max-width:52ch;text-wrap:pretty">Senior Product Designer with 9+ years of experience, driven by deep ownership and a passion for solving meaningful problems, not just shipping features. A Computer Science background helps me bridge business goals and user needs.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="#work" style="display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:10px;background:#0f172a;color:#fff;font-size:15px;font-weight:600;transition:transform 220ms cubic-bezier(.2,.8,.2,1),box-shadow 220ms ease" style-hover="color:#fff;transform:translateY(-3px);box-shadow:0 12px 26px rgba(15,23,42,.28)">
+              See my work
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+            <a href="mailto:oshadiwattuhewa@gmail.com" style="display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:10px;border:1px solid #d1d5db;color:#111827;font-size:15px;font-weight:600;transition:transform 220ms cubic-bezier(.2,.8,.2,1),background 200ms ease" style-hover="transform:translateY(-3px);background:#f9fafb">Get in touch</a>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:16px;color:#4b5563;padding-bottom:18px;border-bottom:1px solid #e5e7eb">
+            <span>Focused on</span>
+            <span ref="{{ roleRef }}" data-accent="color" style="font-weight:700;color:#4b6bab;transition:opacity 240ms ease,transform 240ms ease;display:inline-block">{{ role }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px"><span style="color:#6b7280">Currently</span><span style="font-weight:600;color:#111827;text-align:right">UX Lead · EdgeTI</span></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px"><span style="color:#6b7280">Domains</span><span style="font-weight:600;color:#111827;text-align:right">Automotive · Maritime · Sports · Elder Care &amp; Wellbeing</span></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px"><span style="color:#6b7280">Background</span><span style="font-weight:600;color:#111827;text-align:right">BSc Computer Science</span></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;font-size:15px"><span style="color:#6b7280">Clients across</span><span style="font-weight:600;color:#111827;text-align:right">Norway · Sweden · Australia · USA</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <sc-if value="{{ marquee }}" hint-placeholder-val="{{ true }}">
+    <section style="padding:8px 0 56px;overflow:hidden;border-top:1px solid #f1f5f9;border-bottom:1px solid #f3f4f6;margin-bottom:56px">
+      <div ref="{{ marqueeRef }}" style="display:flex;width:max-content;gap:0;padding:22px 0;animation:omMarquee 34s linear infinite">
+        <div style="display:flex;gap:44px;padding-right:44px;align-items:center">
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">User Research</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Usability Testing</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Journey Mapping</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Design Systems</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Rapid Prototyping</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Heuristic Evaluation</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">UX Workshops</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Cross-Platform Architecture</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Mobile-First Design</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+        </div>
+        <div style="display:flex;gap:44px;padding-right:44px;align-items:center" aria-hidden="true">
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">User Research</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Usability Testing</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Journey Mapping</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Design Systems</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Rapid Prototyping</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Heuristic Evaluation</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">UX Workshops</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Cross-Platform Architecture</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+          <span style="font-size:15px;font-weight:600;color:#4b5563;white-space:nowrap">Mobile-First Design</span><span data-accent="bg" style="width:5px;height:5px;border-radius:9px;background:#4b6bab"></span>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+
+  <section id="work" style="position:relative;scroll-margin-top:96px;padding:24px 0 clamp(72px,9vw,120px)">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(15,23,42,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,.05) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 70% 20%,#000 0%,transparent 70%);mask-image:radial-gradient(ellipse at 70% 20%,#000 0%,transparent 70%);pointer-events:none;z-index:0;animation:omGridDrift 14s linear infinite,omGridGlow 9s ease-in-out infinite"></div>
+    <div style="position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:0 clamp(20px,7vw,120px);display:flex;flex-direction:column;gap:48px">
+      <div data-reveal="1" style="display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(24px,4vw,64px);flex-wrap:wrap;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0f172a">Experience</span>
+          <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:800;color:#030712;line-height:1.1;letter-spacing:-0.02em;max-width:22ch;text-wrap:pretty">9+ years of enterprise product work.</h2>
+        </div>
+        <p style="font-size:16px;color:#4b5563;flex:1 1 50%;max-width:50%;min-width:min(340px,100%);text-wrap:pretty">Across <span style="color: #0f172a; font-weight: 600; font-size: 18px">Sweden</span>, <span style="color: #0f172a; font-weight: 600; font-size: 18px">Norway</span>, the <span style="color: #0f172a; font-weight: 600; font-size: 18px">USA</span>, and <span style="color: #0f172a; font-weight: 600; font-size: 18px">Australia</span> — designing complex platforms across <span style="color: #0f172a; font-weight: 600; font-size: 18px">enterprise</span>, <span style="color: #0f172a; font-weight: 600; font-size: 18px">automotive</span>, <span style="color: #0f172a; font-weight: 600; font-size: 18px">maritime</span>, <span style="color: #0f172a; font-weight: 600; font-size: 18px">sports</span>, and <span style="color: #0f172a; font-weight: 600; font-size: 18px">elder-care</span>, where the workflow is the product.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:0;position:relative">
+        <div data-reveal="1" data-reveal-delay="0" data-exp-row="1" style="display:grid;grid-template-columns:auto minmax(200px,0.85fr) minmax(0,2fr);gap:clamp(20px,3vw,40px);opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:0;padding-top:6px">
+            <span data-accent="bg" style="width:13px;height:13px;border-radius:99px;background:#4b6bab;box-shadow:0 0 0 4px #fff,0 0 0 5px #e5e7eb;flex-shrink:0"></span>
+            <span style="flex:1;width:1px;background:linear-gradient(#e5e7eb,#f1f5f9);margin-top:8px"></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;padding-bottom:clamp(44px,5vw,64px);position:sticky;top:104px;align-self:start;min-width:0">
+              <span style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0f172a;font-variant-numeric:tabular-nums">2025 — Present</span>
+              <h3 style="font-size:clamp(21px,2vw,25px);font-weight:800;color:#0f172a;letter-spacing:-0.015em;text-wrap:pretty">UX Lead</h3>
+                <span style="font-size:16px;font-weight:600;color:#4b5563">EdgeTI</span>
+                <span style="font-size:13px;color:#6b7280">Remote</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:clamp(18px,2vw,26px);padding-bottom:clamp(44px,5vw,64px);min-width:0">
+              <div style="display:flex;flex-direction:column;gap:16px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:clamp(26px,2.4vw,34px);box-shadow:0 1px 3px rgba(15,23,42,.03);transition:box-shadow 320ms ease,transform 320ms cubic-bezier(.2,.8,.2,1),border-color 320ms ease" style-hover="box-shadow:0 20px 48px rgba(15,23,42,.1);transform:translateY(-4px);border-color:#dbe3ef">
+                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px">
+                  <h4 style="font-size:clamp(21px,1.9vw,26px);font-weight:800;color:#0f172a;letter-spacing:-0.02em;text-wrap:pretty">Nightingale</h4>
+                  <span style="display:inline-flex;align-items:center;padding:7px 15px;border-radius:99px;background:linear-gradient(135deg,#eef2ff,#f1f5f9);font-size:13px;font-weight:700;color:#3d5a94;white-space:nowrap">Elder Care &amp; Wellbeing Technology</span>
+                </div>
+                <p style="font-size:16px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">An intelligent, cross-platform IoT solution that tracks an elder’s “Pattern of Life” and environmental data to provide real-time safety alerts for families and caregivers.</p>
+                <ul style="display:flex;flex-direction:column;gap:10px;list-style:none;padding:14px 0 0;margin:4px 0 0;border-top:1px solid #f1f5f9">
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Facilitated discovery sessions with cross-functional stakeholders to define product strategy, establishing the UX architecture from scratch through custom personas, journey maps and comprehensive prototypes.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Crafted “Pattern of Life” dashboards with a proactive notification engine, synthesising complex behavioural and environmental data into real-time alerts in a senior-friendly, accessible UI.</span></li>
+                </ul>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:16px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:clamp(26px,2.4vw,34px);box-shadow:0 1px 3px rgba(15,23,42,.03);transition:box-shadow 320ms ease,transform 320ms cubic-bezier(.2,.8,.2,1),border-color 320ms ease" style-hover="box-shadow:0 20px 48px rgba(15,23,42,.1);transform:translateY(-4px);border-color:#dbe3ef">
+                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px">
+                  <h4 style="font-size:clamp(21px,1.9vw,26px);font-weight:800;color:#0f172a;letter-spacing:-0.02em;text-wrap:pretty">Austal Australia</h4>
+                  <span style="display:inline-flex;align-items:center;padding:7px 15px;border-radius:99px;background:linear-gradient(135deg,#eef2ff,#f1f5f9);font-size:13px;font-weight:700;color:#3d5a94;white-space:nowrap">Maritime &amp; Shipbuilding</span>
+                </div>
+                <p style="font-size:16px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">An enterprise platform supporting shipbuilding, vessel lifecycle management and maritime operations.</p>
+                <ul style="display:flex;flex-direction:column;gap:10px;list-style:none;padding:14px 0 0;margin:4px 0 0;border-top:1px solid #f1f5f9">
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Led UX strategy for a complex enterprise shipbuilding platform, translating heavy operational requirements into intuitive contract, asset and lifecycle management workflows.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Designed scalable, accessible interfaces and high-fidelity prototypes that simplified dense data for maritime personnel.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <div data-reveal="1" data-reveal-delay="90" data-exp-row="1" style="display:grid;grid-template-columns:auto minmax(200px,0.85fr) minmax(0,2fr);gap:clamp(20px,3vw,40px);opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:0;padding-top:6px">
+            <span data-accent="bg" style="width:13px;height:13px;border-radius:99px;background:#4b6bab;box-shadow:0 0 0 4px #fff,0 0 0 5px #e5e7eb;flex-shrink:0"></span>
+            <span style="flex:1;width:1px;background:linear-gradient(#e5e7eb,#f1f5f9);margin-top:8px"></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;padding-bottom:clamp(44px,5vw,64px);position:sticky;top:104px;align-self:start;min-width:0">
+              <span style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0f172a;font-variant-numeric:tabular-nums">2025 — 2026</span>
+              <h3 style="font-size:clamp(21px,2vw,25px);font-weight:800;color:#0f172a;letter-spacing:-0.015em;text-wrap:pretty">Freelance UX/UI Designer</h3>
+                <span style="font-size:16px;font-weight:600;color:#4b5563">iCoach</span>
+                <span style="font-size:13px;color:#6b7280">Australia</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:clamp(18px,2vw,26px);padding-bottom:clamp(44px,5vw,64px);min-width:0">
+              <div style="display:flex;flex-direction:column;gap:16px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:clamp(26px,2.4vw,34px);box-shadow:0 1px 3px rgba(15,23,42,.03);transition:box-shadow 320ms ease,transform 320ms cubic-bezier(.2,.8,.2,1),border-color 320ms ease" style-hover="box-shadow:0 20px 48px rgba(15,23,42,.1);transform:translateY(-4px);border-color:#dbe3ef">
+                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px">
+                  <h4 style="font-size:clamp(21px,1.9vw,26px);font-weight:800;color:#0f172a;letter-spacing:-0.02em;text-wrap:pretty">iCoach — Footy Performance</h4>
+                  <span style="display:inline-flex;align-items:center;padding:7px 15px;border-radius:99px;background:linear-gradient(135deg,#eef2ff,#f1f5f9);font-size:13px;font-weight:700;color:#3d5a94;white-space:nowrap">Sports Tech &amp; Performance Analytics</span>
+                </div>
+                <p style="font-size:16px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">An AI-powered platform using Computer Vision to transform raw match data and video tracking into actionable tactical insights for coaches.</p>
+                <ul style="display:flex;flex-direction:column;gap:10px;list-style:none;padding:14px 0 0;margin:4px 0 0;border-top:1px solid #f1f5f9">
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Designed a specialised sports technology platform that translates computer vision tracking data and automated video analysis into intuitive, high-fidelity visual dashboards for Australian footy coaches.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <div data-reveal="1" data-reveal-delay="180" data-exp-row="1" style="display:grid;grid-template-columns:auto minmax(200px,0.85fr) minmax(0,2fr);gap:clamp(20px,3vw,40px);opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:0;padding-top:6px">
+            <span data-accent="bg" style="width:13px;height:13px;border-radius:99px;background:#4b6bab;box-shadow:0 0 0 4px #fff,0 0 0 5px #e5e7eb;flex-shrink:0"></span>
+            <span style="flex:1;width:1px;background:linear-gradient(#e5e7eb,#f1f5f9);margin-top:8px"></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;padding-bottom:clamp(44px,5vw,64px);position:sticky;top:104px;align-self:start;min-width:0">
+              <span style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0f172a;font-variant-numeric:tabular-nums">2017 — 2025</span>
+              <h3 style="font-size:clamp(21px,2vw,25px);font-weight:800;color:#0f172a;letter-spacing:-0.015em;text-wrap:pretty">UX Lead</h3>
+                <span style="font-size:16px;font-weight:600;color:#4b5563">99X</span>
+                <span style="font-size:13px;color:#6b7280">Previously Senior UX Designer, UX Intern</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:clamp(18px,2vw,26px);padding-bottom:clamp(44px,5vw,64px);min-width:0">
+              <div style="display:flex;flex-direction:column;gap:16px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:clamp(26px,2.4vw,34px);box-shadow:0 1px 3px rgba(15,23,42,.03);transition:box-shadow 320ms ease,transform 320ms cubic-bezier(.2,.8,.2,1),border-color 320ms ease" style-hover="box-shadow:0 20px 48px rgba(15,23,42,.1);transform:translateY(-4px);border-color:#dbe3ef">
+                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px">
+                  <h4 style="font-size:clamp(21px,1.9vw,26px);font-weight:800;color:#0f172a;letter-spacing:-0.02em;text-wrap:pretty">BUS AS — Vehicle Inspection &amp; Valuation Platform</h4>
+                  <span style="display:inline-flex;align-items:center;padding:7px 15px;border-radius:99px;background:linear-gradient(135deg,#eef2ff,#f1f5f9);font-size:13px;font-weight:700;color:#3d5a94;white-space:nowrap">Automotive</span>
+                </div>
+                <p style="font-size:16px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">A B2B web and mobile platform optimising end-to-end vehicle inspection, condition reporting and trade-in valuations across the Scandinavian automotive market.</p>
+                <ul style="display:flex;flex-direction:column;gap:10px;list-style:none;padding:14px 0 0;margin:4px 0 0;border-top:1px solid #f1f5f9">
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Collaborated directly with Norwegian and Swedish Product Owners to align international business goals, facilitating strategic UX workshops to unpack complex requirements.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Owned the complete end-to-end UX lifecycle — research, wireframing, high-fidelity prototyping and usability testing — to streamline inspection and valuation workflows.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Established and scaled a robust cross-platform design system and component library from scratch.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Worked tightly with engineering to navigate technical constraints, ensuring deliverables matched the user-centered vision and accessibility standards.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" style="scroll-margin-top:96px;padding:clamp(72px,9vw,120px) 0;background:#f9fafb">
+    <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,7vw,120px);display:flex;flex-direction:column;gap:48px">
+      <div data-reveal="1" style="display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(24px,4vw,64px);flex-wrap:wrap;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0f172a">Case studies</span>
+          <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:800;color:#030712;line-height:1.1;letter-spacing:-0.02em;max-width:22ch;text-wrap:pretty">The thinking behind the work.</h2>
+        </div>
+        <p style="font-size:16px;color:#4b5563;max-width:44ch;text-wrap:pretty">Two projects taken end to end — research, structure and the decisions that shaped the final product.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr));gap:clamp(20px,2.4vw,32px)">
+        <a href="https://oshadiwattuhewa.github.io/Portfolio/project-travelmate.html" onClick="{{ openTravel }}" data-reveal="1" data-reveal-delay="80" data-tilt="1" style="display:flex;flex-direction:column;background:#fff;border:1px solid #e5e7eb;overflow:hidden;text-decoration:none;color:inherit;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);cursor:pointer">
+          <div style="overflow:hidden;background:#f3f4f6;aspect-ratio:16/10">
+            <img loading="eager" decoding="async" src="https://oshadiwattuhewa.github.io/Portfolio/assets/design-shots/cover3.jpg" alt="Travel mate project" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <div style="padding:28px;display:flex;flex-direction:column;gap:14px;flex:1">
+            <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7280">Personal project · Mobile</span>
+            <h3 style="font-size:26px;font-weight:800;color:#111827;letter-spacing:-0.02em">Travel mate</h3>
+            <p style="font-size:16px;line-height:1.65;color:#4b5563;text-wrap:pretty">A travel planning app that turns scattered research into one confident itinerary — and a community to plan it with.</p>
+            <span data-accent="color" style="margin-top:auto;padding-top:8px;font-size:15px;font-weight:700;color:#4b6bab">View case study →</span>
+          </div>
+        </a>
+        <a href="https://oshadiwattuhewa.github.io/Portfolio/project-design-shots.html" onClick="{{ openShots }}" data-reveal="1" data-reveal-delay="180" data-tilt="1" style="display:flex;flex-direction:column;background:#fff;border:1px solid #e5e7eb;overflow:hidden;text-decoration:none;color:inherit;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);cursor:pointer">
+          <div style="overflow:hidden;background:#f3f4f6;aspect-ratio:16/10">
+            <img loading="eager" decoding="async" src="uploads/contractcore-cover.jpg" alt="Contract Management System" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <div style="padding:28px;display:flex;flex-direction:column;gap:14px;flex:1">
+            <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7280">Enterprise · Web</span>
+            <h3 style="font-size:26px;font-weight:800;color:#111827;letter-spacing:-0.02em">Contract Management System</h3>
+            <p style="font-size:16px;line-height:1.65;color:#4b5563;text-wrap:pretty">Contract, asset and lifecycle workflows for maritime operations, built to make dense operational data readable.</p>
+            <span data-accent="color" style="margin-top:auto;padding-top:8px;font-size:15px;font-weight:700;color:#4b6bab">Request access →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" style="scroll-margin-top:96px;padding:clamp(72px,9vw,120px) 0;border-top:1px solid #f1f5f9;background-image:radial-gradient(#e2e8f0 1.5px,transparent 1.5px);background-size:28px 28px">
+    <div style="max-width:1440px;margin:0 auto;width:100%;padding:0 clamp(20px,7vw,120px);display:flex;flex-direction:column;gap:clamp(32px,4vw,48px)">
+      <div data-reveal="1" style="display:flex;flex-direction:column;gap:20px;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+        <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0f172a">Design shots</span>
+        <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:800;color:#030712;line-height:1.1;letter-spacing:-0.02em;max-width:22ch;text-wrap:pretty">A closer look at the craft.</h2>
+        <p style="font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:#4b5563;max-width:46ch;text-wrap:pretty">A visual record of the work — full screens, systems in use, and the details that only show up close.</p>
+      </div>
+      <div ref="{{ galleryGridRef }}" style="display:grid;grid-template-columns:repeat(2,1fr);width:100%;gap:clamp(24px,2.6vw,36px) clamp(18px,2vw,28px)">
+        <figure data-reveal="1" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/22.png" alt="Design shot 1" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">01</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-reveal="1" data-reveal-delay="70" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/222.jpg" alt="Design shot 2" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">02</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-reveal="1" data-reveal-delay="140" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/24.png" alt="Design shot 3" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">03</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-reveal="1" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/26.png" alt="Design shot 4" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">04</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-reveal="1" data-reveal-delay="70" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/5.jpg" alt="Design shot 5" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">05</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-reveal="1" data-reveal-delay="140" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/2223.jpg" alt="Design shot 6" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">06</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-reveal="1" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/t123.png" alt="Design shot 7" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position: absolute; inset: 0; background: url(&quot;./t123-mski76c3-vacp.png&quot;) center / cover no-repeat; opacity: 0; transition: opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">07</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-reveal="1" data-reveal-delay="70" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/shot-6.jpg" alt="Design shot 8" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position: absolute; inset: 0; background: url(&quot;./shot-6-msqbrbik-kxjg.jpg&quot;) center / cover no-repeat; opacity: 0; transition: opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">08</span>
+            </div>
+          </div>
+        </figure>
+        
+      </div>
+    </div>
+  </section>
+
+
+  <section id="skills" style="position:relative;scroll-margin-top:96px;padding:clamp(72px,9vw,120px) 0">
+    <div style="position:absolute;inset:0;background:radial-gradient(80% 60% at 15% 0%,#eef2ff 0%,rgba(238,242,255,0) 65%),radial-gradient(70% 55% at 95% 90%,#f1f5f9 0%,rgba(241,245,249,0) 70%);pointer-events:none;z-index:0"></div>
+    <div style="position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:0 clamp(20px,7vw,120px);display:flex;flex-direction:column;gap:clamp(48px,6vw,88px)">
+      <div data-reveal="1" data-reveal-delay="0" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;gap:20px">
+        <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0f172a">Skills</span>
+        <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:800;color:#030712;line-height:1.1;letter-spacing:-0.02em;max-width:22ch;text-wrap:pretty">What I bring to the table</h2>
+        <p style="font-size:16px;line-height:1.65;color:#4b5563;max-width:56ch;text-wrap:pretty">I turn complex problems into clear, scalable product experiences, combining research, systems thinking, rapid prototyping, and AI to move from insight to impact faster.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column">
+        <div data-reveal="1" data-reveal-delay="0" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #e5e7eb">
+          <h4 style="font-size:17px;font-weight:800;color:#0f172a;letter-spacing:-0.01em"><span style="color:#9ca3af;font-weight:700;margin-right:10px">01</span>Design &amp; Prototyping</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:10px 28px">
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Figma</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Claude Design</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Rapid Prototyping</span>
+          </div>
+        </div>
+        <div data-reveal="1" data-reveal-delay="60" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #e5e7eb">
+          <h4 style="font-size:17px;font-weight:800;color:#0f172a;letter-spacing:-0.01em"><span style="color:#9ca3af;font-weight:700;margin-right:10px">02</span>AI &amp; Design Automation</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:10px 28px">
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Claude (Design System)</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Generative AI Assets</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">AI-assisted Research</span>
+          </div>
+        </div>
+        <div data-reveal="1" data-reveal-delay="120" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #e5e7eb">
+          <h4 style="font-size:17px;font-weight:800;color:#0f172a;letter-spacing:-0.01em"><span style="color:#9ca3af;font-weight:700;margin-right:10px">03</span>Collaboration &amp; Strategy</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:10px 28px">
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Miro</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">FigJam</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Strategic UX Workshops</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Design Handoff</span>
+          </div>
+        </div>
+        <div data-reveal="1" data-reveal-delay="180" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #e5e7eb">
+          <h4 style="font-size:17px;font-weight:800;color:#0f172a;letter-spacing:-0.01em"><span style="color:#9ca3af;font-weight:700;margin-right:10px">04</span>UX Research</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:10px 28px">
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">User Research</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Usability Testing</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Heuristic Evaluation</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Journey Mapping</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Persona Development</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">UX Workshops</span>
+          </div>
+        </div>
+        <div data-reveal="1" data-reveal-delay="240" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb">
+          <h4 style="font-size:17px;font-weight:800;color:#0f172a;letter-spacing:-0.01em"><span style="color:#9ca3af;font-weight:700;margin-right:10px">05</span>Core Methodologies</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:10px 28px">
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Cross-Platform Architecture</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Mobile-First Design</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Responsive Web Design</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:clamp(32px,4vw,72px);padding-top:clamp(24px,4vw,48px);border-top:1px solid #e5e7eb">
+        <div data-reveal="1" data-reveal-delay="0" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0f172a">Education</span>
+          <h4 style="font-size:clamp(22px,2.6vw,30px);font-weight:800;color:#0f172a;letter-spacing:-0.015em">BSc. Computer Science</h4>
+          <p style="font-size:16px;color:#4b5563">University of Colombo School of Computing — 2016</p>
+        </div>
+        <div data-reveal="1" data-reveal-delay="90" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0f172a">Languages &amp; Interests</span>
+          <p style="font-size:17px;color:#1f2937">English · Sinhala</p>
+          <p style="font-size:17px;color:#1f2937">Nature &amp; Travel · Photography</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="scroll-margin-top:96px;padding:clamp(72px,9vw,120px) 0">
+    <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,7vw,120px)">
+      <div data-reveal="1" style="position:relative;overflow:hidden;background:#0f172a;border-radius:32px;padding:clamp(32px,4.5vw,72px) clamp(24px,4vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(36px,5vw,80px);align-items:center;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 30% 30%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse at 30% 30%,#000 0%,transparent 75%);pointer-events:none;z-index:0"></div>
+        <div style="position:absolute;inset:0;overflow:hidden;border-radius:32px;-webkit-mask-image:radial-gradient(ellipse at 30% 30%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse at 30% 30%,#000 0%,transparent 75%);pointer-events:none;z-index:0">
+          <span style="position:absolute;width:5px;height:5px;border-radius:99px;background:#e2e8f5;box-shadow:0 0 10px 3px rgba(226,232,245,.5);top:18%;animation:omNodeX 10s linear infinite"></span>
+          <span style="position:absolute;width:5px;height:5px;border-radius:99px;background:#e2e8f5;box-shadow:0 0 10px 3px rgba(226,232,245,.5);top:52%;animation:omNodeX 13s linear infinite 3s"></span>
+          <span style="position:absolute;width:5px;height:5px;border-radius:99px;background:#e2e8f5;box-shadow:0 0 10px 3px rgba(226,232,245,.5);top:80%;animation:omNodeX 11.5s linear infinite 6.5s"></span>
+          <span style="position:absolute;width:5px;height:5px;border-radius:99px;background:#e2e8f5;box-shadow:0 0 10px 3px rgba(226,232,245,.5);left:22%;animation:omNodeY 12s linear infinite 1.5s"></span>
+          <span style="position:absolute;width:5px;height:5px;border-radius:99px;background:#e2e8f5;box-shadow:0 0 10px 3px rgba(226,232,245,.5);left:64%;animation:omNodeY 14s linear infinite 5s"></span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:24px;position:relative">
+          <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#94a3b8">Contact</span>
+          <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.02em;max-width:20ch;text-wrap:pretty">Let's create something meaningful together.</h2>
+          <div style="display:flex;align-items:center;gap:10px;padding-top:4px">
+            <span style="width:8px;height:8px;border-radius:99px;background:#4ade80"></span>
+            <span style="font-size:15px;color:#cbd5e1">Open to new opportunities</span>
+          </div>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;border-bottom:1px solid rgba(255,255,255,.14)">
+          <a href="mailto:oshadiwattuhewa@gmail.com" style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(14px,2vw,24px);padding:clamp(18px,2.2vw,24px) 0;border-top:1px solid rgba(255,255,255,.14);color:#fff;transition:padding-left 300ms cubic-bezier(.2,.8,.2,1)" style-hover="color:#fff;padding-left:10px">
+            <span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;color:#94a3b8;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 7.5C3 6.4 3.9 5.5 5 5.5H19C20.1 5.5 21 6.4 21 7.5V16.5C21 17.6 20.1 18.5 19 18.5H5C3.9 18.5 3 17.6 3 16.5V7.5Z" stroke="currentColor" stroke-width="1.6"></path><path d="M4 7L12 13L20 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span>
+            <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8">E-mail</span>
+              <span style="font-size:clamp(16px,1.5vw,19px);font-weight:600;word-break:break-word">oshadiwattuhewa@gmail.com</span>
+            </span>
+            <span style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;color:#94a3b8;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          </a>
+          <a href="https://www.linkedin.com/in/oshadiwattuhewa/" target="_blank" rel="noopener noreferrer" style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(14px,2vw,24px);padding:clamp(18px,2.2vw,24px) 0;border-top:1px solid rgba(255,255,255,.14);color:#fff;transition:padding-left 300ms cubic-bezier(.2,.8,.2,1)" style-hover="color:#fff;padding-left:10px">
+            <span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;color:#94a3b8;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19ZM18.5 18.5V13.2C18.5 12.3354 18.1565 11.5062 17.5452 10.8948C16.9338 10.2835 16.1046 9.94 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17C14.6813 12.17 15.0374 12.3175 15.2999 12.5801C15.5625 12.8426 15.71 13.1987 15.71 13.57V18.5H18.5ZM6.88 8.56C7.32556 8.56 7.75288 8.383 8.06794 8.06794C8.383 7.75288 8.56 7.32556 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19C6.43178 5.19 6.00193 5.36805 5.68499 5.68499C5.36805 6.00193 5.19 6.43178 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56ZM8.27 18.5V10.13H5.5V18.5H8.27Z"></path></svg></span>
+            <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8">LinkedIn</span>
+              <span style="font-size:clamp(16px,1.5vw,19px);font-weight:600;word-break:break-word">in/oshadiwattuhewa</span>
+            </span>
+            <span style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;color:#94a3b8;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          </a>
+          <a href="uploads/OshadiWattuhewa-6f71caab.pdf" onClick="{{ downloadCv }}" download="Oshadi Wattuhewa - CV.pdf" style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(14px,2vw,24px);padding:clamp(18px,2.2vw,24px) 0;border-top:1px solid rgba(255,255,255,.14);color:#fff;transition:padding-left 300ms cubic-bezier(.2,.8,.2,1)" style-hover="color:#fff;padding-left:10px">
+            <span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;color:#94a3b8;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3V16M12 16L17 11M12 16L7 11M4 20H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+            <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8">Résumé</span>
+              <span style="font-size:clamp(16px,1.5vw,19px);font-weight:600;word-break:break-word">Download CV (PDF)</span>
+            </span>
+            <span style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;color:#94a3b8;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  </div>
+
+  <div style="display:{{ projDisplay }};flex-direction:column">
+    <div style="max-width:1440px;margin:0 auto;width:100%;padding:clamp(24px,3vw,40px) clamp(20px,7vw,120px) 0">
+      <nav aria-label="Breadcrumb" style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px;font-weight:600">
+        <button type="button" onClick="{{ close }}" style="border:0;background:none;padding:0;color:#6b7280;font-size:14px;font-weight:600;cursor:pointer;transition:color 180ms ease" style-hover="color:#111827">Home</button>
+        <span style="color:#d1d5db">/</span>
+        <button type="button" onClick="{{ close }}" style="border:0;background:none;padding:0;color:#6b7280;font-size:14px;font-weight:600;cursor:pointer;transition:color 180ms ease" style-hover="color:#111827">Case studies</button>
+        <span style="color:#d1d5db">/</span>
+        <button type="button" onClick="{{ backToProject }}" style="border:0;background:none;padding:0;color:{{ crumbProjColor }};font-size:14px;font-weight:600;cursor:pointer;transition:color 180ms ease" style-hover="color:#111827">{{ csTitle }}</button>
+        <sc-if value="{{ showCase }}" hint-placeholder-val="{{ false }}">
+          <span style="display:inline-flex;align-items:center;gap:10px"><span style="color:#d1d5db">/</span><span style="color:#0f172a">{{ crumbSection }}</span></span>
+        </sc-if>
+      </nav>
+    </div>
+    <div style="max-width:1440px;margin:0 auto;width:100%;padding:clamp(24px,3.5vw,52px) clamp(20px,7vw,120px) clamp(56px,7vw,96px)">
+        <sc-if value="{{ showCase }}" hint-placeholder-val="{{ false }}">
+          <div data-case-grid="1" style="display:grid;grid-template-columns:minmax(180px,220px) 1fr;gap:clamp(24px,4vw,56px);align-items:start;max-width:1100px;margin:0 auto">
+            <nav data-case-nav="1" style="position:sticky;top:0;display:flex;flex-direction:column;gap:14px">
+              <span data-case-navlabel="1" style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9ca3af">Case study</span>
+              <div data-case-navlist="1" style="position:relative;display:flex;flex-direction:column;gap:4px">
+                <div data-case-navrail="1" style="position:absolute;left:9px;top:22px;bottom:22px;width:2px;background:#e5e7eb;border-radius:2px">
+                  <div style="width:100%;background:#0f172a;border-radius:2px;transition:height 320ms cubic-bezier(.2,.8,.2,1);height:{{ navProgress }}"></div>
+                </div>
+                <button type="button" onClick="{{ go0 }}" style="position:relative;display:grid;grid-template-columns:20px 1fr;align-items:center;gap:12px;text-align:left;padding:6px 8px 6px 0;border:0;background:none;cursor:pointer;color:{{ navColor0 }}">
+                  <span style="display:flex;align-items:center;justify-content:center;width:20px;height:20px">
+                    <span style="border-radius:99px;background:{{ navDot0 }};box-shadow:0 0 0 2px {{ navRing0 }},0 0 0 5px #fff;transition:all 240ms ease;width:{{ navDotSize0 }};height:{{ navDotSize0 }}"></span>
+                  </span>
+                  <span style="display:flex;flex-direction:column;gap:1px;min-width:0">
+                    <span style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#9ca3af">01</span>
+                    <span style="font-size:14px;font-weight:600;line-height:1.3">Intro</span>
+                    <span style="font-size:11.5px;font-weight:500;line-height:1.35;color:#9ca3af">Project context &amp; my role</span>
+                  </span>
+                </button>
+                <button type="button" onClick="{{ go1 }}" style="position:relative;display:grid;grid-template-columns:20px 1fr;align-items:center;gap:12px;text-align:left;padding:6px 8px 6px 0;border:0;background:none;cursor:pointer;color:{{ navColor1 }}">
+                  <span style="display:flex;align-items:center;justify-content:center;width:20px;height:20px">
+                    <span style="border-radius:99px;background:{{ navDot1 }};box-shadow:0 0 0 2px {{ navRing1 }},0 0 0 5px #fff;transition:all 240ms ease;width:{{ navDotSize1 }};height:{{ navDotSize1 }}"></span>
+                  </span>
+                  <span style="display:flex;flex-direction:column;gap:1px;min-width:0">
+                    <span style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#9ca3af">02</span>
+                    <span style="font-size:14px;font-weight:600;line-height:1.3">Pain points &amp; goals</span>
+                    <span style="font-size:11.5px;font-weight:500;line-height:1.35;color:#9ca3af">What users struggled with</span>
+                  </span>
+                </button>
+                <button type="button" onClick="{{ go2 }}" style="position:relative;display:grid;grid-template-columns:20px 1fr;align-items:center;gap:12px;text-align:left;padding:6px 8px 6px 0;border:0;background:none;cursor:pointer;color:{{ navColor2 }}">
+                  <span style="display:flex;align-items:center;justify-content:center;width:20px;height:20px">
+                    <span style="border-radius:99px;background:{{ navDot2 }};box-shadow:0 0 0 2px {{ navRing2 }},0 0 0 5px #fff;transition:all 240ms ease;width:{{ navDotSize2 }};height:{{ navDotSize2 }}"></span>
+                  </span>
+                  <span style="display:flex;flex-direction:column;gap:1px;min-width:0">
+                    <span style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#9ca3af">03</span>
+                    <span style="font-size:14px;font-weight:600;line-height:1.3">Solution blueprint</span>
+                    <span style="font-size:11.5px;font-weight:500;line-height:1.35;color:#9ca3af">Structure &amp; key decisions</span>
+                  </span>
+                </button>
+                <button type="button" onClick="{{ go3 }}" style="position:relative;display:grid;grid-template-columns:20px 1fr;align-items:center;gap:12px;text-align:left;padding:6px 8px 6px 0;border:0;background:none;cursor:pointer;color:{{ navColor3 }}">
+                  <span style="display:flex;align-items:center;justify-content:center;width:20px;height:20px">
+                    <span style="border-radius:99px;background:{{ navDot3 }};box-shadow:0 0 0 2px {{ navRing3 }},0 0 0 5px #fff;transition:all 240ms ease;width:{{ navDotSize3 }};height:{{ navDotSize3 }}"></span>
+                  </span>
+                  <span style="display:flex;flex-direction:column;gap:1px;min-width:0">
+                    <span style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#9ca3af">04</span>
+                    <span style="font-size:14px;font-weight:600;line-height:1.3">Journey maps</span>
+                    <span style="font-size:11.5px;font-weight:500;line-height:1.35;color:#9ca3af">Six core scenarios, end to end</span>
+                  </span>
+                </button>
+                <button type="button" onClick="{{ go4 }}" style="position:relative;display:grid;grid-template-columns:20px 1fr;align-items:center;gap:12px;text-align:left;padding:6px 8px 6px 0;border:0;background:none;cursor:pointer;color:{{ navColor4 }}">
+                  <span style="display:flex;align-items:center;justify-content:center;width:20px;height:20px">
+                    <span style="border-radius:99px;background:{{ navDot4 }};box-shadow:0 0 0 2px {{ navRing4 }},0 0 0 5px #fff;transition:all 240ms ease;width:{{ navDotSize4 }};height:{{ navDotSize4 }}"></span>
+                  </span>
+                  <span style="display:flex;flex-direction:column;gap:1px;min-width:0">
+                    <span style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#9ca3af">05</span>
+                    <span style="font-size:14px;font-weight:600;line-height:1.3">Prototypes</span>
+                    <span style="font-size:11.5px;font-weight:500;line-height:1.35;color:#9ca3af">High-fidelity screens &amp; flows</span>
+                  </span>
+                </button>
+              </div>
+            </nav>
+            <div style="display:flex;flex-direction:column;gap:clamp(28px,3vw,40px);min-width:0">
+              <sc-if value="{{ p0 }}" hint-placeholder-val="{{ true }}">
+              <sc-if value="{{ showTravel }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:clamp(28px,4vw,44px);align-items:stretch;max-width:1040px;margin:0">
+                  <div style="border-radius:20px;overflow:hidden;background:#f3f4f6;aspect-ratio:16/10">
+                    <img loading="eager" decoding="async" src="uploads/t123-7a8d68f9.png" alt="Travel mate" style="width:100%;height:100%;object-fit:cover">
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:28px">
+                  <div style="display:flex;flex-direction:column;gap:14px">
+                    <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7280">Personal project · Mobile</span>
+                    <h3 style="font-size:clamp(26px,3vw,34px);font-weight:800;color:#0f172a;letter-spacing:-0.02em">Travel mate</h3>
+              <p style="font-size:clamp(15px,1.1vw,17px);line-height:1.5;color:#6b7280;font-weight:500;max-width:40ch;text-wrap:pretty">A human-centered approach to travel planning</p>
+                    <p style="font-size:17px;line-height:1.7;color:#374151;max-width:70ch;text-wrap:pretty">Planning a trip should be exciting — but for many travellers it quickly becomes overwhelming. Instead of looking forward to the journey, people find themselves switching between countless websites, social posts, blogs, review platforms, maps and booking apps just to answer simple questions:</p>
+              <ul style="display:flex;flex-direction:column;gap:10px;list-style:none;padding:0;margin:0">
+                <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:17px;line-height:1.6;color:#374151;text-wrap:pretty">What are the must-visit places?</span></li>
+                <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:17px;line-height:1.6;color:#374151;text-wrap:pretty">When is the best time to visit?</span></li>
+                <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:17px;line-height:1.6;color:#374151;text-wrap:pretty">Where do locals actually eat?</span></li>
+                <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:17px;line-height:1.6;color:#374151;text-wrap:pretty">Which transport option is the most convenient?</span></li>
+                <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:17px;line-height:1.6;color:#374151;text-wrap:pretty">What do real travellers recommend — and what should I avoid?</span></li>
+              </ul>
+              <p style="font-size:17px;line-height:1.7;color:#374151;max-width:70ch;text-wrap:pretty">While AI can generate itineraries in seconds, it often misses the context that makes travel memorable. It can't always capture authentic local experiences, changing seasonal conditions, hidden gems, or the lessons learned by people who have actually been there.</p>
+              <p style="font-size:19px;line-height:1.6;font-weight:400;color:#0f172a;max-width:70ch;text-wrap:pretty"><strong style="font-weight:800">TravelMate</strong> was born from this insight.</p>
+                  </div>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ showShots }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:clamp(28px,4vw,44px);align-items:stretch;max-width:1040px;margin:0">
+                  <div style="border-radius:20px;overflow:hidden;background:#f3f4f6;aspect-ratio:16/10">
+                    <img loading="eager" decoding="async" src="uploads/contractcore-cover.jpg" alt="Contract Management System" style="width:100%;height:100%;object-fit:cover">
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:28px">
+                  <div style="display:flex;flex-direction:column;gap:14px">
+                    <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7280">Interface explorations</span>
+                    <h3 style="font-size:clamp(26px,3vw,34px);font-weight:800;color:#0f172a;letter-spacing:-0.02em">Contract Management System</h3>
+                    <p style="font-size:17px;line-height:1.65;color:#374151;text-wrap:pretty">A selection of interface explorations across different applications and platforms.</p>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:18px;border-top:1px solid #e5e7eb;padding-top:22px">
+                    <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7280">Highlights</span>
+                    <ul style="display:flex;flex-direction:column;gap:14px;list-style:none;padding:0;margin:0">
+                      <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Studies across dashboards, mobile flows and marketing surfaces.</span></li>
+                      <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Focused on layout systems, type hierarchy and component reuse.</span></li>
+                      <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Used as a sandbox for testing patterns before they reach production work.</span></li>
+                    </ul>
+                  </div>
+                  </div>
+                </div>
+              </sc-if>
+              </sc-if>
+              <sc-if value="{{ p1 }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:26px">
+                  <div style="display:flex;flex-direction:column;gap:14px">
+                    <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7280">02 — Pain points &amp; goals</span>
+                    <h3 style="font-size:clamp(24px,2.6vw,32px);font-weight:800;color:#0f172a;letter-spacing:-0.02em">What Travelers Struggle With</h3>
+                    <p style="font-size:17px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">Understanding the real challenges travelers face throughout their journey — from discovering destinations and planning itineraries to managing budgets and making confident decisions.</p>
+                  </div>
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:28px">
+                    <div style="display:flex;flex-direction:column;gap:14px;border-top:2px solid #0f172a;padding-top:18px">
+                      <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7280">Pain points</span>
+                      <ul style="display:flex;flex-direction:column;gap:12px;list-style:none;padding:0;margin:0">
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Planning takes too long, with no clear starting point — what order to visit places in, the best route, how to build day plans.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Travel posts and photo locations end up saved across different social platforms with no single place to keep them.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">No confidence about where to gather useful, accurate information.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">After each trip it feels like more research would have made some stops better.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Transport options between places — and realistic time per visit — are stressful to work out.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Getting a feel for one place often means sitting through long videos. It's slow and boring.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Social media shows exaggerated images, so expectations and reality don't match.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Constantly hunting for budget-friendly travel options.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Searching Google and social media for affordable shopping — clothing, groceries, shoes.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Hard to track the expected budget as new items get added to the itinerary.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Transport apps differ country to country, so every trip starts with research on which to use.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Always having to ask friends or neighbours who travelled there before.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Limited awareness of available data and internet options.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Separate apps for accommodation, transport and things to do — syncing them is frustrating.</span></li>
+                      </ul>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:14px;border-top:2px solid #0f172a;padding-top:18px">
+                      <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7280">Goals</span>
+                      <ul style="display:flex;flex-direction:column;gap:12px;list-style:none;padding:0;margin:0">
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">One easy, time-saving platform to plan trips and explore the details.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">A friendly way to find things to do, good restaurants, shopping places and adventures.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Sensible route suggestions for each trip.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">One place to save all posts, blogs and videos.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">A shared space to connect with other travellers for trustworthy tips — and to build a travel community.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Reviews and content grounded in real user experience.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">An easy way to handle the total trip budget.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Surface the most budget-friendly options to travel.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Customised itineraries based on each user's needs and goals.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Travel bucket lists and saved inspirational posts.</span></li>
+                        <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span data-accent="bg" style="width:6px;height:6px;border-radius:99px;background:#4b6bab;margin-top:9px"></span><span style="font-size:16px;line-height:1.6;color:#374151;text-wrap:pretty">Post travel experiences and share them with the community.</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div onClick="{{ zoomCaseResearch }}" style="position:relative;width:100%;aspect-ratio:1/1.44;border:1px solid #e5e7eb;overflow:hidden;background:#f9fafb;cursor:zoom-in">
+                    <image-slot id="case-research" shape="rect" fit="contain" placeholder="Drop research synthesis / affinity map"></image-slot>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ p2 }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:26px">
+                  <div style="display:flex;flex-direction:column;gap:14px">
+                    <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7280">03 — Solution blueprint</span>
+                    <h3 style="font-size:clamp(24px,2.6vw,32px);font-weight:800;color:#0f172a;letter-spacing:-0.02em">The shape of the answer.</h3>
+                    <p style="font-size:17px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">Based on the challenges identified, I mapped out a solution framework focused on simplifying the travel planning journey. The blueprint defines the key experiences, features, and interactions needed to help travelers discover, organize, and plan their trips with more confidence and less effort.</p>
+                    <div style="display:flex;flex-direction:column;gap:24px;padding-top:8px">
+                      <h4 style="font-size:20px;font-weight:800;color:#0f172a;letter-spacing:-0.01em">Solution overview</h4>
+                      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:20px">
+                        <div style="display:flex;flex-direction:column;gap:14px;padding:24px;border:1px solid #e5e7eb;border-radius:16px;background:#fff">
+                          <div style="display:flex;align-items:center;gap:10px">
+                            <span style="font-size:12px;font-weight:800;color:#9ca3af">01</span>
+                            <h5 style="font-size:14px;font-weight:800;color:#0f172a;text-transform:uppercase;letter-spacing:.06em">User onboarding &amp; initial setup</h5>
+                          </div>
+                          <ul style="display:flex;flex-direction:column;gap:10px;padding-left:18px;margin:0">
+                            <li style="font-size:15px;line-height:1.6;color:#374151"><strong style="color:#0f172a">App download &amp; onboarding —</strong> the user downloads the app and enters an onboarding flow where they select interest topics (e.g., nature, food, culture).</li>
+                            <li style="font-size:15px;line-height:1.6;color:#374151"><strong style="color:#0f172a">Preference engine —</strong> user preferences are captured to power personalized recommendations across the community feed and trip suggestions.</li>
+                          </ul>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:14px;padding:24px;border:1px solid #e5e7eb;border-radius:16px;background:#fff">
+                          <div style="display:flex;align-items:center;gap:10px">
+                            <span style="font-size:12px;font-weight:800;color:#9ca3af">02</span>
+                            <h5 style="font-size:14px;font-weight:800;color:#0f172a;text-transform:uppercase;letter-spacing:.06em">Authentication</h5>
+                          </div>
+                          <ul style="display:flex;flex-direction:column;gap:10px;padding-left:18px;margin:0">
+                            <li style="font-size:15px;line-height:1.6;color:#374151">Users can proceed through standard authentication (Login / Signup) or bypass detailed entry via a streamlined flow (Skip Login / Signup).</li>
+                          </ul>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:14px;padding:24px;border:1px solid #e5e7eb;border-radius:16px;background:#fff">
+                          <div style="display:flex;align-items:center;gap:10px">
+                            <span style="font-size:12px;font-weight:800;color:#9ca3af">03</span>
+                            <h5 style="font-size:14px;font-weight:800;color:#0f172a;text-transform:uppercase;letter-spacing:.06em">Core features &amp; engagement</h5>
+                          </div>
+                          <ul style="display:flex;flex-direction:column;gap:10px;padding-left:18px;margin:0">
+                            <li style="font-size:15px;line-height:1.6;color:#374151"><strong style="color:#0f172a">Create new trips &amp; alarms —</strong> set up travel timelines, schedules, and custom reminders/alarms.</li>
+                            <li style="font-size:15px;line-height:1.6;color:#374151"><strong style="color:#0f172a">Search / plan trip —</strong> search destination details by country, city, or specific places.</li>
+                            <li style="font-size:15px;line-height:1.6;color:#374151"><strong style="color:#0f172a">Post travel content —</strong> share travel pictures, videos, or write blog posts.</li>
+                            <li style="font-size:15px;line-height:1.6;color:#374151"><strong style="color:#0f172a">Community interaction —</strong> connect with other travelers, follow user profiles, chat, and interact with community content.</li>
+                            <li style="font-size:15px;line-height:1.6;color:#374151"><strong style="color:#0f172a">Community feed —</strong> browse posts and travel experiences shared by other users.</li>
+                            <li style="font-size:15px;line-height:1.6;color:#374151"><strong style="color:#0f172a">AI travel agent —</strong> conversational AI capabilities to assist users in planning trips interactively.</li>
+                          </ul>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:14px;padding:24px;border:1px solid #e5e7eb;border-radius:16px;background:#fff">
+                          <div style="display:flex;align-items:center;gap:10px">
+                            <span style="font-size:12px;font-weight:800;color:#9ca3af">04</span>
+                            <h5 style="font-size:14px;font-weight:800;color:#0f172a;text-transform:uppercase;letter-spacing:.06em">Itinerary creation &amp; budgeting</h5>
+                          </div>
+                          <ul style="display:flex;flex-direction:column;gap:10px;padding-left:18px;margin:0">
+                            <li style="font-size:15px;line-height:1.6;color:#374151"><strong style="color:#0f172a">Save items —</strong> save places, activities, and ideas to a specific trip itinerary.</li>
+                            <li style="font-size:15px;line-height:1.6;color:#374151"><strong style="color:#0f172a">Smart recommendations —</strong> the system processes saved items to generate dynamic trip/itinerary suggestions.</li>
+                            <li style="font-size:15px;line-height:1.6;color:#374151"><strong style="color:#0f172a">Check suggested itinerary —</strong> users can review and refine system-recommended itineraries tailored to their saved preferences.</li>
+                            <li style="font-size:15px;line-height:1.6;color:#374151"><strong style="color:#0f172a">Set up budget —</strong> define and manage travel budgets directly within the planned trip.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div onClick="{{ zoomCaseBlueprint }}" style="position:relative;width:100%;aspect-ratio:2.1/1;border:1px solid #e5e7eb;overflow:hidden;background:#f9fafb;cursor:zoom-in">
+                    <image-slot id="case-blueprint" shape="rect" fit="contain" placeholder="Drop information architecture / flow diagram"></image-slot>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ p3 }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:26px">
+                  <div style="display:flex;flex-direction:column;gap:14px">
+                    <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7280">04 — Journey maps</span>
+                    <h3 style="font-size:clamp(24px,2.6vw,32px);font-weight:800;color:#0f172a;letter-spacing:-0.02em">Where the experience breaks and mends.</h3>
+                    <p style="font-size:17px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">Mapping the end-to-end trip surfaced the moments that carry the most anxiety — and the ones worth designing for first.</p>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:36px">
+                    <div style="display:flex;flex-direction:column;gap:16px;padding-top:28px;border-top:2px solid #0f172a">
+                      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:14px;font-weight:800;color:#9ca3af">01</span><h5 style="font-size:20px;font-weight:800;color:#0f172a;letter-spacing:-0.01em;margin:0">Sign in / Sign up</h5></div>
+                      <div onClick="{{ zoomJourneySignin }}" data-journey-shot="1" style="position:relative;width:100%;aspect-ratio:16/9;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;background:#f9fafb;cursor:zoom-in">
+                        <image-slot id="case-journey-signin" shape="rect" fit="contain" placeholder="Drop FigJam diagram"></image-slot>
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:16px;padding-top:28px;border-top:2px solid #0f172a">
+                      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:14px;font-weight:800;color:#9ca3af">02</span><h5 style="font-size:20px;font-weight:800;color:#0f172a;letter-spacing:-0.01em;margin:0">Plan a New Trip</h5></div>
+                      <div onClick="{{ zoomJourneyPlan }}" data-journey-shot="1" style="position:relative;width:100%;aspect-ratio:16/9;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;background:#f9fafb;cursor:zoom-in">
+                        <image-slot id="case-journey-plan" shape="rect" fit="contain" placeholder="Drop FigJam diagram"></image-slot>
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:16px;padding-top:28px;border-top:2px solid #0f172a">
+                      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:14px;font-weight:800;color:#9ca3af">03</span><h5 style="font-size:20px;font-weight:800;color:#0f172a;letter-spacing:-0.01em;margin:0">View My Trip</h5></div>
+                      <div onClick="{{ zoomJourneyViewTrip }}" data-journey-shot="1" style="position:relative;width:100%;aspect-ratio:16/9;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;background:#f9fafb;cursor:zoom-in">
+                        <image-slot id="case-journey-view-trip" shape="rect" fit="contain" placeholder="Drop FigJam diagram"></image-slot>
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:16px;padding-top:28px;border-top:2px solid #0f172a">
+                      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:14px;font-weight:800;color:#9ca3af">04</span><h5 style="font-size:20px;font-weight:800;color:#0f172a;letter-spacing:-0.01em;margin:0">Explore Feed</h5></div>
+                      <div onClick="{{ zoomJourneyExplore }}" data-journey-shot="1" style="position:relative;width:100%;aspect-ratio:16/9;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;background:#f9fafb;cursor:zoom-in">
+                        <image-slot id="case-journey-explore" shape="rect" fit="contain" placeholder="Drop FigJam diagram"></image-slot>
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:16px;padding-top:28px;border-top:2px solid #0f172a">
+                      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:14px;font-weight:800;color:#9ca3af">05</span><h5 style="font-size:20px;font-weight:800;color:#0f172a;letter-spacing:-0.01em;margin:0">My Profile</h5></div>
+                      <div onClick="{{ zoomJourneyProfile }}" data-journey-shot="1" style="position:relative;width:100%;aspect-ratio:16/9;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;background:#f9fafb;cursor:zoom-in">
+                        <image-slot id="case-journey-profile" shape="rect" fit="contain" placeholder="Drop FigJam diagram"></image-slot>
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:16px;padding-top:28px;border-top:2px solid #0f172a">
+                      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:14px;font-weight:800;color:#9ca3af">06</span><h5 style="font-size:20px;font-weight:800;color:#0f172a;letter-spacing:-0.01em;margin:0">Inbox</h5></div>
+                      <div onClick="{{ zoomJourneyInbox }}" data-journey-shot="1" style="position:relative;width:100%;aspect-ratio:16/9;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;background:#f9fafb;cursor:zoom-in">
+                        <image-slot id="case-journey-inbox" shape="rect" fit="contain" placeholder="Drop FigJam diagram"></image-slot>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ p4 }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:26px">
+                  <div style="display:flex;flex-direction:column;gap:14px">
+                    <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6b7280">05 — Prototypes</span>
+                    <h3 style="font-size:clamp(24px,2.6vw,32px);font-weight:800;color:#0f172a;letter-spacing:-0.02em">Tested, then tightened.</h3>
+                    <p style="font-size:17px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">High-fidelity flows built for testing — the version that shipped came out of two rounds of feedback on these screens.</p>
+                  </div>
+                  <div data-proto-grid="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px 20px">
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" fetchpriority="high" onClick="{{ zoomCaseProto1 }}" id="case-proto-1" src="uploads/SIGNUP.png" alt="Sign in" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">01 · Sign in</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto2 }}" id="case-proto-2" src="uploads/createaccount.png" alt="Create account" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">02 · Create account</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto3 }}" id="case-proto-3" src="uploads/preferance.png" alt="Onboarding — pick interests" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">03 · Onboarding — pick interests</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto4 }}" id="case-proto-4" src="uploads/3-b489cf83.png" alt="Explore feed" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">04 · Explore feed</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto5 }}" id="case-proto-5" src="uploads/maincities.png" alt="Main cities" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">05 · Main cities</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto6 }}" id="case-proto-6" src="uploads/thingstodo1.png" alt="Things to do — All" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">06 · Things to do — All</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto7 }}" id="case-proto-7" src="uploads/thingstodo2.png" alt="Things to do — Nature" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">07 · Things to do — Nature</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto8 }}" id="case-proto-8" src="uploads/thingstodo3.png" alt="Things to do — Culture" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">08 · Things to do — Culture</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto9 }}" id="case-proto-9" src="uploads/food.png" alt="Food" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">09 · Food</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto10 }}" id="case-proto-10" src="uploads/festivals.png" alt="Festivals" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">10 · Festivals</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto11 }}" id="case-proto-11" src="uploads/besttimetotravel.png" alt="Best time to travel" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">11 · Best time to travel</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto12 }}" id="case-proto-12" src="uploads/transport.png" alt="Transport" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">12 · Transport</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto13 }}" id="case-proto-13" src="uploads/TravelMate-selection-bd336d50.png" alt="Plan your next trip" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">13 · Plan your next trip</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto14 }}" id="case-proto-14" src="uploads/TravelMate-selection%20(1).png" alt="AI trip planner — start" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">14 · AI trip planner — start</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto15 }}" id="case-proto-15" src="uploads/ai%20planner.png" alt="AI trip planner — conversation" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">15 · AI trip planner — conversation</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto16 }}" id="case-proto-16" src="uploads/plan%20new%20trip.png" alt="New trip created" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">16 · New trip created</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto17 }}" id="case-proto-17" src="uploads/mytrip.png" alt="Trip overview" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">17 · Trip overview</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto18 }}" id="case-proto-18" src="uploads/planne%20dtrips.png" alt="My trips" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">18 · My trips</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto19 }}" id="case-proto-19" src="uploads/inbox.png" alt="Inbox" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">19 · Inbox</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto20 }}" id="case-proto-20" src="uploads/posts.png" alt="Profile — posts" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">20 · Profile — posts</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto21 }}" id="case-proto-21" src="uploads/blogs.png" alt="Profile — blogs" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">21 · Profile — blogs</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto22 }}" id="case-proto-22" src="uploads/Vlogs.png" alt="Profile — vlogs" style="width: 100%; display: block; border-radius: 22px; border: 1px solid #e5e7eb; cursor: zoom-in; box-shadow: 0px 0px 0px 0px rgba(15,23,42,.18); transition: transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease; border-width: 0px; border-color: #FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">22 · Profile — vlogs</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto23 }}" id="case-proto-23" src="uploads/settings.png" alt="Settings" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">23 · Settings</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto24 }}" id="case-proto-24" src="uploads/save%20to%20a%20trip-376402ad.png" alt="Save to a trip" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">24 · Save to a trip</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto25 }}" id="case-proto-25" src="uploads/itinerary1.png" alt="Plan your itinerary" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">25 · Plan your itinerary</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto26 }}" id="case-proto-26" src="uploads/itinerary2.png" alt="Day-by-day itinerary" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">26 · Day-by-day itinerary</figcaption>
+                    </figure>
+                    <figure style="margin:0;display:flex;flex-direction:column;gap:10px">
+                      <img loading="eager" decoding="async" onClick="{{ zoomCaseProto27 }}" id="case-proto-27" src="uploads/Screenshot%202026-08-17%20at%2020.11.17.png" alt="Map of the day — routing" style="width:100%;display:block;border-radius:22px;border:1px solid #e5e7eb;cursor:zoom-in;box-shadow:0px 0px 0px 0px rgba(15,23,42,.18);transition:transform 300ms cubic-bezier(.2,.8,.2,1),box-shadow 300ms ease;border-width:0px;border-color:#FFFFFF" style-hover="transform:translateY(-5px);box-shadow:0 22px 42px -18px rgba(15,23,42,.32)">
+                      <figcaption style="font-size:12.5px;font-weight:600;color:#6b7280;letter-spacing:.01em">27 · Map of the day — routing</figcaption>
+                    </figure>
+                  </div>
+                  
+                </div>
+              </sc-if>
+              <div data-case-foot="1" style="display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid #e5e7eb;padding-top:22px">
+                <button type="button" onClick="{{ csPrev }}" style="display:inline-flex;align-items:center;gap:10px;padding:13px 22px 13px 18px;border-radius:99px;border:1px solid #e5e7eb;background:#fff;color:#0f172a;font-size:15px;font-weight:700;cursor:pointer;transition:background 220ms ease;opacity:{{ prevOpacity }}" style-hover="background:#f3f4f6">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  <span>Back</span>
+                </button>
+                <span style="font-size:13px;font-weight:700;letter-spacing:.12em;color:#9ca3af">{{ pageLabel }}</span>
+                <button type="button" onClick="{{ csNext }}" style="display:inline-flex;align-items:center;gap:10px;padding:13px 18px 13px 22px;border-radius:99px;border:0;background:#0f172a;color:#fff;font-size:15px;font-weight:700;cursor:pointer;transition:transform 240ms cubic-bezier(.2,.8,.2,1);opacity:{{ nextOpacity }}" style-hover="transform:translateY(-2px)">
+                  <span>Next</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+    </div>
+  </div>
+
+  <div onClick="{{ closeLightbox }}" style="position: fixed; inset: 0; z-index: 1200; display: {{ lbDisplay }}; align-items: center; justify-content: center; padding: clamp(20px,4vw,56px); background: rgba(255,255,255,.97); backdrop-filter: blur(6px); cursor: zoom-out; width: 100%; height: 100%">
+    {{ lightboxImg }}
+    <button type="button" onClick="{{ lbPrev }}" aria-label="Previous image" style="position:absolute;left:clamp(12px,2vw,28px);top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:99px;border:1px solid rgba(15,23,42,.14);background:rgba(15,23,42,.04);color:#0f172a;cursor:pointer;transition:background 200ms ease" style-hover="background:rgba(15,23,42,.1)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </button>
+    <button type="button" onClick="{{ lbNext }}" aria-label="Next image" style="position:absolute;right:clamp(12px,2vw,28px);top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:99px;border:1px solid rgba(15,23,42,.14);background:rgba(15,23,42,.04);color:#0f172a;cursor:pointer;transition:background 200ms ease" style-hover="background:rgba(15,23,42,.1)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </button>
+    <button type="button" onClick="{{ closeLightbox }}" aria-label="Close" style="position:absolute;top:clamp(16px,2.5vw,32px);right:clamp(16px,2.5vw,32px);display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:99px;border:1px solid rgba(15,23,42,.14);background:rgba(15,23,42,.04);color:#0f172a;cursor:pointer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>
+    </button>
+    <span style="position:absolute;bottom:clamp(16px,2.5vw,32px);left:50%;transform:translateX(-50%);font-size:13px;font-weight:700;letter-spacing:.12em;color:rgba(15,23,42,.55)">{{ lbCount }}</span>
+  </div>
+
+  
+
+  <footer style="padding:36px 0 56px;border-top:1px solid #f1f5f9">
+    <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,7vw,120px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+      <p style="font-size:15px;color:#6b7280">oshadiwattuhewa@gmail.com</p>
+      <div style="display:flex;gap:24px">
+        <a href="https://dribbble.com/oshadiwattuhewa" target="_blank" rel="noopener noreferrer" style="font-size:15px;color:#6b7280;transition:color 200ms ease" style-hover="color:#111827">Dribbble</a>
+        <a href="https://www.behance.net/oshadiwatt428f" target="_blank" rel="noopener noreferrer" style="font-size:15px;color:#6b7280;transition:color 200ms ease" style-hover="color:#111827">Behance</a>
+        <a href="https://www.linkedin.com/in/oshadiwattuhewa/" target="_blank" rel="noopener noreferrer" style="font-size:15px;color:#6b7280;transition:color 200ms ease" style-hover="color:#111827">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+</main>
+
+
+  <sc-if value="{{ gateOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeGate }}" style="position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(15,23,42,.55);backdrop-filter:blur(6px)">
+      <div style="width:100%;max-width:440px;background:#fff;border:1px solid #e5e7eb;border-radius:22px;padding:34px;display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 80px -20px rgba(15,23,42,.45)">
+        <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#f1f5f9;font-size:20px">🔒</span>
+        <h3 style="font-size:22px;font-weight:800;color:#0f172a;letter-spacing:-0.02em">Permission required</h3>
+        <p style="font-size:15.5px;line-height:1.65;color:#4b5563;text-wrap:pretty">This case study covers confidential enterprise work, so it isn't publicly available. Request access and I'll share it with you directly.</p>
+        <div style="display:flex;gap:10px;margin-top:8px">
+          <button type="button" onClick="{{ requestAccess }}" style="flex:1;padding:13px 18px;border:0;border-radius:99px;background:#0f172a;color:#fff;font-size:14.5px;font-weight:700;cursor:pointer">Request access</button>
+          <button type="button" onClick="{{ closeGate }}" style="padding:13px 18px;border:1px solid #e5e7eb;border-radius:99px;background:#fff;color:#374151;font-size:14.5px;font-weight:600;cursor:pointer">Close</button>
+        </div>
+      </div>
+    </div>
+  </sc-if></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0f172a&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#4b6bab&quot;,&quot;#0f172a&quot;,&quot;#2f7d6b&quot;,&quot;#a4562f&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;rotateRoles&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;showMarquee&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  roles = ["Product Design", "User Experience", "Interaction Design", "Design Systems", "Design Thinking"];
+  roleIdx = 0;
+  barRef = React.createRef();
+  headerRef = React.createRef();
+  roleRef = React.createRef();
+  marqueeRef = React.createRef();
+
+  bindGallery(el) {
+    if (!el || this._galleryBound === el) return;
+    this._galleryBound = el;
+    el.addEventListener("click", e => {
+      const figure = e.target.closest ? e.target.closest("figure") : null;
+      const plain = figure ? figure.querySelector("img") : null;
+      const slot = e.target.closest ? e.target.closest("image-slot") : null;
+      const host = slot || (e.target.getRootNode && e.target.getRootNode().host);
+      const img = plain || (host && host.tagName === "IMAGE-SLOT" && host.shadowRoot && host.shadowRoot.querySelector(".frame img"));
+      const src = img && (img.currentSrc || img.src);
+      if (!src) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const list = this.gallerySrcs();
+      this.setState({ lbSrc: src, lbIndex: Math.max(0, list.indexOf(src)) });
+    }, true);
+    if (!this._escBound) {
+      this._escBound = true;
+      document.addEventListener("keydown", e => {
+        if (!this.state.lbSrc) return;
+        if (e.key === "Escape") this.setState({ lbSrc: null });
+        if (e.key === "ArrowRight") this.stepLightbox(1);
+        if (e.key === "ArrowLeft") this.stepLightbox(-1);
+      });
+    }
+  }
+
+  gallerySrcs() {
+    const el = this._galleryBound;
+    if (!el) return [];
+    const plain = Array.from(el.querySelectorAll("figure img")).map(i => i.currentSrc || i.src);
+    const slots = Array.from(el.querySelectorAll("image-slot")).map(h => {
+      const i = h.shadowRoot && h.shadowRoot.querySelector(".frame img");
+      return i && (i.currentSrc || i.src);
+    });
+    return plain.concat(slots).filter(Boolean);
+  }
+
+  stepLightbox(dir) {
+    const list = this.state.lbGroup === "case" ? (this._caseGroup || []) : this.gallerySrcs();
+    if (!list.length) return;
+    const cur = list.indexOf(this.state.lbSrc);
+    const next = ((cur < 0 ? 0 : cur) + dir + list.length) % list.length;
+    this.setState({ lbSrc: list[next], lbIndex: next });
+  }
+
+  async downloadCv(e) {
+    if (e) e.preventDefault();
+    const url = "uploads/OshadiWattuhewa-6f71caab.pdf";
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("fetch failed");
+      const blob = await res.blob();
+      const href = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = href;
+      a.download = "Oshadi Wattuhewa - CV.pdf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(href), 5000);
+    } catch (err) {
+      window.open(url, "_blank");
+    }
+  }
+
+  initImageLoaders() {
+    document.querySelectorAll("#gallery figure img").forEach(img => {
+      const wrap = img.parentElement;
+      if (!wrap || wrap.dataset.imgLoad) return;
+      const done = () => { wrap.dataset.imgLoad = "done"; };
+      if (img.complete && img.naturalWidth) { done(); return; }
+      wrap.dataset.imgLoad = "pending";
+      img.addEventListener("load", done, { once: true });
+      img.addEventListener("error", done, { once: true });
+    });
+  }
+
+  measureHeader() {
+    const h = this.headerRef.current;
+    if (!h) return;
+    document.documentElement.style.setProperty("--hdr-h", Math.round(h.getBoundingClientRect().height) + "px");
+  }
+
+  openCaseLightbox(id) {
+    const ids = ["case-research", "case-blueprint", "case-journey-signin", "case-journey-plan", "case-journey-view-trip", "case-journey-explore", "case-journey-profile", "case-journey-inbox", "case-proto-1", "case-proto-2", "case-proto-3", "case-proto-4", "case-proto-5", "case-proto-6", "case-proto-7", "case-proto-8", "case-proto-9", "case-proto-10", "case-proto-11", "case-proto-12", "case-proto-13", "case-proto-14", "case-proto-15", "case-proto-16", "case-proto-17", "case-proto-18", "case-proto-19", "case-proto-20", "case-proto-21", "case-proto-22", "case-proto-23", "case-proto-24", "case-proto-25", "case-proto-26", "case-proto-27"];
+    const getSrc = elId => {
+      const host = document.getElementById(elId);
+      if (!host) return null;
+      if (host.tagName === "IMG") return host.currentSrc || host.src;
+      const img = host.shadowRoot && host.shadowRoot.querySelector(".frame img");
+      return img && (img.currentSrc || img.src);
+    };
+    const list = ids.map(getSrc).filter(Boolean);
+    const src = getSrc(id);
+    if (!src) return;
+    this._caseGroup = list;
+    this.setState({ lbSrc: src, lbIndex: list.indexOf(src), lbGroup: "case" });
+  }
+
+  renderVals() {
+    const open = this.state.open || null;
+    const cs = true;
+    const p = this.state.csPage || 0;
+    const nav = { navProgress: (Math.max(0, Math.min(4, p)) / 4 * 100) + "%" };
+    for (let i = 0; i < 5; i++) {
+      nav["navBg" + i] = i === p ? "#0f172a" : "transparent";
+      nav["navColor" + i] = i === p ? "#0f172a" : "#4b5563";
+      nav["navDot" + i] = i === p ? "#0f172a" : i < p ? "#94a3b8" : "#ffffff";
+      nav["navRing" + i] = i === p ? "#0f172a" : "#cbd5e1";
+      nav["navDotSize" + i] = i === p ? "13px" : "9px";
+      nav["p" + i] = cs && p === i;
+    }
+    return {
+      showTravel: open === "travel",
+      showShots: open === "shots",
+      showCase: cs,
+      showOverview: !cs,
+      ...nav,
+      csTitle: open === "shots" ? "Contract Management System" : "Travel mate",
+      pageLabel: (p + 1) + " / 5",
+      prevOpacity: p === 0 ? 0.35 : 1,
+      nextOpacity: p === 4 ? 0.35 : 1,
+      backToProject: () => this.setState({ csPage: 0 }),
+      csPrev: () => this.setState(s => ({ csPage: Math.max(0, (s.csPage || 0) - 1) }), () => this.scrollCaseTop()),
+      csNext: () => this.setState(s => ({ csPage: Math.min(4, (s.csPage || 0) + 1) }), () => this.scrollCaseTop()),
+      go0: () => this.setState({ csPage: 0 }),
+      go1: () => this.setState({ csPage: 1 }),
+      go2: () => this.setState({ csPage: 2 }),
+      go3: () => this.setState({ csPage: 3 }),
+      go4: () => this.setState({ csPage: 4 }),
+      homeDisplay: open ? "none" : "flex",
+      projDisplay: open ? "flex" : "none",
+      crumbProjColor: p === 0 ? "#0f172a" : "#6b7280",
+      crumbSection: ["Intro", "Pain points & goals", "Solution blueprint", "Journey maps", "Prototypes"][p],
+      openTravel: e => { e.preventDefault(); this.openDrawer("travel"); },
+      openShots: e => { e.preventDefault(); this.setState({ gate: true }); },
+      gateOpen: !!this.state.gate,
+      closeGate: () => this.setState({ gate: false }),
+      requestAccess: () => { this.setState({ gate: false }); window.location.href = "mailto:oshadiwattuhewa@gmail.com?subject=Access%20request%20%E2%80%94%20Contract%20Management%20System%20case%20study"; },
+      close: () => this.closeDrawer(),
+      navWork: e => this.navTo(e, "work"),
+      navProjects: e => this.navTo(e, "projects"),
+      navSkills: e => this.navTo(e, "skills"),
+      navContact: e => this.navTo(e, "contact"),
+      downloadCv: e => this.downloadCv(e),
+      goHome: e => { e.preventDefault(); this.closeDrawer(); },
+      galleryRef: el => { this.gallery = el; },
+      galleryGridRef: el => { this.bindGallery(el); },
+      lbDisplay: this.state.lbSrc ? "flex" : "none",
+      lightboxImg: this.state.lbSrc ? React.createElement("img", { src: this.state.lbSrc, alt: "", style: { width: "100%", height: "100%", objectFit: "contain", borderRadius: 8 } }) : null,
+      closeLightbox: () => this.setState({ lbSrc: null, lbGroup: null }),
+      lbPrev: e => { e.stopPropagation(); this.stepLightbox(-1); },
+      lbNext: e => { e.stopPropagation(); this.stepLightbox(1); },
+      zoomCaseResearch: () => this.openCaseLightbox("case-research"),
+      zoomCaseBlueprint: () => this.openCaseLightbox("case-blueprint"),
+      zoomJourneySignin: () => this.openCaseLightbox("case-journey-signin"),
+      zoomJourneyPlan: () => this.openCaseLightbox("case-journey-plan"),
+      zoomJourneyViewTrip: () => this.openCaseLightbox("case-journey-view-trip"),
+      zoomJourneyExplore: () => this.openCaseLightbox("case-journey-explore"),
+      zoomJourneyProfile: () => this.openCaseLightbox("case-journey-profile"),
+      zoomJourneyInbox: () => this.openCaseLightbox("case-journey-inbox"),
+      zoomCaseProto1: () => this.openCaseLightbox("case-proto-1"),
+      zoomCaseProto2: () => this.openCaseLightbox("case-proto-2"),
+      zoomCaseProto3: () => this.openCaseLightbox("case-proto-3"),
+      zoomCaseProto4: () => this.openCaseLightbox("case-proto-4"),
+      zoomCaseProto5: () => this.openCaseLightbox("case-proto-5"),
+      zoomCaseProto6: () => this.openCaseLightbox("case-proto-6"),
+      zoomCaseProto7: () => this.openCaseLightbox("case-proto-7"),
+      zoomCaseProto8: () => this.openCaseLightbox("case-proto-8"),
+      zoomCaseProto9: () => this.openCaseLightbox("case-proto-9"),
+      zoomCaseProto10: () => this.openCaseLightbox("case-proto-10"),
+      zoomCaseProto11: () => this.openCaseLightbox("case-proto-11"),
+      zoomCaseProto12: () => this.openCaseLightbox("case-proto-12"),
+      zoomCaseProto13: () => this.openCaseLightbox("case-proto-13"),
+      zoomCaseProto14: () => this.openCaseLightbox("case-proto-14"),
+      zoomCaseProto15: () => this.openCaseLightbox("case-proto-15"),
+      zoomCaseProto16: () => this.openCaseLightbox("case-proto-16"),
+      zoomCaseProto17: () => this.openCaseLightbox("case-proto-17"),
+      zoomCaseProto18: () => this.openCaseLightbox("case-proto-18"),
+      zoomCaseProto19: () => this.openCaseLightbox("case-proto-19"),
+      zoomCaseProto20: () => this.openCaseLightbox("case-proto-20"),
+      zoomCaseProto21: () => this.openCaseLightbox("case-proto-21"),
+      zoomCaseProto22: () => this.openCaseLightbox("case-proto-22"),
+      zoomCaseProto23: () => this.openCaseLightbox("case-proto-23"),
+      zoomCaseProto24: () => this.openCaseLightbox("case-proto-24"),
+      zoomCaseProto25: () => this.openCaseLightbox("case-proto-25"),
+      zoomCaseProto26: () => this.openCaseLightbox("case-proto-26"),
+      zoomCaseProto27: () => this.openCaseLightbox("case-proto-27"),
+      lbCount: this.state.lbSrc ? ((this.state.lbIndex || 0) + 1) + " / " + (this.state.lbGroup === "case" ? (this._caseGroup || []).length : this.gallerySrcs().length) : "",
+      galleryPrev: () => this.scrollGallery(-1),
+      galleryNext: () => this.scrollGallery(1),
+      role: this.roles[0],
+      marquee: this.props.showMarquee !== false,
+      barRef: this.barRef,
+      headerRef: this.headerRef,
+      roleRef: this.roleRef,
+      marqueeRef: this.marqueeRef
+    };
+  }
+
+  scrollGallery(dir) {
+    const el = this.gallery;
+    if (!el) return;
+    const card = el.querySelector("figure");
+    const step = card ? card.getBoundingClientRect().width + 24 : el.clientWidth * 0.8;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  }
+
+  scrollCaseTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  openDrawer(key) {
+    this.setState({ open: key, cs: false, csPage: 0 });
+    window.scrollTo({ top: 0 });
+    if (!this.escBound) {
+      this.escBound = e => { if (e.key === "Escape") this.closeDrawer(); };
+      window.addEventListener("keydown", this.escBound);
+    }
+  }
+
+  closeDrawer() {
+    this.setState({ open: null, cs: false });
+    window.scrollTo({ top: 0 });
+  }
+
+  navTo(e, id) {
+    e.preventDefault();
+    const go = () => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    if (this.state.open) {
+      this.setState({ open: null, cs: false });
+      requestAnimationFrame(() => requestAnimationFrame(go));
+    } else {
+      go();
+    }
+  }
+
+  componentDidMount() {
+    this.measureHeader();
+    setTimeout(() => this.initImageLoaders(), 0);
+    this._hdrRO = window.ResizeObserver ? new ResizeObserver(() => this.measureHeader()) : null;
+    if (this._hdrRO && this.headerRef.current) this._hdrRO.observe(this.headerRef.current);
+    window.addEventListener("resize", this._onHdrResize = () => this.measureHeader());
+    this.seen = new WeakSet();
+    this.motion = this.props.motion !== false
+      && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (this.motion) {
+      this.io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const d = parseInt(e.target.dataset.revealDelay || "0", 10);
+          setTimeout(() => { e.target.style.opacity = 1; e.target.style.transform = "none"; }, d);
+          this.io.unobserve(e.target);
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+      this.cio = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          this.cio.unobserve(e.target);
+          this.countUp(e.target);
+        });
+      }, { threshold: 0.5 });
+    }
+
+    // The streamed template may not be attached yet: keep wiring new nodes as they appear.
+    this.scan();
+    this.scanTimer = setInterval(() => this.scan(), 600);
+    this.scanStop = setTimeout(() => clearInterval(this.scanTimer), 4000);
+    // Only a true failure fallback: if nothing ever got observed, show everything.
+    this.safety = setTimeout(() => {
+      if (this.io && this.wired > 0) return;
+      document.querySelectorAll("[data-reveal]").forEach(el => {
+        el.style.opacity = 1; el.style.transform = "none";
+      });
+    }, 5000);
+
+    {
+      if (this.motion && this.props.rotateRoles !== false) {
+        this.timer = setInterval(() => {
+          const r = this.roleRef.current;
+          if (!r) return;
+          r.style.opacity = 0;
+          r.style.transform = "translateY(-6px)";
+          setTimeout(() => {
+            this.roleIdx = (this.roleIdx + 1) % this.roles.length;
+            r.textContent = this.roles[this.roleIdx];
+            r.style.opacity = 1;
+            r.style.transform = "none";
+          }, 240);
+        }, 2400);
+      }
+    }
+
+    this.onScroll = () => {
+      const d = document.documentElement;
+      const max = (d.scrollHeight - d.clientHeight) || 1;
+      const y = window.scrollY || d.scrollTop || 0;
+      if (this.barRef.current) this.barRef.current.style.width = Math.min(100, (y / max) * 100) + "%";
+      const h = this.headerRef.current;
+      if (h) h.style.boxShadow = y > 8 ? "0 6px 24px rgba(15,23,42,.08)" : "none";
+    };
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+    this.onScroll();
+  }
+
+  scan() {
+    this._scans = (this._scans || 0) + 1;
+    if (this._scans > 8) { clearInterval(this.scanTimer); return; }
+    this.applyAccent();
+    const reveals = document.querySelectorAll("[data-reveal]");
+    if (reveals.length && reveals.length === this._lastCount) {
+      this._stable = (this._stable || 0) + 1;
+      if (this._stable >= 2) clearInterval(this.scanTimer);
+    } else {
+      this._stable = 0;
+    }
+    this._lastCount = reveals.length;
+    reveals.forEach(el => {
+      if (this.seen.has(el)) return;
+      this.seen.add(el);
+      this.wired = (this.wired || 0) + 1;
+      if (this.motion) this.io.observe(el);
+      else { el.style.opacity = 1; el.style.transform = "none"; }
+    });
+    document.querySelectorAll("[data-count]").forEach(el => {
+      if (this.seen.has(el)) return;
+      this.seen.add(el);
+      if (this.motion) this.cio.observe(el);
+      else el.textContent = el.dataset.count + (el.textContent.indexOf("+") > -1 ? "+" : "");
+    });
+    if (this.motion) {
+      document.querySelectorAll("[data-tilt]").forEach(el => {
+        if (el.dataset.tiltBound) return;
+        el.dataset.tiltBound = "1";
+        this.bindTilt(el);
+      });
+    }
+  }
+
+  applyAccent() {
+    const c = this.props.accent || "#4b6bab";
+    if (c === this._appliedAccent) return;
+    this._appliedAccent = c;
+    document.querySelectorAll('[data-accent="bg"]').forEach(el => { el.style.background = c; });
+    document.querySelectorAll('[data-accent="color"]').forEach(el => { el.style.color = c; });
+    document.querySelectorAll('[data-accent="border"]').forEach(el => { el.style.borderColor = c; });
+  }
+
+  countUp(el) {
+    const target = parseInt(el.dataset.count, 10);
+    const plus = el.textContent.indexOf("+") > -1 ? "+" : "";
+    const start = performance.now();
+    const dur = 1100;
+    const step = now => {
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * eased) + plus;
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  bindTilt(card) {
+    this.tiltCleanups = this.tiltCleanups || [];
+    let raf = 0, lastX = 0, lastY = 0;
+    const move = e => {
+      lastX = e.clientX; lastY = e.clientY;
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const r = card.getBoundingClientRect();
+        if (!r.width || !r.height) return;
+        const px = (lastX - r.left) / r.width - 0.5;
+        const py = (lastY - r.top) / r.height - 0.5;
+        card.style.transform = "perspective(900px) rotateY(" + (px * 5).toFixed(2) + "deg) rotateX(" + (-py * 5).toFixed(2) + "deg) translateY(-6px)";
+      });
+    };
+    const leave = () => { if (raf) { cancelAnimationFrame(raf); raf = 0; } card.style.transform = "none"; };
+    card.addEventListener("mousemove", move);
+    card.addEventListener("mouseleave", leave);
+    this.tiltCleanups.push(() => {
+      card.removeEventListener("mousemove", move);
+      card.removeEventListener("mouseleave", leave);
+    });
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+    clearInterval(this.scanTimer);
+    clearTimeout(this.scanStop);
+    clearTimeout(this.safety);
+    if (this.io) this.io.disconnect();
+    if (this.cio) this.cio.disconnect();
+    window.removeEventListener("scroll", this.onScroll);
+    (this.tiltCleanups || []).forEach(fn => fn());
+  }
+}
+
+</script>
+</body>
+</html>
