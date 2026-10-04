@@ -86,6 +86,7 @@ p{margin:0}
 [data-gallery-item]:hover [data-hover-tag]{opacity:1;transform:translateY(0)}
 </style>
 <script src="./image-slot.js"></script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0b0f19"></rect><text x="50" y="62" text-anchor="middle" font-family="Georgia,serif" font-size="34" fill="#ffffff">OW</text></svg></template>
 </helmet>
 
 <div style="position:fixed;top:0;left:0;right:0;height:2px;z-index:1200;background:transparent">
@@ -112,7 +113,7 @@ p{margin:0}
       <a href="https://www.linkedin.com/in/oshadiwattuhewa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;background:#f9fafb;border-radius:8px;color:#111827;transition:transform 220ms cubic-bezier(.2,.8,.2,1),background 200ms ease" style-hover="background:#eef2ff;transform:translateY(-3px) rotate(-6deg)">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19ZM18.5 18.5V13.2C18.5 12.3354 18.1565 11.5062 17.5452 10.8948C16.9338 10.2835 16.1046 9.94 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17C14.6813 12.17 15.0374 12.3175 15.2999 12.5801C15.5625 12.8426 15.71 13.1987 15.71 13.57V18.5H18.5ZM6.88 8.56C7.32556 8.56 7.75288 8.383 8.06794 8.06794C8.383 7.75288 8.56 7.32556 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19C6.43178 5.19 6.00193 5.36805 5.68499 5.68499C5.36805 6.00193 5.19 6.43178 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56ZM8.27 18.5V10.13H5.5V18.5H8.27Z" fill="currentColor"></path></svg>
       </a>
-      <a href="uploads/OshadiWattuhewa-204d686d.pdf" onClick="{{ downloadCv }}" download="Oshadi Wattuhewa - CV.pdf" style="display:flex;align-items:center;gap:6px;padding:9px 14px;font-size:14px;font-weight:600;color:#111827;background:#fff;border:1px solid #d1d5db;border-radius:8px;transition:transform 200ms cubic-bezier(.2,.8,.2,1),box-shadow 200ms ease,background 200ms ease" style-hover="transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,23,42,.12);background:#f9fafb">
+      <a href="uploads/OshadiWattuhewa-UX-Designer-b9ab3224.docx" onClick="{{ downloadCv }}" download="Oshadi Wattuhewa - CV.docx" style="display:flex;align-items:center;gap:6px;padding:9px 14px;font-size:14px;font-weight:600;color:#111827;background:#fff;border:1px solid #d1d5db;border-radius:8px;transition:transform 200ms cubic-bezier(.2,.8,.2,1),box-shadow 200ms ease,background 200ms ease" style-hover="transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,23,42,.12);background:#f9fafb">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.16667V9.91667M7 9.91667L10.5 6.41667M7 9.91667L3.5 6.41667M1.16667 12.8333H12.8333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         Download CV
       </a>
@@ -227,7 +228,218 @@ p{margin:0}
   </sc-if>
 
 
-  <section id="work" style="position:relative;scroll-margin-top:96px;padding:24px 0 clamp(72px,9vw,120px)">
+  <section id="gallery" style="scroll-margin-top:96px;padding:clamp(72px,9vw,120px) 0;background:#0b0f19">
+    <div style="max-width:1440px;margin:0 auto;width:100%;padding:0 clamp(20px,7vw,120px);display:flex;flex-direction:column;gap:clamp(32px,4vw,48px)">
+      <div data-reveal="1" style="display:flex;flex-direction:column;gap:20px;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+        <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#cbd5e1">Sneak peek</span>
+        <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:800;color:#f8fafc;line-height:1.1;letter-spacing:-0.02em;max-width:22ch;text-wrap:pretty">A glimpse of the work</h2>
+        <p style="font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:#94a3b8;max-width:46ch;text-wrap:pretty">A quick glimpse of the products, interfaces, and systems — a collection of screens and experiences across different projects.</p>
+      </div>
+    </div>
+    <div ref="{{ galleryGridRef }}" data-reveal="1" style="display:flex;flex-direction:column;gap:clamp(14px,1.6vw,22px);width:100%;margin-top:clamp(32px,4vw,48px);opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+      <div style="overflow:hidden;width:100%">
+        <div style="display:flex;gap:clamp(14px,1.6vw,22px);width:max-content;padding-right:clamp(14px,1.6vw,22px);animation:omMarquee 70s linear infinite reverse" style-hover="animation-play-state:paused">
+        <figure style="flex:0 0 auto;width:clamp(380px,46vw,640px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/22.png" alt="Design shot 1" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">01</span>
+            </div>
+          </div>
+        </figure>
+        <figure style="flex:0 0 auto;width:clamp(220px,22vw,320px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/222.jpg" alt="Design shot 2" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">02</span>
+            </div>
+          </div>
+        </figure>
+        <figure style="flex:0 0 auto;width:clamp(300px,32vw,460px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/24.png" alt="Design shot 3" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">03</span>
+            </div>
+          </div>
+        </figure>
+        <figure style="flex:0 0 auto;width:clamp(220px,22vw,320px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/26.png" alt="Design shot 4" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">04</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-clone="1" aria-hidden="true" style="flex:0 0 auto;width:clamp(380px,46vw,640px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/22.png" alt="Design shot 1" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">01</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-clone="1" aria-hidden="true" style="flex:0 0 auto;width:clamp(220px,22vw,320px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/222.jpg" alt="Design shot 2" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">02</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-clone="1" aria-hidden="true" style="flex:0 0 auto;width:clamp(300px,32vw,460px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/24.png" alt="Design shot 3" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">03</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-clone="1" aria-hidden="true" style="flex:0 0 auto;width:clamp(220px,22vw,320px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/26.png" alt="Design shot 4" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">04</span>
+            </div>
+          </div>
+        </figure>
+        </div>
+      </div>
+      <div style="overflow:hidden;width:100%">
+        <div style="display:flex;gap:clamp(14px,1.6vw,22px);width:max-content;padding-right:clamp(14px,1.6vw,22px);animation:omMarquee 64s linear infinite" style-hover="animation-play-state:paused">
+        <figure style="flex:0 0 auto;width:clamp(220px,22vw,320px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/5.jpg" alt="Design shot 5" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">05</span>
+            </div>
+          </div>
+        </figure>
+        <figure style="flex:0 0 auto;width:clamp(380px,46vw,640px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/2223.jpg" alt="Design shot 6" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">06</span>
+            </div>
+          </div>
+        </figure>
+        <figure style="flex:0 0 auto;width:clamp(220px,22vw,320px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/t123.png" alt="Design shot 7" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position: absolute; inset: 0; background: url(&quot;./t123-mski76c3-vacp.png&quot;) center / cover no-repeat; opacity: 0; transition: opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">07</span>
+            </div>
+          </div>
+        </figure>
+        <figure style="flex:0 0 auto;width:clamp(300px,32vw,460px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/shot-6.jpg" alt="Design shot 8" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position: absolute; inset: 0; background: url(&quot;./shot-6-msqbrbik-kxjg.jpg&quot;) center / cover no-repeat; opacity: 0; transition: opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">08</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-clone="1" aria-hidden="true" style="flex:0 0 auto;width:clamp(220px,22vw,320px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/5.jpg" alt="Design shot 5" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">05</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-clone="1" aria-hidden="true" style="flex:0 0 auto;width:clamp(380px,46vw,640px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/2223.jpg" alt="Design shot 6" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">06</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-clone="1" aria-hidden="true" style="flex:0 0 auto;width:clamp(220px,22vw,320px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/t123.png" alt="Design shot 7" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position: absolute; inset: 0; background: url(&quot;./t123-mski76c3-vacp.png&quot;) center / cover no-repeat; opacity: 0; transition: opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">07</span>
+            </div>
+          </div>
+        </figure>
+        <figure data-clone="1" aria-hidden="true" style="flex:0 0 auto;width:clamp(300px,32vw,460px);height:clamp(220px,26vw,400px);margin:0">
+          <div style="position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:#1e293b;box-shadow:0 1px 2px rgba(0,0,0,.3);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(0,0,0,.5);transform:translateY(-4px)" data-gallery-item="1">
+            <img loading="eager" decoding="async" src="uploads/shot-6.jpg" alt="Design shot 8" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
+            <div style="position: absolute; inset: 0; background: url(&quot;./shot-6-msqbrbik-kxjg.jpg&quot;) center / cover no-repeat; opacity: 0; transition: opacity 320ms ease" data-hover-overlay="1"></div>
+            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
+              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </span>
+              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">08</span>
+            </div>
+          </div>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="work" style="position:relative;scroll-margin-top:96px;padding:clamp(72px,9vw,120px) 0">
     <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(15,23,42,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,.05) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 70% 20%,#000 0%,transparent 70%);mask-image:radial-gradient(ellipse at 70% 20%,#000 0%,transparent 70%);pointer-events:none;z-index:0;animation:omGridDrift 14s linear infinite,omGridGlow 9s ease-in-out infinite"></div>
     <div style="position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:0 clamp(20px,7vw,120px);display:flex;flex-direction:column;gap:48px">
       <div data-reveal="1" style="display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(24px,4vw,64px);flex-wrap:wrap;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
@@ -256,14 +468,40 @@ p{margin:0}
                   <h4 style="font-size:clamp(21px,1.9vw,26px);font-weight:800;color:#0f172a;letter-spacing:-0.02em;text-wrap:pretty">Nightingale</h4>
                   <span style="display:inline-flex;align-items:center;padding:7px 15px;border-radius:99px;background:linear-gradient(135deg,#eef2ff,#f1f5f9);font-size:13px;font-weight:700;color:#3d5a94;white-space:nowrap">Elder Care &amp; Wellbeing Technology</span>
                 </div>
-                <p style="font-size:16px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">An intelligent, cross-platform IoT solution that tracks an elder’s “Pattern of Life” and environmental data to provide real-time safety alerts for families and caregivers.</p>
+                <p style="font-size:16px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">An intelligent, cross-platform IoT solution tracking an elder’s “Pattern of Life” and environmental data to deliver real-time safety alerts for families and caregivers.</p>
                 <ul style="display:flex;flex-direction:column;gap:10px;list-style:none;padding:14px 0 0;margin:4px 0 0;border-top:1px solid #f1f5f9">
-                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Facilitated discovery sessions with cross-functional stakeholders to define product strategy, establishing the UX architecture from scratch through custom personas, journey maps and comprehensive prototypes.</span></li>
-                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Crafted “Pattern of Life” dashboards with a proactive notification engine, synthesising complex behavioural and environmental data into real-time alerts in a senior-friendly, accessible UI.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty"><strong style="font-weight:700;color:#374151">0 to 1 UX leadership &amp; strategy</strong> — Built the entire product experience from scratch, leading discovery workshops with cross-functional stakeholders to define the core strategy, information architecture, personas, and interactive prototypes.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty"><strong style="font-weight:700;color:#374151">Complex data simplification</strong> — Architected intuitive “Pattern of Life” dashboards and proactive notification engines, transforming complex behavioural and IoT environmental data into real-time, highly accessible safety alerts for senior users and caregivers.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty"><strong style="font-weight:700;color:#374151">Scalable cross-platform foundation</strong> — Designed a flexible mobile and web design architecture from the ground up, ensuring seamless real-time monitoring and rapid onboarding across diverse user age groups.</span></li>
                 </ul>
               </div>
           </div>
         </div>
+        <div data-reveal="1" data-reveal-delay="90" data-exp-row="1" style="display:grid;grid-template-columns:auto minmax(200px,0.85fr) minmax(0,2fr);gap:clamp(20px,3vw,40px);opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:0;padding-top:6px">
+            <span data-accent="bg" style="width:13px;height:13px;border-radius:99px;background:#4b6bab;box-shadow:0 0 0 4px #fff,0 0 0 5px #e5e7eb;flex-shrink:0"></span>
+            <span style="flex:1;width:1px;background:linear-gradient(#e5e7eb,#f1f5f9);margin-top:8px"></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;padding-bottom:clamp(44px,5vw,64px);position:sticky;top:104px;align-self:start;min-width:0">
+              <span style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0f172a;font-variant-numeric:tabular-nums">2025 Sep — Present</span>
+              <h3 style="font-size:clamp(21px,2vw,25px);font-weight:800;color:#0f172a;letter-spacing:-0.015em;text-wrap:pretty">Head of UX</h3>
+                <span style="font-size:16px;font-weight:600;color:#4b5563">Axio Technologies (Startup core member)</span>
+                <span style="font-size:13px;color:#6b7280">Melbourne, Victoria, Australia · Remote</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:clamp(18px,2vw,26px);padding-bottom:clamp(44px,5vw,64px);min-width:0">
+              <div style="display:flex;flex-direction:column;gap:16px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:clamp(26px,2.4vw,34px);box-shadow:0 1px 3px rgba(15,23,42,.03);transition:box-shadow 320ms ease,transform 320ms cubic-bezier(.2,.8,.2,1),border-color 320ms ease" style-hover="box-shadow:0 20px 48px rgba(15,23,42,.1);transform:translateY(-4px);border-color:#dbe3ef">
+                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px">
+                  <h4 style="font-size:clamp(21px,1.9vw,26px);font-weight:800;color:#0f172a;letter-spacing:-0.02em;text-wrap:pretty">iCoach — Footy Performance</h4>
+                  <span style="display:inline-flex;align-items:center;padding:7px 15px;border-radius:99px;background:linear-gradient(135deg,#eef2ff,#f1f5f9);font-size:13px;font-weight:700;color:#3d5a94;white-space:nowrap">Sports Tech &amp; Performance Analytics</span>
+                </div>
+                <p style="font-size:16px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">An AI-powered sports technology platform leveraging Computer Vision to transform raw match data and video tracking into actionable tactical insights for coaches.</p>
+                <ul style="display:flex;flex-direction:column;gap:10px;list-style:none;padding:14px 0 0;margin:4px 0 0;border-top:1px solid #f1f5f9">
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty"><strong style="font-weight:700;color:#374151">0 to 1 product design</strong> — Architected the specialised sports analytics platform from the ground up, translating raw Computer Vision tracking data and automated video analysis into high-fidelity visual dashboards.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty"><strong style="font-weight:700;color:#374151">Strategic stakeholder alignment</strong> — Facilitated targeted UX workshops and collaborated directly with clients and key stakeholders to align user needs, business goals, and advanced technical capabilities.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <div data-reveal="1" data-reveal-delay="90" data-exp-row="1" style="display:grid;grid-template-columns:auto minmax(200px,0.85fr) minmax(0,2fr);gap:clamp(20px,3vw,40px);opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
           <div style="display:flex;flex-direction:column;align-items:center;gap:0;padding-top:6px">
             <span data-accent="bg" style="width:13px;height:13px;border-radius:99px;background:#4b6bab;box-shadow:0 0 0 4px #fff,0 0 0 5px #e5e7eb;flex-shrink:0"></span>
@@ -281,34 +519,11 @@ p{margin:0}
                   <h4 style="font-size:clamp(21px,1.9vw,26px);font-weight:800;color:#0f172a;letter-spacing:-0.02em;text-wrap:pretty">Austal Australia</h4>
                   <span style="display:inline-flex;align-items:center;padding:7px 15px;border-radius:99px;background:linear-gradient(135deg,#eef2ff,#f1f5f9);font-size:13px;font-weight:700;color:#3d5a94;white-space:nowrap">Maritime &amp; Shipbuilding</span>
                 </div>
-                <p style="font-size:16px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">An enterprise platform supporting shipbuilding, vessel lifecycle management and maritime operations.</p>
+                <p style="font-size:16px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">An enterprise platform supporting shipbuilding, vessel lifecycle management, and complex maritime operations.</p>
                 <ul style="display:flex;flex-direction:column;gap:10px;list-style:none;padding:14px 0 0;margin:4px 0 0;border-top:1px solid #f1f5f9">
-                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Led UX strategy for a complex enterprise shipbuilding platform, translating heavy operational requirements into intuitive contract, asset and lifecycle management workflows.</span></li>
-                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Designed scalable, accessible interfaces and high-fidelity prototypes that simplified dense data for maritime personnel.</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        <div data-reveal="1" data-reveal-delay="90" data-exp-row="1" style="display:grid;grid-template-columns:auto minmax(200px,0.85fr) minmax(0,2fr);gap:clamp(20px,3vw,40px);opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
-          <div style="display:flex;flex-direction:column;align-items:center;gap:0;padding-top:6px">
-            <span data-accent="bg" style="width:13px;height:13px;border-radius:99px;background:#4b6bab;box-shadow:0 0 0 4px #fff,0 0 0 5px #e5e7eb;flex-shrink:0"></span>
-            <span style="flex:1;width:1px;background:linear-gradient(#e5e7eb,#f1f5f9);margin-top:8px"></span>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:8px;padding-bottom:clamp(44px,5vw,64px);position:sticky;top:104px;align-self:start;min-width:0">
-              <span style="font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0f172a;font-variant-numeric:tabular-nums">2025 Sep — Present</span>
-              <h3 style="font-size:clamp(21px,2vw,25px);font-weight:800;color:#0f172a;letter-spacing:-0.015em;text-wrap:pretty">Head of UX</h3>
-                <span style="font-size:16px;font-weight:600;color:#4b5563">Axio Technologies (Startup)</span>
-                <span style="font-size:13px;color:#6b7280">Melbourne, Victoria, Australia · Remote</span>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:clamp(18px,2vw,26px);padding-bottom:clamp(44px,5vw,64px);min-width:0">
-              <div style="display:flex;flex-direction:column;gap:16px;background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:clamp(26px,2.4vw,34px);box-shadow:0 1px 3px rgba(15,23,42,.03);transition:box-shadow 320ms ease,transform 320ms cubic-bezier(.2,.8,.2,1),border-color 320ms ease" style-hover="box-shadow:0 20px 48px rgba(15,23,42,.1);transform:translateY(-4px);border-color:#dbe3ef">
-                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px">
-                  <h4 style="font-size:clamp(21px,1.9vw,26px);font-weight:800;color:#0f172a;letter-spacing:-0.02em;text-wrap:pretty">iCoach — Footy Performance</h4>
-                  <span style="display:inline-flex;align-items:center;padding:7px 15px;border-radius:99px;background:linear-gradient(135deg,#eef2ff,#f1f5f9);font-size:13px;font-weight:700;color:#3d5a94;white-space:nowrap">Sports Tech &amp; Performance Analytics</span>
-                </div>
-                <p style="font-size:16px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">An AI-powered platform using Computer Vision to transform raw match data and video tracking into actionable tactical insights for coaches.</p>
-                <ul style="display:flex;flex-direction:column;gap:10px;list-style:none;padding:14px 0 0;margin:4px 0 0;border-top:1px solid #f1f5f9">
-                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Designed a specialised sports technology platform that translates computer vision tracking data and automated video analysis into intuitive, high-fidelity visual dashboards for Australian footy coaches.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty"><strong style="font-weight:700;color:#374151">Legacy UX audit &amp; strategy</strong> — Led the end-to-end UX revamp of a complex enterprise shipbuilding platform, auditing existing pain points and translating heavy operational requirements into streamlined workflows.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty"><strong style="font-weight:700;color:#374151">Industry-standard elevation</strong> — Revamped system interfaces and visual hierarchies from the ground up, aligning legacy workflows with modern accessibility and enterprise product design standards.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty"><strong style="font-weight:700;color:#374151">Complex data simplification</strong> — Created high-fidelity prototypes that simplified intricate contract, asset, and vessel lifecycle data for maritime personnel and technical teams.</span></li>
                 </ul>
               </div>
             </div>
@@ -331,12 +546,11 @@ p{margin:0}
                   <h4 style="font-size:clamp(21px,1.9vw,26px);font-weight:800;color:#0f172a;letter-spacing:-0.02em;text-wrap:pretty">BUS AS — Vehicle Inspection &amp; Valuation Platform</h4>
                   <span style="display:inline-flex;align-items:center;padding:7px 15px;border-radius:99px;background:linear-gradient(135deg,#eef2ff,#f1f5f9);font-size:13px;font-weight:700;color:#3d5a94;white-space:nowrap">Automotive</span>
                 </div>
-                <p style="font-size:16px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">A B2B web and mobile platform optimising end-to-end vehicle inspection, condition reporting and trade-in valuations across the Scandinavian automotive market.</p>
+                <p style="font-size:16px;line-height:1.7;color:#374151;max-width:64ch;text-wrap:pretty">A comprehensive B2B SaaS web and mobile platform optimising end-to-end vehicle inspection, condition reporting, and trade-in valuations across the Scandinavian automotive market.</p>
                 <ul style="display:flex;flex-direction:column;gap:10px;list-style:none;padding:14px 0 0;margin:4px 0 0;border-top:1px solid #f1f5f9">
-                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Collaborated directly with Norwegian and Swedish Product Owners to align international business goals, facilitating strategic UX workshops to unpack complex requirements.</span></li>
-                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Owned the complete end-to-end UX lifecycle — research, wireframing, high-fidelity prototyping and usability testing — to streamline inspection and valuation workflows.</span></li>
-                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Established and scaled a robust cross-platform design system and component library from scratch.</span></li>
-                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty">Worked tightly with engineering to navigate technical constraints, ensuring deliverables matched the user-centered vision and accessibility standards.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty"><strong style="font-weight:700;color:#374151">Solo UX leadership &amp; cross-functional execution</strong> — Managed all design operations as the sole UX lead, collaborating directly with Scandinavian Product Owners and engineering teams to align international business goals with accessible production releases.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty"><strong style="font-weight:700;color:#374151">End-to-end UX ownership</strong> — Led the complete user experience lifecycle from initial discovery and wireframing through high-fidelity prototyping and usability testing to streamline complex valuation workflows.</span></li>
+                  <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start"><span style="width:5px;height:5px;border-radius:99px;background:#cbd5e1;margin-top:8px"></span><span style="font-size:14px;line-height:1.65;color:#6b7280;text-wrap:pretty"><strong style="font-weight:700;color:#374151">Design system architecture</strong> — Built and scaled a robust cross-platform design system and component library from scratch, accelerating design handoffs and ensuring brand consistency.</span></li>
                 </ul>
               </div>
             </div>
@@ -382,182 +596,85 @@ p{margin:0}
     </div>
   </section>
 
-  <section id="gallery" style="scroll-margin-top:96px;padding:clamp(72px,9vw,120px) 0;border-top:1px solid #f1f5f9;background-image:radial-gradient(#e2e8f0 1.5px,transparent 1.5px);background-size:28px 28px">
-    <div style="max-width:1440px;margin:0 auto;width:100%;padding:0 clamp(20px,7vw,120px);display:flex;flex-direction:column;gap:clamp(32px,4vw,48px)">
-      <div data-reveal="1" style="display:flex;flex-direction:column;gap:20px;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
-        <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0f172a">Design shots</span>
-        <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:800;color:#030712;line-height:1.1;letter-spacing:-0.02em;max-width:22ch;text-wrap:pretty">A closer look at the craft.</h2>
-        <p style="font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:#4b5563;max-width:46ch;text-wrap:pretty">A visual record of the work — full screens, systems in use, and the details that only show up close.</p>
-      </div>
-      <div ref="{{ galleryGridRef }}" style="display:grid;grid-template-columns:repeat(2,1fr);width:100%;gap:clamp(24px,2.6vw,36px) clamp(18px,2vw,28px)">
-        <figure data-reveal="1" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
-          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
-            <img loading="eager" decoding="async" src="uploads/22.png" alt="Design shot 1" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
-            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
-            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
-              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              </span>
-              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">01</span>
-            </div>
-          </div>
-        </figure>
-        <figure data-reveal="1" data-reveal-delay="70" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
-          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
-            <img loading="eager" decoding="async" src="uploads/222.jpg" alt="Design shot 2" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
-            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
-            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
-              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              </span>
-              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">02</span>
-            </div>
-          </div>
-        </figure>
-        <figure data-reveal="1" data-reveal-delay="140" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
-          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
-            <img loading="eager" decoding="async" src="uploads/24.png" alt="Design shot 3" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
-            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
-            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
-              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              </span>
-              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">03</span>
-            </div>
-          </div>
-        </figure>
-        <figure data-reveal="1" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
-          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
-            <img loading="eager" decoding="async" src="uploads/26.png" alt="Design shot 4" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
-            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
-            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
-              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              </span>
-              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">04</span>
-            </div>
-          </div>
-        </figure>
-        <figure data-reveal="1" data-reveal-delay="70" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
-          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
-            <img loading="eager" decoding="async" src="uploads/5.jpg" alt="Design shot 5" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
-            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
-            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
-              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              </span>
-              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">05</span>
-            </div>
-          </div>
-        </figure>
-        <figure data-reveal="1" data-reveal-delay="140" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
-          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
-            <img loading="eager" decoding="async" src="uploads/2223.jpg" alt="Design shot 6" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
-            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0) 55%,rgba(15,23,42,.55) 100%);opacity:0;transition:opacity 320ms ease" data-hover-overlay="1"></div>
-            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
-              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              </span>
-              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">06</span>
-            </div>
-          </div>
-        </figure>
-        <figure data-reveal="1" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
-          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
-            <img loading="eager" decoding="async" src="uploads/t123.png" alt="Design shot 7" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
-            <div style="position: absolute; inset: 0; background: url(&quot;./t123-mski76c3-vacp.png&quot;) center / cover no-repeat; opacity: 0; transition: opacity 320ms ease" data-hover-overlay="1"></div>
-            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
-              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              </span>
-              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">07</span>
-            </div>
-          </div>
-        </figure>
-        <figure data-reveal="1" data-reveal-delay="70" style="display:flex;flex-direction:column;gap:14px;margin:0;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
-          <div style="position:relative;width:100%;aspect-ratio:3/2;border-radius:20px;overflow:hidden;background:#f3f4f6;box-shadow:0 1px 2px rgba(15,23,42,.06);cursor:zoom-in;transition:box-shadow 380ms ease,transform 380ms cubic-bezier(.2,.8,.2,1)" style-hover="box-shadow:0 24px 56px rgba(15,23,42,.18);transform:translateY(-6px) scale(1.015)" data-gallery-item="1">
-            <img loading="eager" decoding="async" src="uploads/shot-6.jpg" alt="Design shot 8" style="width:100%;height:100%;object-fit:cover;transition:transform 500ms cubic-bezier(.2,.8,.2,1)" data-hover-img="1">
-            <div style="position: absolute; inset: 0; background: url(&quot;./shot-6-msqbrbik-kxjg.jpg&quot;) center / cover no-repeat; opacity: 0; transition: opacity 320ms ease" data-hover-overlay="1"></div>
-            <div style="position:absolute;left:18px;bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(8px);transition:opacity 320ms ease,transform 320ms ease" data-hover-tag="1">
-              <span style="width:34px;height:34px;border-radius:99px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              </span>
-              <span style="font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em">08</span>
-            </div>
-          </div>
-        </figure>
-        
-      </div>
-    </div>
-  </section>
 
 
-  <section id="skills" style="position:relative;scroll-margin-top:96px;padding:clamp(72px,9vw,120px) 0">
-    <div style="position:absolute;inset:0;background:radial-gradient(80% 60% at 15% 0%,#eef2ff 0%,rgba(238,242,255,0) 65%),radial-gradient(70% 55% at 95% 90%,#f1f5f9 0%,rgba(241,245,249,0) 70%);pointer-events:none;z-index:0"></div>
+  <section id="skills" style="position:relative;scroll-margin-top:96px;padding:clamp(72px,9vw,120px) 0;background:#0b0f19">
+    <div style="position:absolute;inset:0;background:radial-gradient(80% 60% at 15% 0%,rgba(75,107,171,.18) 0%,rgba(75,107,171,0) 65%),radial-gradient(70% 55% at 95% 90%,rgba(148,163,184,.08) 0%,rgba(148,163,184,0) 70%);pointer-events:none;z-index:0"></div>
     <div style="position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:0 clamp(20px,7vw,120px);display:flex;flex-direction:column;gap:clamp(48px,6vw,88px)">
       <div data-reveal="1" data-reveal-delay="0" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;gap:20px">
-        <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0f172a">Skills</span>
-        <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:800;color:#030712;line-height:1.1;letter-spacing:-0.02em;max-width:22ch;text-wrap:pretty">What I bring to the table</h2>
-        <p style="font-size:16px;line-height:1.65;color:#4b5563;max-width:56ch;text-wrap:pretty">I turn complex problems into clear, scalable product experiences, combining research, systems thinking, rapid prototyping, and AI to move from insight to impact faster.</p>
+        <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#cbd5e1">Skills</span>
+        <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:800;color:#f8fafc;line-height:1.1;letter-spacing:-0.02em;max-width:22ch;text-wrap:pretty">What I bring to the table</h2>
+        <p style="font-size:16px;line-height:1.65;color:#94a3b8;max-width:56ch;text-wrap:pretty">I turn complex problems into clear, scalable product experiences, combining research, systems thinking, rapid prototyping, and AI to move from insight to impact faster.</p>
       </div>
 
       <div style="display:flex;flex-direction:column">
-        <div data-reveal="1" data-reveal-delay="0" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #e5e7eb">
-          <h4 style="font-size:17px;font-weight:800;color:#0f172a;letter-spacing:-0.01em"><span style="color:#9ca3af;font-weight:700;margin-right:10px">01</span>Design &amp; Prototyping</h4>
+        <div data-reveal="1" data-reveal-delay="0" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #1e293b">
+          <h4 style="font-size:17px;font-weight:800;color:#f1f5f9;letter-spacing:-0.01em"><span style="color:#64748b;font-weight:700;margin-right:10px">01</span>Design &amp; Prototyping</h4>
           <div style="display:flex;flex-wrap:wrap;gap:10px 28px">
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Figma</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Claude Design</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Rapid Prototyping</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Figma</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Claude Design</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Rapid Prototyping</span>
           </div>
         </div>
-        <div data-reveal="1" data-reveal-delay="60" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #e5e7eb">
-          <h4 style="font-size:17px;font-weight:800;color:#0f172a;letter-spacing:-0.01em"><span style="color:#9ca3af;font-weight:700;margin-right:10px">02</span>AI &amp; Design Automation</h4>
+        <div data-reveal="1" data-reveal-delay="60" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #1e293b">
+          <h4 style="font-size:17px;font-weight:800;color:#f1f5f9;letter-spacing:-0.01em"><span style="color:#64748b;font-weight:700;margin-right:10px">02</span>AI &amp; Design Automation</h4>
           <div style="display:flex;flex-wrap:wrap;gap:10px 28px">
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Claude (Design System)</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Generative AI Assets</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">AI-assisted Research</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Claude (Design System)</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Generative AI Assets</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">AI-assisted Research</span>
           </div>
         </div>
-        <div data-reveal="1" data-reveal-delay="120" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #e5e7eb">
-          <h4 style="font-size:17px;font-weight:800;color:#0f172a;letter-spacing:-0.01em"><span style="color:#9ca3af;font-weight:700;margin-right:10px">03</span>Collaboration &amp; Strategy</h4>
+<div data-reveal="1" data-reveal-delay="90" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #1e293b">
+          <h4 style="font-size:17px;font-weight:800;color:#f1f5f9;letter-spacing:-0.01em"><span style="color:#64748b;font-weight:700;margin-right:10px">03</span>Product &amp; UX Leadership</h4>
           <div style="display:flex;flex-wrap:wrap;gap:10px 28px">
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Miro</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">FigJam</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Strategic UX Workshops</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Design Handoff</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">UX Strategy</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Product Direction</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Design Leadership</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Stakeholder Alignment</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Mentoring</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Team Collaboration</span>
           </div>
         </div>
-        <div data-reveal="1" data-reveal-delay="180" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #e5e7eb">
-          <h4 style="font-size:17px;font-weight:800;color:#0f172a;letter-spacing:-0.01em"><span style="color:#9ca3af;font-weight:700;margin-right:10px">04</span>UX Research</h4>
+        <div data-reveal="1" data-reveal-delay="120" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #1e293b">
+          <h4 style="font-size:17px;font-weight:800;color:#f1f5f9;letter-spacing:-0.01em"><span style="color:#64748b;font-weight:700;margin-right:10px">04</span>Collaboration &amp; Strategy</h4>
           <div style="display:flex;flex-wrap:wrap;gap:10px 28px">
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">User Research</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Usability Testing</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Heuristic Evaluation</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Journey Mapping</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Persona Development</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">UX Workshops</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Miro</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">FigJam</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Strategic UX Workshops</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Design Handoff</span>
           </div>
         </div>
-        <div data-reveal="1" data-reveal-delay="240" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb">
-          <h4 style="font-size:17px;font-weight:800;color:#0f172a;letter-spacing:-0.01em"><span style="color:#9ca3af;font-weight:700;margin-right:10px">05</span>Core Methodologies</h4>
+        <div data-reveal="1" data-reveal-delay="180" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #1e293b">
+          <h4 style="font-size:17px;font-weight:800;color:#f1f5f9;letter-spacing:-0.01em"><span style="color:#64748b;font-weight:700;margin-right:10px">05</span>UX Research</h4>
           <div style="display:flex;flex-wrap:wrap;gap:10px 28px">
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Cross-Platform Architecture</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Mobile-First Design</span>
-            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #d9dde4;border-radius:99px;font-size:15px;color:#1f2937;background:#fff;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(15,23,42,.28);border-color:#0f172a;color:#0f172a">Responsive Web Design</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">User Research</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Usability Testing</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Heuristic Evaluation</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Journey Mapping</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Persona Development</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">UX Workshops</span>
+          </div>
+        </div>
+        <div data-reveal="1" data-reveal-delay="240" data-skill-row="1" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:clamp(20px,3vw,48px);align-items:baseline;padding:26px 0;border-top:1px solid #1e293b;border-bottom:1px solid #1e293b">
+          <h4 style="font-size:17px;font-weight:800;color:#f1f5f9;letter-spacing:-0.01em"><span style="color:#64748b;font-weight:700;margin-right:10px">06</span>Core Methodologies</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:10px 28px">
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Cross-Platform Architecture</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Mobile-First Design</span>
+            <span style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #334155;border-radius:99px;font-size:15px;color:#e2e8f0;background:#111827;cursor:default;transition:transform 260ms cubic-bezier(.2,.8,.2,1),box-shadow 260ms ease,border-color 260ms ease,color 260ms ease" style-hover="transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(0,0,0,.6);border-color:#f8fafc;color:#fff">Responsive Web Design</span>
           </div>
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:clamp(32px,4vw,72px);padding-top:clamp(24px,4vw,48px);border-top:1px solid #e5e7eb">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:clamp(32px,4vw,72px);padding-top:clamp(24px,4vw,48px);border-top:1px solid #1e293b">
         <div data-reveal="1" data-reveal-delay="0" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;gap:12px">
-          <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0f172a">Education</span>
-          <h4 style="font-size:clamp(22px,2.6vw,30px);font-weight:800;color:#0f172a;letter-spacing:-0.015em">BSc. Computer Science</h4>
-          <p style="font-size:16px;color:#4b5563">University of Colombo School of Computing — 2016</p>
+          <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#cbd5e1">Education</span>
+          <h4 style="font-size:clamp(22px,2.6vw,30px);font-weight:800;color:#f8fafc;letter-spacing:-0.015em">BSc. Computer Science</h4>
+          <p style="font-size:16px;color:#94a3b8">University of Colombo School of Computing — 2016</p>
         </div>
         <div data-reveal="1" data-reveal-delay="90" style="opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;gap:12px">
-          <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0f172a">Languages &amp; Interests</span>
-          <p style="font-size:17px;color:#1f2937">English · Sinhala</p>
-          <p style="font-size:17px;color:#1f2937">Nature &amp; Travel · Photography</p>
+          <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#cbd5e1">Languages &amp; Interests</span>
+          <p style="font-size:17px;color:#e2e8f0">English · Sinhala</p>
+          <p style="font-size:17px;color:#e2e8f0">Nature &amp; Travel · Photography</p>
         </div>
       </div>
     </div>
@@ -569,23 +686,83 @@ p{margin:0}
         <div style="display:flex;flex-direction:column;gap:20px">
           <span style="font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0f172a">Testimonials</span>
           <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:800;color:#030712;line-height:1.1;letter-spacing:-0.02em;max-width:22ch;text-wrap:pretty">What it’s like to work together.</h2>
+          <p style="font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:#4b5563;max-width:46ch;text-wrap:pretty">From product owners and engineering partners on enterprise platforms.</p>
         </div>
-        <p style="font-size:16px;color:#4b5563;max-width:44ch;text-wrap:pretty"></p>
+        <div style="display:flex;align-items:center;gap:16px">
+          <div style="display:flex;align-items:center">
+          <button type="button" onClick="{{ tGo0 }}" aria-label="Read Anthony Soriano’s testimonial" title="Anthony Soriano" style="width:56px;height:56px;padding:0;margin-left:0;border-radius:99px;border:3px solid #f9fafb;background:#e5e7eb;overflow:hidden;cursor:pointer;position:relative;z-index:4;transition:transform 220ms cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-4px);z-index:10"><img src="uploads/1788994373284.png" alt="Anthony Soriano" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(1) contrast(1.05)"></button>
+          <button type="button" onClick="{{ tGo1 }}" aria-label="Read Christie Odendaal’s testimonial" title="Christie Odendaal" style="width:56px;height:56px;padding:0;margin-left:-16px;border-radius:99px;border:3px solid #f9fafb;background:#e5e7eb;overflow:hidden;cursor:pointer;position:relative;z-index:3;transition:transform 220ms cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-4px);z-index:10"><img src="uploads/1782373069338.png" alt="Christie Odendaal" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 25%;filter:grayscale(1) contrast(1.05)"></button>
+          <button type="button" onClick="{{ tGo2 }}" aria-label="Read Nuwan Senaratne’s testimonial" title="Nuwan Senaratne" style="width:56px;height:56px;padding:0;margin-left:-16px;border-radius:99px;border:3px solid #f9fafb;background:#e5e7eb;overflow:hidden;cursor:pointer;position:relative;z-index:2;transition:transform 220ms cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-4px);z-index:10"><img src="uploads/IMG_4985.JPG" alt="Nuwan Senaratne" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(1) contrast(1.05)"></button>
+          <button type="button" onClick="{{ tGo3 }}" aria-label="Read Dr Harindu Korala’s testimonial" title="Dr Harindu Korala" style="width:56px;height:56px;padding:0;margin-left:-16px;border-radius:99px;border:3px solid #f9fafb;background:#e5e7eb;overflow:hidden;cursor:pointer;position:relative;z-index:1;transition:transform 220ms cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-4px);z-index:10"><img src="uploads/WhatsApp Image 2026-08-19 at 10.12.40.jpeg" alt="Dr Harindu Korala" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:grayscale(1) contrast(1.05)"></button>
+          <button type="button" onClick="{{ tGo4 }}" aria-label="Read Dilushika Weerawardhana’s testimonial" title="Dilushika Weerawardhana" style="width:56px;height:56px;padding:0;margin-left:-16px;border-radius:99px;border:3px solid #f9fafb;background:#e5e7eb;overflow:hidden;cursor:pointer;position:relative;z-index:0;transition:transform 220ms cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-4px);z-index:10"><img src="uploads/1562838736826.jpeg" alt="Dilushika Weerawardhana" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;object-position:50% 25%;filter:grayscale(1) contrast(1.05)"></button>
+          </div>
+          <span style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-size:15px;font-weight:700;color:#0f172a">5 recommendations</span>
+            <span style="font-size:13px;color:#6b7280">Founders, PMs &amp; engineers</span>
+          </span>
+        </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));align-items:start;gap:clamp(20px,2.4vw,32px)">
-        <figure data-reveal="1" data-reveal-delay="80" style="display:flex;flex-direction:column;gap:22px;margin:0;background:#fff;border:1px solid #e5e7eb;border-radius:24px;padding:clamp(28px,2.6vw,38px);box-shadow:0 1px 3px rgba(15,23,42,.03);opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1),box-shadow 320ms ease" style-hover="box-shadow:0 20px 48px rgba(15,23,42,.1)">
+      <div data-reveal="1" data-reveal-delay="80" style="display:flex;flex-direction:column;gap:24px;width:100%;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+        <div style="display:flex;align-items:center;gap:clamp(14px,2vw,24px)">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr);flex:1;min-width:0">
+        <sc-if value="{{ t0 }}" hint-placeholder-val="{{ true }}">
+        <figure style="order:{{ t0o }};display:flex;flex-direction:column;gap:22px;margin:0;background:#fff;border:1px solid #e5e7eb;border-radius:24px;padding:clamp(28px,3.2vw,48px);box-shadow:0 1px 3px rgba(15,23,42,.03);animation:omFadeIn 420ms ease both">
+          <figcaption style="display:flex;align-items:center;gap:14px;padding-bottom:22px;border-bottom:1px solid #f1f5f9">
+            <img src="uploads/1788994373284.png" alt="Anthony Soriano" loading="lazy" decoding="async" style="width:48px;height:48px;border-radius:99px;object-fit:cover;object-position:50% 30%;flex:0 0 auto;box-shadow:0 0 0 1px #e5e7eb;filter:grayscale(1) contrast(1.05)">
+            <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+              <span style="font-size:15px;font-weight:700;color:#0f172a">Anthony Soriano</span>
+              <span style="font-size:14px;color:#6b7280">Founding Director — iCoach Software — Australia</span>
+            </span>
+            <a href="https://www.linkedin.com/in/anthony-soriano-2b2218a7/" target="_blank" rel="noopener noreferrer" aria-label="Anthony Soriano on LinkedIn" style="margin-left:auto;display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex:0 0 auto;border-radius:10px;background:#f9fafb;border:1px solid #e5e7eb;color:#0f172a;transition:background 200ms ease,color 200ms ease,transform 200ms ease" style-hover="background:#0a66c2;border-color:#0a66c2;color:#fff;transform:translateY(-2px)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19ZM18.5 18.5V13.2C18.5 12.3354 18.1565 11.5062 17.5452 10.8948C16.9338 10.2835 16.1046 9.94 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17C14.6813 12.17 15.0374 12.3175 15.2999 12.5801C15.5625 12.8426 15.71 13.1987 15.71 13.57V18.5H18.5ZM6.88 8.56C7.32556 8.56 7.75288 8.383 8.06794 8.06794C8.383 7.75288 8.56 7.32556 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19C6.43178 5.19 6.00193 5.36805 5.68499 5.68499C5.36805 6.00193 5.19 6.43178 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56ZM8.27 18.5V10.13H5.5V18.5H8.27Z" fill="currentColor"></path></svg></a>
+          </figcaption>
           <span data-accent="color" style="font-size:44px;line-height:1;font-weight:800;color:#4b6bab">“</span>
-          <blockquote style="margin:0;font-size:17px;line-height:1.7;color:#1f2937;text-wrap:pretty">I had the opportunity to work with Oshadi on the BUS project, where she worked as the UI/UX designer. She was very supportive and easy to work with, and was always approachable whenever the development team needed clarification or support. Her strong UI/UX expertise was particularly valuable in helping the developers understand and implement the intended user experience. She also worked directly with customers to understand their requirements and create prototypes, which helped bridge the gap between customer expectations and the development team. I really appreciated her collaborative approach, responsiveness, and willingness to support the team throughout the project.</blockquote>
-          <figcaption style="display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid #f1f5f9">
+          <blockquote style="display:flex;flex-direction:column;gap:16px;margin:0;font-size:17px;line-height:1.7;color:#1f2937;text-wrap:pretty">
+            <span>Had the pleasure of working with Oshadi on the UX design for iCoach, particularly across the front-end experience for some of our AFL work.</span>
+            <span>Oshadi was fantastic to work with. She quickly understood what we were trying to achieve and translated complex sports data and product ideas into a clean, intuitive and user-friendly design experience. Her ability to think through the user journey, simplify the interface and bring structure to the front-end was extremely valuable.</span>
+            <span>She was collaborative, responsive and easy to work with, and always brought a thoughtful design lens to the project. I really appreciated her attention to detail, creativity and ability to balance visual design with usability.</span>
+            <span>I’d highly recommend Oshadi to any team looking for a talented UX designer who can bring ideas to life in a practical and polished way.</span>
+          </blockquote>
+        </figure>
+        </sc-if>
+        <sc-if value="{{ t1 }}" hint-placeholder-val="{{ false }}">
+        <figure style="order:{{ t1o }};display:flex;flex-direction:column;gap:22px;margin:0;background:#fff;border:1px solid #e5e7eb;border-radius:24px;padding:clamp(28px,3.2vw,48px);box-shadow:0 1px 3px rgba(15,23,42,.03);animation:omFadeIn 420ms ease both">
+          <figcaption style="display:flex;align-items:center;gap:14px;padding-bottom:22px;border-bottom:1px solid #f1f5f9">
+            <img src="uploads/1782373069338.png" alt="Christie Odendaal" loading="lazy" decoding="async" style="width:48px;height:48px;border-radius:99px;object-fit:cover;object-position:50% 25%;flex:0 0 auto;box-shadow:0 0 0 1px #e5e7eb;filter:grayscale(1) contrast(1.05)">
+            <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+              <span style="font-size:15px;font-weight:700;color:#0f172a">Christie Odendaal</span>
+              <span style="font-size:14px;color:#6b7280">Product Manager — Nightingale — Australia</span>
+            </span>
+            <a href="https://www.linkedin.com/in/christieodendaal/" target="_blank" rel="noopener noreferrer" aria-label="Christie Odendaal on LinkedIn" style="margin-left:auto;display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex:0 0 auto;border-radius:10px;background:#f9fafb;border:1px solid #e5e7eb;color:#0f172a;transition:background 200ms ease,color 200ms ease,transform 200ms ease" style-hover="background:#0a66c2;border-color:#0a66c2;color:#fff;transform:translateY(-2px)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19ZM18.5 18.5V13.2C18.5 12.3354 18.1565 11.5062 17.5452 10.8948C16.9338 10.2835 16.1046 9.94 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17C14.6813 12.17 15.0374 12.3175 15.2999 12.5801C15.5625 12.8426 15.71 13.1987 15.71 13.57V18.5H18.5ZM6.88 8.56C7.32556 8.56 7.75288 8.383 8.06794 8.06794C8.383 7.75288 8.56 7.32556 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19C6.43178 5.19 6.00193 5.36805 5.68499 5.68499C5.36805 6.00193 5.19 6.43178 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56ZM8.27 18.5V10.13H5.5V18.5H8.27Z" fill="currentColor"></path></svg></a>
+          </figcaption>
+          <span data-accent="color" style="font-size:44px;line-height:1;font-weight:800;color:#4b6bab">“</span>
+          <blockquote style="margin:0;font-size:17px;line-height:1.7;color:#1f2937;text-wrap:pretty">I had the pleasure of working with Oshadi on Nightingale, our ambient in-home safety product for older adults living independently. She established our UX architecture from the ground up — the personas, journey maps and prototypes — and translated genuinely complex behavioural and environmental data into a ‘Pattern of Life’ dashboard and notification experience that is both intuitive and refreshingly senior-friendly. Beyond the quality of her design work, which is consistently on point, Oshadi is a pleasure to collaborate with: friendly, responsive, and remarkably easy to work with. I’d welcome the opportunity to work with her again.</blockquote>
+        </figure>
+        </sc-if>
+        <sc-if value="{{ t2 }}" hint-placeholder-val="{{ false }}">
+        <figure style="order:{{ t2o }};display:flex;flex-direction:column;gap:22px;margin:0;background:#fff;border:1px solid #e5e7eb;border-radius:24px;padding:clamp(28px,3.2vw,48px);box-shadow:0 1px 3px rgba(15,23,42,.03);animation:omFadeIn 420ms ease both">
+          <figcaption style="display:flex;align-items:center;gap:14px;padding-bottom:22px;border-bottom:1px solid #f1f5f9">
             <img src="uploads/IMG_4985.JPG" alt="Nuwan Senaratne" loading="lazy" decoding="async" style="width:48px;height:48px;border-radius:99px;object-fit:cover;object-position:50% 30%;flex:0 0 auto;box-shadow:0 0 0 1px #e5e7eb;filter:grayscale(1) contrast(1.05)">
             <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
               <span style="font-size:15px;font-weight:700;color:#0f172a">Nuwan Senaratne</span>
               <span style="font-size:14px;color:#6b7280">Technical Architect — 99x — Sri Lanka</span>
             </span>
+            <a href="https://www.linkedin.com/in/nuwansenaratne/" target="_blank" rel="noopener noreferrer" aria-label="Nuwan Senaratne on LinkedIn" style="margin-left:auto;display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex:0 0 auto;border-radius:10px;background:#f9fafb;border:1px solid #e5e7eb;color:#0f172a;transition:background 200ms ease,color 200ms ease,transform 200ms ease" style-hover="background:#0a66c2;border-color:#0a66c2;color:#fff;transform:translateY(-2px)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19ZM18.5 18.5V13.2C18.5 12.3354 18.1565 11.5062 17.5452 10.8948C16.9338 10.2835 16.1046 9.94 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17C14.6813 12.17 15.0374 12.3175 15.2999 12.5801C15.5625 12.8426 15.71 13.1987 15.71 13.57V18.5H18.5ZM6.88 8.56C7.32556 8.56 7.75288 8.383 8.06794 8.06794C8.383 7.75288 8.56 7.32556 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19C6.43178 5.19 6.00193 5.36805 5.68499 5.68499C5.36805 6.00193 5.19 6.43178 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56ZM8.27 18.5V10.13H5.5V18.5H8.27Z" fill="currentColor"></path></svg></a>
           </figcaption>
-        </figure>
-        <figure data-reveal="1" data-reveal-delay="160" style="display:flex;flex-direction:column;gap:22px;margin:0;background:#fff;border:1px solid #e5e7eb;border-radius:24px;padding:clamp(28px,2.6vw,38px);box-shadow:0 1px 3px rgba(15,23,42,.03);opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1),box-shadow 320ms ease" style-hover="box-shadow:0 20px 48px rgba(15,23,42,.1)">
+          <span data-accent="color" style="font-size:44px;line-height:1;font-weight:800;color:#4b6bab">“</span>
+          <blockquote style="margin:0;font-size:17px;line-height:1.7;color:#1f2937;text-wrap:pretty">I had the opportunity to work with Oshadi on the BUS project, where she worked as the UI/UX designer. She was very supportive and easy to work with, and was always approachable whenever the development team needed clarification or support. Her strong UI/UX expertise was particularly valuable in helping the developers understand and implement the intended user experience. She also worked directly with customers to understand their requirements and create prototypes, which helped bridge the gap between customer expectations and the development team. I really appreciated her collaborative approach, responsiveness, and willingness to support the team throughout the project.</blockquote>
+          </figure>
+        </sc-if>
+        <sc-if value="{{ t3 }}" hint-placeholder-val="{{ false }}">
+        <figure style="order:{{ t3o }};display:flex;flex-direction:column;gap:22px;margin:0;background:#fff;border:1px solid #e5e7eb;border-radius:24px;padding:clamp(28px,3.2vw,48px);box-shadow:0 1px 3px rgba(15,23,42,.03);animation:omFadeIn 420ms ease both">
+          <figcaption style="display:flex;align-items:center;gap:14px;padding-bottom:22px;border-bottom:1px solid #f1f5f9">
+            <img src="uploads/WhatsApp Image 2026-08-19 at 10.12.40.jpeg" alt="Dr Harindu Korala" loading="lazy" decoding="async" style="width:48px;height:48px;border-radius:99px;object-fit:cover;object-position:50% 22%;flex:0 0 auto;box-shadow:0 0 0 1px #e5e7eb;filter:grayscale(1) contrast(1.05)">
+            <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+              <span style="font-size:15px;font-weight:700;color:#0f172a">Dr Harindu Korala</span>
+              <span style="font-size:14px;color:#6b7280">Co-Founder &amp; Director — Axio Technologies — Australia</span>
+            </span>
+            <a href="https://www.linkedin.com/in/hckorala/" target="_blank" rel="noopener noreferrer" aria-label="Dr Harindu Korala on LinkedIn" style="margin-left:auto;display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex:0 0 auto;border-radius:10px;background:#f9fafb;border:1px solid #e5e7eb;color:#0f172a;transition:background 200ms ease,color 200ms ease,transform 200ms ease" style-hover="background:#0a66c2;border-color:#0a66c2;color:#fff;transform:translateY(-2px)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19ZM18.5 18.5V13.2C18.5 12.3354 18.1565 11.5062 17.5452 10.8948C16.9338 10.2835 16.1046 9.94 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17C14.6813 12.17 15.0374 12.3175 15.2999 12.5801C15.5625 12.8426 15.71 13.1987 15.71 13.57V18.5H18.5ZM6.88 8.56C7.32556 8.56 7.75288 8.383 8.06794 8.06794C8.383 7.75288 8.56 7.32556 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19C6.43178 5.19 6.00193 5.36805 5.68499 5.68499C5.36805 6.00193 5.19 6.43178 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56ZM8.27 18.5V10.13H5.5V18.5H8.27Z" fill="currentColor"></path></svg></a>
+          </figcaption>
           <span data-accent="color" style="font-size:44px;line-height:1;font-weight:800;color:#4b6bab">“</span>
           <blockquote style="display:flex;flex-direction:column;gap:16px;margin:0;font-size:17px;line-height:1.7;color:#1f2937;text-wrap:pretty">
             <span>I’ve had the opportunity to work with Oshi at two different stages of our careers. We first worked together at 99x, where she was a UX designer in my team, and today we work together again at Axio, where she is our Head of UX Design and is helping us shape the company and the products we build.</span>
@@ -602,22 +779,53 @@ p{margin:0}
             </sc-if>
           </blockquote>
           <button type="button" onClick="{{ toggleTestimonial }}" data-accent="color" style="align-self:flex-start;padding:0;background:none;border:none;font-family:inherit;font-size:15px;font-weight:700;color:#4b6bab;cursor:pointer;border-bottom:1px solid rgba(75,107,171,.35);transition:border-color 200ms ease" style-hover="border-bottom-color:#4b6bab">{{ testimonialToggleLabel }}</button>
-          <figcaption style="display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid #f1f5f9">
-            <img src="uploads/WhatsApp Image 2026-08-19 at 10.12.40.jpeg" alt="Dr Harindu Korala" loading="lazy" decoding="async" style="width:48px;height:48px;border-radius:99px;object-fit:cover;object-position:50% 22%;flex:0 0 auto;box-shadow:0 0 0 1px #e5e7eb;filter:grayscale(1) contrast(1.05)">
+          </figure>
+        </sc-if>
+        <sc-if value="{{ t4 }}" hint-placeholder-val="{{ false }}">
+        <figure style="order:{{ t4o }};display:flex;flex-direction:column;gap:22px;margin:0;background:#fff;border:1px solid #e5e7eb;border-radius:24px;padding:clamp(28px,3.2vw,48px);box-shadow:0 1px 3px rgba(15,23,42,.03);animation:omFadeIn 420ms ease both">
+          <figcaption style="display:flex;align-items:center;gap:14px;padding-bottom:22px;border-bottom:1px solid #f1f5f9">
+            <img src="uploads/1562838736826.jpeg" alt="Dilushika Weerawardhana" loading="lazy" decoding="async" style="width:48px;height:48px;border-radius:99px;object-fit:cover;object-position:50% 30%;flex:0 0 auto;box-shadow:0 0 0 1px #e5e7eb;filter:grayscale(1) contrast(1.05)">
             <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
-              <span style="font-size:15px;font-weight:700;color:#0f172a">Dr Harindu Korala</span>
-              <span style="font-size:14px;color:#6b7280">Co-Founder &amp; Director — Axio Technologies — Australia</span>
+              <span style="font-size:15px;font-weight:700;color:#0f172a">Dilushika Weerawardhana</span>
+              <span style="font-size:14px;color:#6b7280">Senior Software Engineer — EdgeTI — WA</span>
             </span>
           </figcaption>
+          <span data-accent="color" style="font-size:44px;line-height:1;font-weight:800;color:#4b6bab">“</span>
+          <blockquote style="display:flex;flex-direction:column;gap:16px;margin:0;font-size:17px;line-height:1.7;color:#1f2937;text-wrap:pretty">
+            <span>I had the pleasure of working with Oshadi as a UX Engineer on TAMA (Technical Activity Modelling &amp; Automation), a platform designed to help users model, manage, and automate technical activities and workflows.</span>
+            <span>Oshadi played a key role in completely revamping TAMA’s user interface and transforming it into a much more modern, clean, intuitive, and user-friendly experience. She has a great eye for design and was always thoughtful about how users would interact with the platform, while also considering business requirements and technical limitations.</span>
+            <span>She is very responsible, dependable, and proactive in her work. Oshadi communicates clearly, responds quickly, takes ownership of her tasks, and is always open to feedback and collaboration. She also worked closely with the development team to turn design ideas into practical and consistent user experiences across the application.</span>
+            <span>Beyond her UX skills, Oshadi is a very friendly and positive person to work with, which made collaboration easy and enjoyable.</span>
+            <span>I really enjoyed working with Oshadi and would highly recommend her to any team looking for a talented, reliable, and collaborative UX professional.</span>
+          </blockquote>
         </figure>
+        </sc-if>
+        </div>
+          <div style="display:flex;flex-direction:column;gap:10px;flex:0 0 auto">
+            <button type="button" onClick="{{ tNext }}" aria-label="Next testimonial" style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:99px;background:#fff;border:1px solid #e5e7eb;color:#0f172a;cursor:pointer;transition:background 200ms ease,border-color 200ms ease,transform 200ms ease" style-hover="background:#0f172a;border-color:#0f172a;color:#fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg></button>
+            <button type="button" onClick="{{ tPrev }}" aria-label="Previous testimonial" style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:99px;background:#fff;border:1px solid #e5e7eb;color:#0f172a;cursor:pointer;transition:background 200ms ease,border-color 200ms ease,transform 200ms ease" style-hover="background:#0f172a;border-color:#0f172a;color:#fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+          <div style="display:flex;align-items:center;gap:16px">
+            <span style="font-size:14px;font-weight:700;color:#0f172a;letter-spacing:.04em;font-variant-numeric:tabular-nums">{{ tLabel }}</span>
+            <div style="display:flex;align-items:center;gap:8px">
+              <sc-for list="{{ tDots }}" as="d" hint-placeholder-count="5">
+                <button type="button" onClick="{{ d.go }}" aria-label="{{ d.label }}" style="width:{{ d.w }};height:8px;padding:0;border:none;border-radius:99px;background:{{ d.bg }};cursor:pointer;transition:width 300ms cubic-bezier(.2,.8,.2,1),background 300ms ease"></button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
 
     </div>
   </section>
 
-  <section id="contact" style="scroll-margin-top:96px;padding:clamp(72px,9vw,120px) 0">
-    <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,7vw,120px)">
-      <div data-reveal="1" style="position:relative;overflow:hidden;background:#0f172a;border-radius:32px;padding:clamp(32px,4.5vw,72px) clamp(24px,4vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(36px,5vw,80px);align-items:center;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
+  <section id="contact" style="position:relative;scroll-margin-top:96px;padding:clamp(72px,9vw,120px) 0;background:#0b0f19">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 20%,transparent 80%);mask-image:radial-gradient(ellipse at 50% 50%,#000 20%,transparent 80%);pointer-events:none;z-index:0"></div>
+    <div style="position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:0 clamp(20px,7vw,120px)">
+      <div data-reveal="1" style="position:relative;overflow:hidden;background:#111827;border:1px solid #1e293b;border-radius:32px;padding:clamp(32px,4.5vw,72px) clamp(24px,4vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(36px,5vw,80px);align-items:center;opacity:0;transform:translateY(24px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)">
         <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 30% 30%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse at 30% 30%,#000 0%,transparent 75%);pointer-events:none;z-index:0"></div>
         <div style="position:absolute;inset:0;overflow:hidden;border-radius:32px;-webkit-mask-image:radial-gradient(ellipse at 30% 30%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse at 30% 30%,#000 0%,transparent 75%);pointer-events:none;z-index:0">
           <span style="position:absolute;width:5px;height:5px;border-radius:99px;background:#e2e8f5;box-shadow:0 0 10px 3px rgba(226,232,245,.5);top:18%;animation:omNodeX 10s linear infinite"></span>
@@ -647,15 +855,15 @@ p{margin:0}
             <span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;color:#94a3b8;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19ZM18.5 18.5V13.2C18.5 12.3354 18.1565 11.5062 17.5452 10.8948C16.9338 10.2835 16.1046 9.94 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17C14.6813 12.17 15.0374 12.3175 15.2999 12.5801C15.5625 12.8426 15.71 13.1987 15.71 13.57V18.5H18.5ZM6.88 8.56C7.32556 8.56 7.75288 8.383 8.06794 8.06794C8.383 7.75288 8.56 7.32556 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19C6.43178 5.19 6.00193 5.36805 5.68499 5.68499C5.36805 6.00193 5.19 6.43178 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56ZM8.27 18.5V10.13H5.5V18.5H8.27Z"></path></svg></span>
             <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
               <span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8">LinkedIn</span>
-              <span style="font-size:clamp(16px,1.5vw,19px);font-weight:600;word-break:break-word">in/oshadiwattuhewa</span>
+              <span style="font-size:clamp(16px,1.5vw,19px);font-weight:600;word-break:break-word">www.linkedin.com/in/oshadiwattuhewa</span>
             </span>
             <span style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;color:#94a3b8;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
           </a>
-          <a href="uploads/OshadiWattuhewa-204d686d.pdf" onClick="{{ downloadCv }}" download="Oshadi Wattuhewa - CV.pdf" style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(14px,2vw,24px);padding:clamp(18px,2.2vw,24px) 0;border-top:1px solid rgba(255,255,255,.14);color:#fff;transition:padding-left 300ms cubic-bezier(.2,.8,.2,1)" style-hover="color:#fff;padding-left:10px">
+          <a href="uploads/OshadiWattuhewa-UX-Designer-b9ab3224.docx" onClick="{{ downloadCv }}" download="Oshadi Wattuhewa - CV.docx" style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(14px,2vw,24px);padding:clamp(18px,2.2vw,24px) 0;border-top:1px solid rgba(255,255,255,.14);color:#fff;transition:padding-left 300ms cubic-bezier(.2,.8,.2,1)" style-hover="color:#fff;padding-left:10px">
             <span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;color:#94a3b8;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3V16M12 16L17 11M12 16L7 11M4 20H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
             <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
               <span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8">Résumé</span>
-              <span style="font-size:clamp(16px,1.5vw,19px);font-weight:600;word-break:break-word">Download CV (PDF)</span>
+              <span style="font-size:clamp(16px,1.5vw,19px);font-weight:600;word-break:break-word">Download CV</span>
             </span>
             <span style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;color:#94a3b8;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
           </a>
@@ -1102,13 +1310,13 @@ p{margin:0}
 
   
 
-  <footer style="padding:36px 0 56px;border-top:1px solid #f1f5f9">
+  <footer style="padding:36px 0 56px;background:#0b0f19;border-top:1px solid #1e293b">
     <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,7vw,120px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
-      <p style="font-size:15px;color:#6b7280">oshadiwattuhewa@gmail.com</p>
+      <p style="font-size:15px;color:#94a3b8">oshadiwattuhewa@gmail.com</p>
       <div style="display:flex;gap:24px">
-        <a href="https://dribbble.com/oshadiwattuhewa" target="_blank" rel="noopener noreferrer" style="font-size:15px;color:#6b7280;transition:color 200ms ease" style-hover="color:#111827">Dribbble</a>
-        <a href="https://www.behance.net/oshadiwatt428f" target="_blank" rel="noopener noreferrer" style="font-size:15px;color:#6b7280;transition:color 200ms ease" style-hover="color:#111827">Behance</a>
-        <a href="https://www.linkedin.com/in/oshadiwattuhewa/" target="_blank" rel="noopener noreferrer" style="font-size:15px;color:#6b7280;transition:color 200ms ease" style-hover="color:#111827">LinkedIn</a>
+        <a href="https://dribbble.com/oshadiwattuhewa" target="_blank" rel="noopener noreferrer" style="font-size:15px;color:#94a3b8;transition:color 200ms ease" style-hover="color:#fff">Dribbble</a>
+        <a href="https://www.behance.net/oshadiwatt428f" target="_blank" rel="noopener noreferrer" style="font-size:15px;color:#94a3b8;transition:color 200ms ease" style-hover="color:#fff">Behance</a>
+        <a href="https://www.linkedin.com/in/oshadiwattuhewa/" target="_blank" rel="noopener noreferrer" style="font-size:15px;color:#94a3b8;transition:color 200ms ease" style-hover="color:#fff">LinkedIn</a>
       </div>
     </div>
   </footer>
@@ -1136,6 +1344,21 @@ class Component extends DCLogic {
   headerRef = React.createRef();
   roleRef = React.createRef();
   marqueeRef = React.createRef();
+
+  tVals() {
+    const n = 5, i = this.state.tIndex || 0;
+    const go = k => this.setState({ tIndex: (k + n) % n, testimonialOpen: false });
+    const show = k => k === i;
+    return {
+      t0: show(0), t1: show(1), t2: show(2), t3: show(3), t4: show(4),
+      t0o: (0 - i + n) % n, t1o: (1 - i + n) % n, t2o: (2 - i + n) % n, t3o: (3 - i + n) % n, t4o: (4 - i + n) % n,
+      tLabel: "0" + (i + 1) + " / 0" + n,
+      tPrev: () => go(i - 1),
+      tNext: () => go(i + 1),
+      tGo0: () => go(0), tGo1: () => go(1), tGo2: () => go(2), tGo3: () => go(3), tGo4: () => go(4),
+      tDots: [0, 1, 2, 3, 4].map(k => ({ go: () => go(k), label: "Show testimonial " + (k + 1), w: k === i ? "28px" : "8px", bg: k === i ? "#0f172a" : "#cbd5e1" }))
+    };
+  }
 
   bindGallery(el) {
     if (!el || this._galleryBound === el) return;
@@ -1167,7 +1390,7 @@ class Component extends DCLogic {
   gallerySrcs() {
     const el = this._galleryBound;
     if (!el) return [];
-    const plain = Array.from(el.querySelectorAll("figure img")).map(i => i.currentSrc || i.src);
+    const plain = Array.from(el.querySelectorAll("figure:not([data-clone]) img")).map(i => i.currentSrc || i.src);
     const slots = Array.from(el.querySelectorAll("image-slot")).map(h => {
       const i = h.shadowRoot && h.shadowRoot.querySelector(".frame img");
       return i && (i.currentSrc || i.src);
@@ -1218,7 +1441,7 @@ class Component extends DCLogic {
 
   async downloadCv(e) {
     if (e) e.preventDefault();
-    const url = "uploads/OshadiWattuhewa-204d686d.pdf";
+    const url = "uploads/OshadiWattuhewa-UX-Designer-b9ab3224.docx";
     try {
       const res = await fetch(url);
       if (!res.ok) throw new Error("fetch failed");
@@ -1226,7 +1449,7 @@ class Component extends DCLogic {
       const href = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = href;
-      a.download = "Oshadi Wattuhewa - CV.pdf";
+      a.download = "Oshadi Wattuhewa - CV.docx";
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -1321,6 +1544,7 @@ class Component extends DCLogic {
       testimonialOpen: !!this.state.testimonialOpen,
       testimonialCollapsed: !this.state.testimonialOpen,
       testimonialToggleLabel: this.state.testimonialOpen ? "Read less" : "Read more →",
+      ...this.tVals(),
       toggleTestimonial: e => { if (e) e.preventDefault(); this.setState(s => ({ testimonialOpen: !s.testimonialOpen })); },
       downloadCv: e => this.downloadCv(e),
       goHome: e => { e.preventDefault(); this.closeDrawer(); },
